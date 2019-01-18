@@ -1,0 +1,42 @@
+{
+  "name": "sendit-react",
+  "version": "1.0.0",
+  "description": "Courier Service App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-dev": "webpack-dev-server --mode development",
+    "start-prod": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/primuse/SendIt-React.git"
+  },
+  "keywords": [
+    "React",
+    "Courier"
+  ],
+  "author": "Tiku Okoye",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/primuse/SendIt-React/issues"
+  },
+  "homepage": "https://github.com/primuse/SendIt-React#readme",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "css-loader": "^2.1.0",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.5.0",
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "dependencies": {
+    "html-loader": "^0.5.5",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  }
+}
