@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { LoginForm, SignupForm } from "../forms/loginForm.jsx";
+import React from "react";
+import { LoginForm, SignupForm, ResetForm } from "../forms/loginForm.jsx";
 import { Link } from "react-router-dom";
 import "../../css/modules.css";
 import "../../css/style.css";
@@ -67,6 +67,38 @@ export const Signup = () => {
           <div class="text-center">
             <SignupForm />
           </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export const Reset = () => {
+  return (
+    <section id="login">
+      <header>
+        <ul>
+          <li id="head-brand">
+            <Link to="/">
+              Send<span class="head-span">IT</span>
+            </Link>
+          </li>
+        </ul>
+        <ul class="ml-auto">
+          <li>
+            <Link to="/signup">Signup</Link>
+          </li>
+        </ul>
+      </header>
+      <div class="banner bg-pd">
+        <div class="sendit-text mb-24">
+          <h5>
+            The <span class="head-span">Courier</span> service app you've been
+            waiting for
+          </h5>
+        </div>
+        <div id="form-box">
+          <ResetForm />
         </div>
       </div>
     </section>
