@@ -111,3 +111,40 @@ export class SignupForm extends Component {
     );
   }
 }
+
+export class ResetForm extends Component {
+  state = {
+    email: ""
+  };
+
+  onChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  render() {
+    const { email } = this.state;
+    return (
+      <form id="resetForm" class="text-center">
+        <div class="mb-14">
+          <input
+            id="email"
+            name="email"
+            value={email}
+            type="email"
+            placeholder="Email"
+            required
+            onChange={this.onChange}
+          />
+        </div>
+        <div class="form-row">
+          <small>A reset link would be sent to you</small>
+        </div>
+        <div>
+          <button id="reset" class="btn sm is-outlined">
+            Reset Password
+          </button>
+        </div>
+      </form>
+    );
+  }
+}
