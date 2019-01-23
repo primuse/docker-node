@@ -13,38 +13,20 @@ export class LoginForm extends Component {
 
   render() {
     const { email, password } = this.state;
-    return (
-      <form id="login-form" className="text-center">
+    return <form id="login-form" className="text-center">
         <div className="form-row">
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={email}
-            placeholder="Email"
-            required
-            onChange={this.onChange}
-          />
+          <input type="email" id="email" name="email" value={email} placeholder="Email" required onChange={this.onChange} />
         </div>
         <div className="form-row">
-          <input
-            type="password"
-            id="pwd"
-            name="password"
-            value={password}
-            placeholder="Password"
-            required
-            onChange={this.onChange}
-          />
+          <input type="password" id="pwd" name="password" value={password} placeholder="Password" required onChange={this.onChange} />
         </div>
-        <button type="submit" className="btn lg is-outlined mb-14">
-          Login
-        </button>
+        <div type="submit" className="btn lg is-outlined mb-14">
+          <Link to="/dashboard">Login</Link>
+        </div>
         <div>
           <Link to="/reset">Forgot Password?</Link>
         </div>
-      </form>
-    );
+      </form>;
   }
 }
 
