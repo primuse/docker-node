@@ -43,28 +43,28 @@ export const Signup = () => {
         <ul>
           <li id="head-brand">
             <Link to="/">
-              Send<span class="head-span">IT</span>
+              Send<span className="head-span">IT</span>
             </Link>
           </li>
         </ul>
-        <ul class="ml-auto mt-25">
+        <ul className="ml-auto mt-25">
           <li>
             <Link to="/">Login</Link>
           </li>
         </ul>
       </header>
-      <div class="banner">
-        <div class="sendit-text">
+      <div className="banner">
+        <div className="sendit-text">
           <h5>
-            The <span class="head-span">Courier</span> service app you've been
+            The <span className="head-span">Courier</span> service app you've been
             waiting for
           </h5>
-          <p class="mb-34">
+          <p className="mb-34">
             Register to experience our world class courier services
           </p>
         </div>
         <div id="form-box">
-          <div class="text-center">
+          <div className="text-center">
             <SignupForm />
           </div>
         </div>
@@ -80,20 +80,20 @@ export const Reset = () => {
         <ul>
           <li id="head-brand">
             <Link to="/">
-              Send<span class="head-span">IT</span>
+              Send<span className="head-span">IT</span>
             </Link>
           </li>
         </ul>
-        <ul class="ml-auto">
+        <ul className="ml-auto">
           <li>
             <Link to="/signup">Signup</Link>
           </li>
         </ul>
       </header>
-      <div class="banner bg-pd">
-        <div class="sendit-text mb-24">
+      <div className="banner bg-pd">
+        <div className="sendit-text mb-24">
           <h5>
-            The <span class="head-span">Courier</span> service app you've been
+            The <span className="head-span">Courier</span> service app you've been
             waiting for
           </h5>
         </div>

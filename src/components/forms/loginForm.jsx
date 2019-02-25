@@ -13,38 +13,18 @@ export class LoginForm extends Component {
 
   render() {
     const { email, password } = this.state;
-    return (
-      <form id="login-form" className="text-center">
+    return <form id="login-form" className="text-center" onSubmit={this.logIn}>
         <div className="form-row">
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={email}
-            placeholder="Email"
-            required
-            onChange={this.onChange}
-          />
+          <input type="email" id="email" name="email" value={email} placeholder="Email" required onChange={this.onChange} />
         </div>
         <div className="form-row">
-          <input
-            type="password"
-            id="pwd"
-            name="password"
-            value={password}
-            placeholder="Password"
-            required
-            onChange={this.onChange}
-          />
+          <input type="password" id="pwd" name="password" value={password} placeholder="Password" required onChange={this.onChange} />
         </div>
-        <button type="submit" className="btn lg is-outlined mb-14">
-          Login
-        </button>
+        <button type="submit" className="btn lg is-outlined mb-14">Login</button>
         <div>
           <Link to="/reset">Forgot Password?</Link>
         </div>
-      </form>
-    );
+      </form>;
   }
 }
 
@@ -59,12 +39,13 @@ export class SignupForm extends Component {
   onChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
-
+  signUp = () => {
+  }
   render() {
     const { firstName, lastName, email, password } = this.state;
     return (
-      <form id="signupForm">
-        <div class="column is-two form-row">
+      <form id="signupForm" onSubmit={this.signUp}>
+        <div className="column is-two form-row">
           <input
             type="text"
             name="firstName"
@@ -84,7 +65,7 @@ export class SignupForm extends Component {
             onChange={this.onChange}
           />
         </div>
-        <div class="column is-two form-row">
+        <div className="column is-two form-row">
           <input
             type="email"
             name="email"
@@ -104,7 +85,7 @@ export class SignupForm extends Component {
             onChange={this.onChange}
           />
         </div>
-        <button id="signup" class="btn lg is-outlined">
+        <button id="signup" className="btn lg is-outlined">
           Signup
         </button>
       </form>
@@ -124,8 +105,8 @@ export class ResetForm extends Component {
   render() {
     const { email } = this.state;
     return (
-      <form id="resetForm" class="text-center">
-        <div class="mb-14">
+      <form id="resetForm" className="text-center">
+        <div className="mb-14">
           <input
             id="email"
             name="email"
@@ -136,11 +117,11 @@ export class ResetForm extends Component {
             onChange={this.onChange}
           />
         </div>
-        <div class="form-row">
+        <div className="form-row">
           <small>A reset link would be sent to you</small>
         </div>
         <div>
-          <button id="reset" class="btn sm is-outlined">
+          <button id="reset" className="btn sm is-outlined">
             Reset Password
           </button>
         </div>
