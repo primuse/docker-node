@@ -170,9 +170,15 @@ tr:nth-child(even) {
   display: flex;
 }
 
-#map {
+/* #map {
   min-width: 300px;
-  height: 535px;
+  height: 535px; 
+}
+  */
+.map {
+  /* width: 50%;
+  height: 50%; */
+  /* top: 127px; */
 }
 
 /*User Profile*/

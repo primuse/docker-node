@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import MapContainer from "../map/googleMap.jsx";
 
 export class ParcelDetails extends Component {
   state = {
@@ -22,7 +23,9 @@ export class ParcelDetails extends Component {
     } = this.state;
     return (
       <div id="parcel" className="dash-cont d-flex mt-40">
-        <div id="map"></div>
+        <div className="map">
+          <MapContainer />
+        </div>
         <div className="parcel-details p-10">
           <h4 id="parcel-Id" className="parcel-title text-center m-0 mb-24">{id}</h4>
           <div id="details" className="pb-10">
