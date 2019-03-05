@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import loginUser from '../../actions/authActions';
 
 class LoginForm extends Component {
@@ -43,4 +44,13 @@ class LoginForm extends Component {
       </form>;
   }
 }
-export default connect(null, { loginUser })(LoginForm);
+
+LoginForm.propTypes = {
+  loginUser: PropTypes.func,
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps, { loginUser })(LoginForm);

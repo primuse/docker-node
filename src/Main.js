@@ -2,19 +2,26 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import {
-  BrowserRouter as Router, Route, Switch
+  Router, Route, Switch
 } from 'react-router-dom';
+import jwtDecode from 'jwt-decode';
+import history from './history';
 import { Login, Reset, Signup } from './components/auth/login.jsx';
-import {
-  Dashboard, Profile, DeliveredParcel, InTransitParcel
-} from './components/dashboard.jsx';
+import Dashboard from './components/dashboard.jsx';
+import DeliveredParcel from './components/deliveredParcel.jsx';
+import InTransitParcel from './components/inTransitParcel.jsx';
+import Profile from './components/profile.jsx';
 import { Details } from './components/details.jsx';
-
 import store from './store';
+
+if (localStorage.token) {
+  const payload = jwtDecode(localStorage.token);
+  store.dispatch({ type: 'LOGIN_USER', payload });
+}
 
 const MainApp = () => (
     <Provider store={store}>
-      <Router>
+      <Router history={history}>
         <Switch>
           <Route exact path='/' component={Login} />
           <Route exact path='/signup' component={Signup} />

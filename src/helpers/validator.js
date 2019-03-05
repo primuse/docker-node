@@ -1,5 +1,5 @@
 const hasToken = (data) => {
-  if (data.token) return true;
+  if (data.id) return true;
   return false;
 };
 

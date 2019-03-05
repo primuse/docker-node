@@ -39,6 +39,12 @@
       "error",
       "single"
     ],
+    "globals": {
+      "localStorage": true,
+      "document": true,
+      "require": true,
+      "window": true
+    },
     "import/no-unresolved": [
       2,
       {

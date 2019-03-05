@@ -1,26 +1,23 @@
 /* eslint-disable no-undef */
 import Swal from 'sweetalert2';
-import history from '../history';
+// import history from '../history';
 import handleErrors from '../helpers/errorHelper';
 
 
-const loginUser = userData => (dispatch) => {
-  const config = {
-    method: 'POST',
+const getUserParcels = (userId, offset = 0) => (dispatch) => {
+  const token = localStorage.getItem('token'), config = {
+    method: 'GET',
     headers: new Headers({
-      'Content-Type': 'application/json'
+      'x-access-token': token
     }),
-    body: JSON.stringify(userData),
   };
-
-  fetch('https://sendit2019.herokuapp.com/api/v1/auth/login', config)
+  fetch(
+    `https://sendit2019.herokuapp.com/api/v1/users/${userId}/parcels?offset=${offset}`,
+    config
+  )
     .then(handleErrors)
     .then((res) => {
-      localStorage.setItem('token', res.data[0].token);
-      const { user } = res.data[0];
-      user.token = res.data[0].token;
-      dispatch({ type: 'LOGIN_USER', payload: user });
-      history.push('/dashboard');
+      dispatch({ type: 'GET_USER_ORDERS', payload: res.data });
     })
     .catch((err) => {
       if (err.json) {
@@ -44,4 +41,5 @@ const loginUser = userData => (dispatch) => {
     });
 };
 
-export default loginUser;
+
+export default getUserParcels;

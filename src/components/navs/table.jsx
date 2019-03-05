@@ -1,428 +1,124 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-export class ParcelTable extends Component {
-  state = {
-    name: "Tiku Okoye",
-    id: "P01",
-    price: "1,000",
-    destination: "No 14 Asobruewu street",
-    receiver: "Marcus Wane",
-    weight: "30kg",
-    sentOn: "21/01/2019",
-    status: "Created",
-    tableType: "All"
-  };
+const tableHeading = (<tr id='table-head'>
+  <th>ID</th>
+  <th>Name</th>
+  <th>Weight</th>
+  <th>Price</th>
+  <th>Destination</th>
+  <th>Receiver</th>
+  <th>Sent On</th>
+  <th>Status</th>
+</tr>);
 
-  render() {
-    const { name, id, price, destination, receiver, weight, sentOn, status, tableType } = this.state;
-    return <div className="dash-cont">
-        <div id="table-info">
-          <a href="#">{tableType}</a>
-        </div>
-        <div id="table-cont">
-          <table>
-            <tbody>
-              <tr id="table-head">
-                <th>ID</th>
-                <th>Name</th>
-                <th>Weight</th>
-                <th>Price</th>
-                <th>Destination</th>
-                <th>Receiver</th>
-                <th>Sent On</th>
-                <th>Status</th>
-              </tr>
-              <tr>
-                <td>{id}</td>
-                <td>{name}</td>
-                <td>{weight}</td>
-                <td>{price}</td>
-                <td>{destination}</td>
-                <td>{receiver}</td>
-                <td>{sentOn}</td>
-                <td>Delivered</td>
-                <td>
-                <Link to="/details">
-                  <a className="btn xsm bg-bright-blue white">
-                    View
-                  </a>
-                </Link>
-                </td>
-              </tr>
-              <tr>
-                <td>{id}</td>
-                <td>{name}</td>
-                <td>{weight}</td>
-                <td>{price}</td>
-                <td>{destination}</td>
-                <td>{receiver}</td>
-                <td>{sentOn}</td>
-                <td>In-transit</td>
-                <td>
-                <Link to="/details">
-                  <a className="btn xsm bg-bright-blue white">
-                    View
-                  </a>
-                </Link>
-                </td>
-              </tr>
-              <tr>
-                <td>{id}</td>
-                <td>{name}</td>
-                <td>{weight}</td>
-                <td>{price}</td>
-                <td>{destination}</td>
-                <td>{receiver}</td>
-                <td>{sentOn}</td>
-                <td>Delivered</td>
-                <td>
-                <Link to="/details">
-                  <a className="btn xsm bg-bright-blue white">
-                    View
-                  </a>
-                </Link>
-                </td>
-              </tr>
-              <tr>
-                <td>{id}</td>
-                <td>{name}</td>
-                <td>{weight}</td>
-                <td>{price}</td>
-                <td>{destination}</td>
-                <td>{receiver}</td>
-                <td>{sentOn}</td>
-                <td>Delivered</td>
-                <td>
-                <Link to="/details">
-                  <a className="btn xsm bg-bright-blue white">
-                    View
-                  </a>
-                </Link>
-                </td>
-              </tr>
-              <tr>
-                <td>{id}</td>
-                <td>{name}</td>
-                <td>{weight}</td>
-                <td>{price}</td>
-                <td>{destination}</td>
-                <td>{receiver}</td>
-                <td>{sentOn}</td>
-                <td>Delivered</td>
-                <td>
-                <Link to="/details">
-                  <a className="btn xsm bg-bright-blue white">
-                    View
-                  </a>
-                </Link>
-                </td>
-              </tr>
-              <tr>
-                <td>{id}</td>
-                <td>{name}</td>
-                <td>{weight}</td>
-                <td>{price}</td>
-                <td>{destination}</td>
-                <td>{receiver}</td>
-                <td>{sentOn}</td>
-                <td>Canceled</td>
-                <td>
-                <Link to="/details">
-                  <a className="btn xsm bg-bright-blue white">
-                    View
-                  </a>
-                </Link>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>;
-  }
+const mapParcels = (parcels) => {
+  const parcelItems = parcels.map((parcel, index) => (
+    <tr key={index}>
+      <td>{parcel.id}</td>
+      <td>{parcel.parcelname}</td>
+      <td>{parcel.weight}</td>
+      <td>{parcel.price}</td>
+      <td>{parcel.destination}</td>
+      <td>{parcel.receiver}</td>
+      <td>{parcel.senton}</td>
+      <td>{parcel.status}</td>
+      <td>
+        <Link to='/details' className='btn xsm bg-bright-blue white'>
+          View
+          </Link>
+      </td>
+    </tr>
+  ));
+  return parcelItems;
 }
 
-export class DeliveredParcelTable extends Component {
-  state = {
-    name: "Tiku Okoye",
-    id: "P01",
-    price: "1,000",
-    destination: "No 14 Asobruewu street",
-    receiver: "Marcus Wane",
-    weight: "30kg",
-    sentOn: "21/01/2019",
-    status: "Delivered",
-    tableType: "Delivered"
+export const ParcelTable = ({ parcels }) => {
+  if (parcels.length === 0) {
+    return <h1>empty</h1>;
   };
 
-  render() {
-    const { name, id, price, destination, receiver, weight, sentOn, status, tableType } = this.state;
-    return <div className="dash-cont">
-      <div id="table-info">
-        <a href="#">{tableType}</a>
-      </div>
-      <div id="table-cont">
-        <table>
-          <tbody>
-            <tr id="table-head">
-              <th>ID</th>
-              <th>Name</th>
-              <th>Weight</th>
-              <th>Price</th>
-              <th>Destination</th>
-              <th>Receiver</th>
-              <th>Sent On</th>
-              <th>Status</th>
-            </tr>
-            <tr>
-              <td>{id}</td>
-              <td>{name}</td>
-              <td>{weight}</td>
-              <td>{price}</td>
-              <td>{destination}</td>
-              <td>{receiver}</td>
-              <td>{sentOn}</td>
-              <td>{status}</td>
-              <td>
-                <Link to="/details">
-                  <a className="btn xsm bg-bright-blue white">
-                    View
-                  </a>
-                </Link>
-              </td>
-            </tr>
-            <tr>
-              <td>{id}</td>
-              <td>{name}</td>
-              <td>{weight}</td>
-              <td>{price}</td>
-              <td>{destination}</td>
-              <td>{receiver}</td>
-              <td>{sentOn}</td>
-              <td>{status}</td>
-              <td>
-                <Link to="/details">
-                  <a className="btn xsm bg-bright-blue white">
-                    View
-                  </a>
-                </Link>
-              </td>
-            </tr>
-            <tr>
-              <td>{id}</td>
-              <td>{name}</td>
-              <td>{weight}</td>
-              <td>{price}</td>
-              <td>{destination}</td>
-              <td>{receiver}</td>
-              <td>{sentOn}</td>
-              <td>{status}</td>
-              <td>
-                <Link to="/details">
-                  <a className="btn xsm bg-bright-blue white">
-                    View
-                  </a>
-                </Link>
-              </td>
-            </tr>
-            <tr>
-              <td>{id}</td>
-              <td>{name}</td>
-              <td>{weight}</td>
-              <td>{price}</td>
-              <td>{destination}</td>
-              <td>{receiver}</td>
-              <td>{sentOn}</td>
-              <td>{status}</td>
-              <td>
-                <Link to="/details">
-                  <a className="btn xsm bg-bright-blue white">
-                    View
-                  </a>
-                </Link>
-              </td>
-            </tr>
-            <tr>
-              <td>{id}</td>
-              <td>{name}</td>
-              <td>{weight}</td>
-              <td>{price}</td>
-              <td>{destination}</td>
-              <td>{receiver}</td>
-              <td>{sentOn}</td>
-              <td>{status}</td>
-              <td>
-                <Link to="/details">
-                  <a className="btn xsm bg-bright-blue white">
-                    View
-                  </a>
-                </Link>
-              </td>
-            </tr>
-            <tr>
-              <td>{id}</td>
-              <td>{name}</td>
-              <td>{weight}</td>
-              <td>{price}</td>
-              <td>{destination}</td>
-              <td>{receiver}</td>
-              <td>{sentOn}</td>
-              <td>{status}</td>
-              <td>
-                <Link to="/details">
-                  <a className="btn xsm bg-bright-blue white">
-                    View
-                  </a>
-                </Link>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>;
-  }
-}
+  // const parcelItems = parcels.map((parcel, index) => (
+  //   <tr key={index}>
+  //     <td>{parcel.id}</td>
+  //     <td>{parcel.parcelname}</td>
+  //     <td>{parcel.weight}</td>
+  //     <td>{parcel.price}</td>
+  //     <td>{parcel.destination}</td>
+  //     <td>{parcel.receiver}</td>
+  //     <td>{parcel.senton}</td>
+  //     <td>{parcel.status}</td>
+  //     <td>
+  //       <Link to='/details' className='btn xsm bg-bright-blue white'>
+  //         View
+  //         </Link>
+  //     </td>
+  //   </tr>
+  // ));
 
-export class InTransitParcelTable extends Component {
-  state = {
-    name: "Tiku Okoye",
-    id: "P01",
-    price: "1,000",
-    destination: "No 14 Asobruewu street",
-    receiver: "Marcus Wane",
-    weight: "30kg",
-    sentOn: "21/01/2019",
-    status: "In-Transit",
-    tableType: "In-Transit"
-  };
+  return <div className='dash-cont'>
+    <div id='table-info'>
+     <a href='#'>All</a>
+    </div>
+    <div id='table-cont'>
+      <table>
+        <tbody>
+        {tableHeading}
+        {mapParcels(parcels)}
+        </tbody>
+      </table>
+    </div>
+  </div>;
+};
 
-  render() {
-    const { name, id, price, destination, receiver, weight, sentOn, status, tableType } = this.state;
-    return <div className="dash-cont">
-      <div id="table-info">
-        <a href="#">{tableType}</a>
-      </div>
-      <div id="table-cont">
-        <table>
-          <tbody>
-            <tr id="table-head">
-              <th>ID</th>
-              <th>Name</th>
-              <th>Weight</th>
-              <th>Price</th>
-              <th>Destination</th>
-              <th>Receiver</th>
-              <th>Sent On</th>
-              <th>Status</th>
-            </tr>
-            <tr>
-              <td>{id}</td>
-              <td>{name}</td>
-              <td>{weight}</td>
-              <td>{price}</td>
-              <td>{destination}</td>
-              <td>{receiver}</td>
-              <td>{sentOn}</td>
-              <td>{status}</td>
-              <td>
-                <Link to="/details">
-                  <a className="btn xsm bg-bright-blue white">
-                    View
-                  </a>
-                </Link>
-              </td>
-            </tr>
-            <tr>
-              <td>{id}</td>
-              <td>{name}</td>
-              <td>{weight}</td>
-              <td>{price}</td>
-              <td>{destination}</td>
-              <td>{receiver}</td>
-              <td>{sentOn}</td>
-              <td>{status}</td>
-              <td>
-                <Link to="/details">
-                  <a className="btn xsm bg-bright-blue white">
-                    View
-                  </a>
-                </Link>
-              </td>
-            </tr>
-            <tr>
-              <td>{id}</td>
-              <td>{name}</td>
-              <td>{weight}</td>
-              <td>{price}</td>
-              <td>{destination}</td>
-              <td>{receiver}</td>
-              <td>{sentOn}</td>
-              <td>{status}</td>
-              <td>
-                <Link to="/details">
-                  <a className="btn xsm bg-bright-blue white">
-                    View
-                  </a>
-                </Link>
-              </td>
-            </tr>
-            <tr>
-              <td>{id}</td>
-              <td>{name}</td>
-              <td>{weight}</td>
-              <td>{price}</td>
-              <td>{destination}</td>
-              <td>{receiver}</td>
-              <td>{sentOn}</td>
-              <td>{status}</td>
-              <td>
-                <Link to="/details">
-                  <a className="btn xsm bg-bright-blue white">
-                    View
-                  </a>
-                </Link>
-              </td>
-            </tr>
-            <tr>
-              <td>{id}</td>
-              <td>{name}</td>
-              <td>{weight}</td>
-              <td>{price}</td>
-              <td>{destination}</td>
-              <td>{receiver}</td>
-              <td>{sentOn}</td>
-              <td>{status}</td>
-              <td>
-                <Link to="/details">
-                  <a className="btn xsm bg-bright-blue white">
-                    View
-                  </a>
-                </Link>
-              </td>
-            </tr>
-            <tr>
-              <td>{id}</td>
-              <td>{name}</td>
-              <td>{weight}</td>
-              <td>{price}</td>
-              <td>{destination}</td>
-              <td>{receiver}</td>
-              <td>{sentOn}</td>
-              <td>{status}</td>
-              <td>
-                <Link to="/details">
-                  <a className="btn xsm bg-bright-blue white">
-                    View
-                  </a>
-                </Link>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>;
+ParcelTable.propTypes = {
+  parcels: PropTypes.array,
+};
+
+export const DeliveredParcelTable = ({ parcels }) => {
+  if (parcels.length === 0) {
+    return <h1>empty</h1>;
   }
-}
+
+  return <div className='dash-cont'>
+    <div id='table-info'>
+      <a href='#'>Delivered</a>
+    </div>
+    <div id='table-cont'>
+      <table>
+        <tbody>
+          {tableHeading}
+          {mapParcels(parcels)}
+        </tbody>
+      </table>
+    </div>
+  </div>;
+};
+
+DeliveredParcelTable.propTypes = {
+  parcels: PropTypes.array,
+};
+
+export const InTransitParcelTable = ({ parcels }) => {
+  if (parcels.length === 0) {
+    return <h1>empty</h1>;
+  }
+
+  return <div className='dash-cont'>
+    <div id='table-info'>
+      <a href='#'>In-Transit</a>
+    </div>
+    <div id='table-cont'>
+      <table>
+        <tbody>
+          {tableHeading}
+          {mapParcels(parcels)}
+        </tbody>
+      </table>
+    </div>
+  </div>;
+};
 
 export class InfoBox extends Component {
   state = {
@@ -434,21 +130,20 @@ export class InfoBox extends Component {
   render() {
     const { created, inTransit, delivered } = this.state;
     return (
-      <div id="info-cont" className="mb-34">
-        <div className="info-box">
+      <div id='info-cont' className='mb-34'>
+        <div className='info-box'>
           <small>Created</small>
-          <h4 id="created" className="m-0">{created}</h4>
+          <h4 id='created' className='m-0'>{created}</h4>
         </div>
-        <div className="info-box">
+        <div className='info-box'>
           <small>In Transit</small>
-          <h4 id="in-transit" className="m-0 blue">{inTransit}</h4>
+          <h4 id='in-transit' className='m-0 blue'>{inTransit}</h4>
         </div>
-        <div className="info-box">
+        <div className='info-box'>
           <small>Delivered</small>
-          <h4 id="delivered" className="m-0 green">{delivered}</h4>
+          <h4 id='delivered' className='m-0 green'>{delivered}</h4>
         </div>
       </div>
     );
   }
 }
-

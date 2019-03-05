@@ -2,12 +2,12 @@ import hasToken from '../helpers/validator';
 
 const initialState = {
   isAuthenticated: false,
-  user: {},
+  userID: null,
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case 'SET_CURRENT_USER':
+    case 'LOGIN_USER':
       return {
         ...state,
         isAuthenticated: hasToken(action.payload),
