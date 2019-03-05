@@ -13,17 +13,6 @@ import '../css/style.css';
 import '../css/dashboard.css';
 
 class Dashboard extends Component {
-  // state = {
-  //   name: 'Tiku Okoye',
-  //   id: 'P01',
-  //   price: '1,000',
-  //   destination: 'No 14 Asobruewu street',
-  //   receiver: 'Marcus Wane',
-  //   weight: '30kg',
-  //   sentOn: '21/01/2019',
-  //   status: 'Created',
-  //   tableType: 'All'
-  // };
   componentDidMount() {
     if (!localStorage.token) {
       localStorage.clear();
@@ -56,7 +45,7 @@ Dashboard.propTypes = {
   parcel: PropTypes.object,
 };
 
-// eslint-disable-next-line no-sequences
+
 const mapStateToProps = state => ({
   auth: state.auth,
   parcel: state.parcel,
