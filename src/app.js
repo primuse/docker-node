@@ -1,2 +1,3 @@
-import MainApp from "./Main.jsx";
-import "./style.css"
+// eslint-disable-next-line no-unused-vars
+import MainApp from './Main';
+import './style.css';

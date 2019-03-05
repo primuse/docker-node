@@ -3,11 +3,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    main: path.join(__dirname, "src", "app.js")
+    main: path.join(__dirname, 'src', 'app.js'),
   },
   output: {
-    path: path.join(__dirname, "public", "dist"),
-    filename: "bundle.js",
+    path: path.join(__dirname, 'public', 'dist'),
+    filename: 'bundle.js',
     publicPath: '/',
   },
   module: {
@@ -16,36 +16,41 @@ module.exports = {
         test: /\.(jsx|js)$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
-        }
+          loader: 'babel-loader',
+        },
       },
       {
         test: /\.html$/,
         use: {
-          loader: "html-loader"
-        }
+          loader: 'html-loader',
+        },
       },
       {
         test: /\.(png|jpg|gif)$/,
-        loader: ["file-loader"]
+        loader: ['file-loader'],
       },
       {
         test: /\.(woff|woff2|eot|ttf|svg)$/,
-        loader: "url-loader?limit=100000"
+        loader: 'url-loader?limit=100000',
       },
-      { 
-        test: /\.css$/, 
-        use: ["style-loader", "css-loader"], 
-      }
-    ]
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: ['eslint-loader'],
+      },
+    ],
   },
   devServer: {
     historyApiFallback: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
-      filename: "./index.html"
+      template: './src/index.html',
+      filename: './index.html',
     }),
-  ]
+  ],
 };
