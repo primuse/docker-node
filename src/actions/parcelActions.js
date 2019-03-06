@@ -19,11 +19,13 @@ const getUserParcels = (userId, offset = 0) => (dispatch) => {
       const parcels = Object.values(res.data),
         deliveredParcels = parcels.filter(parcel => parcel.status === 'Delivered'),
         inTransitParcels = parcels.filter(parcel => parcel.status === 'In-transit'),
-        createdParcels = parcels.filter(parcel => parcel.status === 'Created');
+        createdParcels = parcels.filter(parcel => parcel.status === 'Created'),
+        canceledParcels = parcels.filter(parcel => parcel.status === 'Canceled');
 
       dispatch({ type: 'GET_DELIVERED_USER_ORDERS', payload: deliveredParcels });
       dispatch({ type: 'GET_INTRANSIT_USER_ORDERS', payload: inTransitParcels });
       dispatch({ type: 'GET_CREATED_USER_ORDERS', payload: createdParcels });
+      dispatch({ type: 'GET_CANCELED_USER_ORDERS', payload: canceledParcels });
       dispatch({ type: 'GET_All_USER_ORDERS', payload: parcels });
     })
     .catch((err) => {

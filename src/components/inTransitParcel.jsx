@@ -5,7 +5,8 @@ import history from '../history';
 import { InTransitParcelTable } from './navs/table.jsx';
 import InfoBox from './infoBox.jsx';
 import getUserParcels from '../actions/parcelActions';
-import { TopNav, Aside } from './navs/navs.jsx';
+import { TopNav, } from './navs/topNav.jsx';
+import { Aside } from './navs/aside.jsx';
 import '../css/modules.css';
 import '../css/style.css';
 import '../css/dashboard.css';
@@ -24,8 +25,9 @@ class InTransitParcel extends Component {
 
   render() {
     const { inTransitParcels } = this.props.parcel;
+    const { user } = this.props.auth;
     return <main>
-      <Aside />
+      <Aside user={user} />
       <section className='grey' id='dash'>
         <TopNav />
         <div id='main-content-page'>

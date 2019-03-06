@@ -4,7 +4,6 @@ import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProductio
 import rootReducer from './reducers/index';
 import { loadState, saveState } from './localStorage';
 
-// const initialState = {},
 const middleware = [thunk];
 const persistedState = loadState();
 

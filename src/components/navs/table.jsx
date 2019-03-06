@@ -16,7 +16,7 @@ const tableHeading = (<tr id='table-head'>
 const mapParcels = (parcels) => {
   const parcelItems = parcels.map((parcel, index) => (
     <tr key={index}>
-      <td>{parcel.id}</td>
+      <td>PO{parcel.id}</td>
       <td>{parcel.parcelname}</td>
       <td>{parcel.weight}</td>
       <td>{parcel.price}</td>

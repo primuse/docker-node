@@ -1,5 +1,6 @@
 import React from 'react';
-import { TopNav, Aside } from './navs/navs.jsx';
+import { TopNav, } from './navs/topNav.jsx';
+import { Aside } from './navs/aside.jsx';
 import { ParcelDetails } from './navs/parcelDetails.jsx';
 import '../css/modules.css';
 import '../css/style.css';

@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import {
   Router, Route, Switch
 } from 'react-router-dom';
-import jwtDecode from 'jwt-decode';
 import history from './history';
 import { Login, Reset, Signup } from './components/auth/login.jsx';
 import Dashboard from './components/dashboard.jsx';
@@ -14,10 +13,6 @@ import Profile from './components/profile.jsx';
 import { Details } from './components/details.jsx';
 import store from './store';
 
-if (localStorage.token) {
-  const payload = jwtDecode(localStorage.token);
-  store.dispatch({ type: 'LOGIN_USER', payload });
-}
 
 const MainApp = () => (
   <Provider store={store}>

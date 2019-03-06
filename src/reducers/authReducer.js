@@ -2,7 +2,7 @@ import hasToken from '../helpers/validator';
 
 const initialState = {
   isAuthenticated: false,
-  userID: null,
+  user: {}
 };
 
 export default (state = initialState, action) => {
