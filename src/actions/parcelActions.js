@@ -1,6 +1,5 @@
 /* eslint-disable no-undef */
 import Swal from 'sweetalert2';
-// import history from '../history';
 import handleErrors from '../helpers/errorHelper';
 
 
@@ -17,7 +16,15 @@ const getUserParcels = (userId, offset = 0) => (dispatch) => {
   )
     .then(handleErrors)
     .then((res) => {
-      dispatch({ type: 'GET_USER_ORDERS', payload: res.data });
+      const parcels = Object.values(res.data),
+        deliveredParcels = parcels.filter(parcel => parcel.status === 'Delivered'),
+        inTransitParcels = parcels.filter(parcel => parcel.status === 'In-transit'),
+        createdParcels = parcels.filter(parcel => parcel.status === 'Created');
+
+      dispatch({ type: 'GET_DELIVERED_USER_ORDERS', payload: deliveredParcels });
+      dispatch({ type: 'GET_INTRANSIT_USER_ORDERS', payload: inTransitParcels });
+      dispatch({ type: 'GET_CREATED_USER_ORDERS', payload: createdParcels });
+      dispatch({ type: 'GET_All_USER_ORDERS', payload: parcels });
     })
     .catch((err) => {
       if (err.json) {

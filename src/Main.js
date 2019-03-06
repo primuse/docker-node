@@ -36,7 +36,6 @@ const MainApp = () => (
     </Provider>
 );
 
-// eslint-disable-next-line no-undef
 ReactDOM.render(<MainApp />, document.getElementById('app'));
 
 export default MainApp;
