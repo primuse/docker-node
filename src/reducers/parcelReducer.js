@@ -2,7 +2,8 @@ const initialState = {
   parcels: [],
   deliveredParcels: [],
   inTransitParcels: [],
-  createdParcels: []
+  createdParcels: [],
+  canceledParcels: []
 };
 
 export default (state = initialState, action) => {
@@ -26,6 +27,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         createdParcels: action.payload,
+      };
+    case 'GET_CANCELED_USER_ORDERS':
+      return {
+        ...state,
+        canceledParcels: action.payload,
       };
     default:
       return state;
