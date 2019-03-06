@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -9,7 +8,7 @@ import {
   ParcelTable
 } from './navs/table.jsx';
 import InfoBox from './infoBox.jsx';
-import getUserParcels from '../actions/parcelActions';
+import { getAllParcels, getUserParcels } from '../actions/parcelActions';
 import '../css/modules.css';
 import '../css/style.css';
 import '../css/dashboard.css';
@@ -22,6 +21,11 @@ class Dashboard extends Component {
       return;
     }
     const userId = this.props.auth.user.id;
+
+    if (this.props.auth.user.isadmin) {
+      this.props.getAllParcels();
+      return;
+    }
     this.props.getUserParcels(userId);
   }
 
@@ -42,8 +46,8 @@ class Dashboard extends Component {
 }
 
 Dashboard.propTypes = {
+  getAllParcels: PropTypes.func,
   getUserParcels: PropTypes.func,
-  parcels: PropTypes.array,
   auth: PropTypes.object,
   parcel: PropTypes.object,
 };
@@ -54,4 +58,4 @@ const mapStateToProps = state => ({
   parcel: state.parcel,
 });
 
-export default connect(mapStateToProps, { getUserParcels })(Dashboard);
+export default connect(mapStateToProps, { getAllParcels, getUserParcels })(Dashboard);

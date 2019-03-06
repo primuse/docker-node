@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import history from '../history';
 import { InTransitParcelTable } from './navs/table.jsx';
 import InfoBox from './infoBox.jsx';
-import getUserParcels from '../actions/parcelActions';
 import { TopNav, } from './navs/topNav.jsx';
 import { Aside } from './navs/aside.jsx';
 import '../css/modules.css';
@@ -12,15 +11,12 @@ import '../css/style.css';
 import '../css/dashboard.css';
 
 class InTransitParcel extends Component {
+  // eslint-disable-next-line class-methods-use-this
   componentDidMount() {
     if (!localStorage.token) {
       localStorage.clear();
       history.push('/');
-      return;
     }
-
-    const userId = this.props.auth.user.id;
-    this.props.getUserParcels(userId);
   }
 
   render() {
@@ -51,4 +47,4 @@ const mapStateToProps = state => ({
   parcel: state.parcel,
 });
 
-export default connect(mapStateToProps, { getUserParcels })(InTransitParcel);
+export default connect(mapStateToProps)(InTransitParcel);

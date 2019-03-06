@@ -35,23 +35,23 @@ export const Aside = ({ user }) => <aside>
         <li>
           <img src={require('../../asset/imgs/ico/archive.svg')}
             className='menu-ico' />
-          <Link to='/delivered-parcels'>
+          <Link to='/delivered_parcels'>
             <span>Delivered Parcels</span>
           </Link>
         </li>
         <li>
           <img src={require('../../asset/imgs/ico/box.svg')}
             className='menu-ico' />
-          <Link to='/inTransit-parcels'>
+          <Link to='/inTransit_parcels'>
             <span>In-transit Parcels</span>
           </Link>
         </li>
         {user.isadmin && <li>
           <img src={require('../../asset/imgs/ico/user.svg')}
             className='menu-ico' />
-          <a href='admin_all_users.html'>
+          <Link to='/all_users'>
             <span>All Users</span>
-          </a>
+          </Link>
         </li>}
       </ul>
     </div>
