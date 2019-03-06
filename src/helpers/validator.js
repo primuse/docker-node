@@ -1,6 +1,6 @@
-const hasToken = (data) => {
+const hasID = (data) => {
   if (data.id) return true;
   return false;
 };
 
-export default hasToken;
+export default hasID;

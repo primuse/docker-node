@@ -1,17 +1,13 @@
-import hasID from '../helpers/validator';
-
 const initialState = {
-  isAuthenticated: false,
-  user: {}
+  allUsers: [],
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case 'LOGIN_USER':
+    case 'GET_All_USERS':
       return {
         ...state,
-        isAuthenticated: hasID(action.payload),
-        user: action.payload,
+        allUsers: action.payload,
       };
     default:
       return state;
