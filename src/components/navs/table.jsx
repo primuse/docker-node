@@ -25,7 +25,7 @@ const mapParcels = (parcels) => {
       <td>{parcel.senton}</td>
       <td>{parcel.status}</td>
       <td>
-        <Link to='/details' className='btn xsm bg-bright-blue white'>
+        <Link to={`/details/${parcel.id}`} className='btn xsm bg-bright-blue white'>
           View
           </Link>
       </td>
