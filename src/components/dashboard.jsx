@@ -5,8 +5,9 @@ import { connect } from 'react-redux';
 import history from '../history';
 import { TopNav, Aside } from './navs/navs.jsx';
 import {
-  ParcelTable, InfoBox
+  ParcelTable
 } from './navs/table.jsx';
+import InfoBox from './infoBox.jsx';
 import getUserParcels from '../actions/parcelActions';
 import '../css/modules.css';
 import '../css/style.css';
