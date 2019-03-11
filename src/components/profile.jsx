@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ProfileInfo from './navs/profile.jsx';
 import { TopNav, } from './navs/topNav.jsx';
-import { Aside } from './navs/aside.jsx';
+import Aside from './navs/aside.jsx';
 import '../css/modules.css';
 import '../css/style.css';
 import '../css/dashboard.css';
