@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import history from '../history';
 import { TopNav, } from './navs/topNav.jsx';
 import { Aside } from './navs/aside.jsx';
 import {
@@ -15,11 +14,6 @@ import '../css/dashboard.css';
 
 class Dashboard extends Component {
   componentDidMount() {
-    if (!localStorage.token) {
-      localStorage.clear();
-      history.push('/');
-      return;
-    }
     const userId = this.props.auth.user.id;
 
     if (this.props.auth.user.isadmin) {

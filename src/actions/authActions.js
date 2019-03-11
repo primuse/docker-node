@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import Swal from 'sweetalert2';
 import history from '../history';
 import handleErrors from '../helpers/errorHelper';
