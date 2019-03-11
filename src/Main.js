@@ -5,6 +5,7 @@ import {
   Router, Route, Switch
 } from 'react-router-dom';
 import history from './history';
+import PrivateRoute from './helpers/privateRoute';
 import { Login, Reset, Signup } from './components/auth/login.jsx';
 import Dashboard from './components/dashboard.jsx';
 import DeliveredParcel from './components/deliveredParcel.jsx';
@@ -22,12 +23,12 @@ const MainApp = () => (
         <Route exact path='/' component={Login} />
         <Route exact path='/signup' component={Signup} />
         <Route exact path='/reset' component={Reset} />
-        <Route exact path='/dashboard' component={Dashboard} />
-        <Route exact path='/delivered_parcels' component={DeliveredParcel} />
-        <Route exact path='/inTransit_parcels' component={InTransitParcel} />
-        <Route exact path='/profile' component={Profile} />
-        <Route exact path='/details/:parcelId' component={Details} />
-        <Route exact path='/all_users' component={AllUsers} />
+        <PrivateRoute exact path='/dashboard' component={Dashboard} />
+        <PrivateRoute exact path='/delivered_parcels' component={DeliveredParcel} />
+        <PrivateRoute exact path='/inTransit_parcels' component={InTransitParcel} />
+        <PrivateRoute exact path='/profile' component={Profile} />
+        <PrivateRoute exact path='/details/:parcelId' component={Details} />
+        <PrivateRoute exact path='/all_users' component={AllUsers} />
       </Switch>
     </Router>
   </Provider>
