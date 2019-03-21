@@ -24,9 +24,9 @@ class LoginForm extends Component {
 
   login = (event) => {
     event.preventDefault();
-    const Data = this.state;
+    const data = this.state;
 
-    this.props.loginUser(Data);
+    this.props.loginUser(data);
   }
 
   render() {

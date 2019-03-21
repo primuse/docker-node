@@ -3,50 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Modal from '../modal.jsx';
-
-const NewParcelModalForm = () => <form id='createParcel' className='text-right'>
-  <div className='column is-two htmlForm-row text-left'>
-    <div>
-      <label htmlFor='parcelType'>Parcel Name</label>
-      <input type='text' id='parcelName' required />
-    </div>
-    <div>
-      <label htmlFor='weight'>Weight</label>
-      <input type='number' id='weight' required />
-    </div>
-  </div>
-  <div className='htmlForm-row text-left'>
-    <div>
-      <label htmlFor='destination'>Destination</label>
-      <textarea id='destination' required></textarea>
-    </div>
-  </div>
-  <h5 className='text-center'>Addressed To</h5>
-  <div className='column is-two htmlForm-row text-left'>
-    <div>
-      <label htmlFor='name'>Receiver</label>
-      <input type='text' id='receiver' required />
-    </div>
-    <div>
-      <label htmlFor='email'>Email</label>
-      <input type='text' id='email' required />
-    </div>
-  </div>
-  <div className='column is-two htmlForm-row text-left'>
-    <div>
-      <label htmlFor='phoneNumber'>PhoneNumber</label>
-      <input type='text' id='phoneNumber' required />
-    </div>
-    <div>
-      <label htmlFor='PickupLocation'>Pickup Location</label>
-      <input type='text' id='PickupLocation' required />
-    </div>
-  </div>
-  <button type='submit' className='btn sm bg-bright-blue text-right white'>
-    Create
-      </button>
-</form>;
-
+import NewParcelModalForm from '../forms/newParcelForm.jsx';
 
 class Aside extends Component {
   state = {
@@ -57,8 +14,13 @@ class Aside extends Component {
     this.setState({ modalDisplay: true });
   }
 
+  closeModal = () => {
+    this.setState({ modalDisplay: false });
+  }
+
   render() {
     const { user } = this.props.auth;
+    const { modalDisplay } = this.state;
     return <aside>
       <div className='bg-blue' id='menu'>
         <div id='aside-profile'>
@@ -112,16 +74,17 @@ class Aside extends Component {
           </li>}
         </ul>
       </div>
-      <Modal modalTitle='New parcel' ModalForm={NewParcelModalForm}
-       modalDisplay={this.state.modalDisplay}
-      />
+      {modalDisplay
+        && <Modal modalTitle='New parcel' ModalForm={NewParcelModalForm}
+          closeModal={this.closeModal} newParcel />
+      }
     </aside>;
   }
 }
 
 Aside.propTypes = {
   user: PropTypes.object,
-  auth: PropTypes.object
+  auth: PropTypes.object,
 };
 
 const mapStateToProps = state => ({

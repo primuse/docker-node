@@ -44,6 +44,8 @@
       "error",
       "single"
     ],
+    "camelcase": "off",
+    "no-return-assign": "off",
     "globals": {
       "localStorage": true,
       "document": true,
