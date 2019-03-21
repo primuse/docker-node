@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import resetPassword from '../../actions/authActions';
+import { resetPassword } from '../../actions/authActions';
 
 class ResetForm extends Component {
   state = {
