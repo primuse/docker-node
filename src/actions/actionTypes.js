@@ -9,5 +9,6 @@ export const SIGNUP_USER = 'SIGNUP_USER';
 export const SIGNUP_ERROR = 'SIGNUP_ERROR';
 export const LOGIN_ERROR = 'LOGIN_ERROR';
 export const CREATE_NEW_PARCEL = 'CREATE_NEW_PARCEL';
+export const CHANGE_PARCEL_DESTINATION = 'CHANGE_PARCEL_DESTINATION';
 export const IS_LOADING = 'IS_LOADING';
 export const ERROR = 'ERROR';

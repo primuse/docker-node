@@ -76,7 +76,7 @@ class Aside extends Component {
       </div>
       {modalDisplay
         && <Modal modalTitle='New parcel' ModalForm={NewParcelModalForm}
-          closeModal={this.closeModal} newParcel />
+          closeModal={this.closeModal} />
       }
     </aside>;
   }
