@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Modal from '../modal.jsx';
 
 const NewParcelModalForm = () => <form id='createParcel' className='text-right'>
   <div className='column is-two htmlForm-row text-left'>
     <div>
-      <label htmlhtmlFor='parcelType'>Parcel Name</label>
+      <label htmlFor='parcelType'>Parcel Name</label>
       <input type='text' id='parcelName' required />
     </div>
     <div>
@@ -123,4 +124,8 @@ Aside.propTypes = {
   auth: PropTypes.object
 };
 
-export default Aside;
+const mapStateToProps = state => ({
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps)(Aside);
