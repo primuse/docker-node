@@ -85,7 +85,6 @@ export const signupUser = userData => (dispatch) => {
 };
 
 export const resetPassword = userData => (dispatch) => {
-  console.log(userData);
   const config = {
     method: 'POST',
     headers: new Headers({

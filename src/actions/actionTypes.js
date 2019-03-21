@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 export const LOGIN_USER = 'LOGIN_USER';
 export const GET_All_USER_ORDERS = 'GET_All_USER_ORDERS';
 export const GET_DELIVERED_USER_ORDERS = 'GET_DELIVERED_USER_ORDERS';
@@ -9,3 +8,6 @@ export const GET_All_USERS = 'GET_All_USERS';
 export const SIGNUP_USER = 'SIGNUP_USER';
 export const SIGNUP_ERROR = 'SIGNUP_ERROR';
 export const LOGIN_ERROR = 'LOGIN_ERROR';
+export const CREATE_NEW_PARCEL = 'CREATE_NEW_PARCEL';
+export const IS_LOADING = 'IS_LOADING';
+export const ERROR = 'ERROR';
