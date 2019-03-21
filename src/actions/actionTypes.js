@@ -9,3 +9,5 @@ export const GET_All_USERS = 'GET_All_USERS';
 export const SIGNUP_USER = 'SIGNUP_USER';
 export const SIGNUP_ERROR = 'SIGNUP_ERROR';
 export const LOGIN_ERROR = 'LOGIN_ERROR';
+export const SEND_RESET_EMAIL = 'SEND_RESET_EMAIL';
+export const SEND_RESET_EMAIL_ERROR = 'SEND_RESET_EMAIL_ERROR';

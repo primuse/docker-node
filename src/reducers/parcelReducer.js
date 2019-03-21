@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import {
   GET_All_USER_ORDERS, GET_CANCELED_USER_ORDERS,
   GET_CREATED_USER_ORDERS, GET_DELIVERED_USER_ORDERS,
