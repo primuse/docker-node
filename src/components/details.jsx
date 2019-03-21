@@ -12,7 +12,8 @@ import '../css/dashboard.css';
 const Details = (props) => {
   const { parcels } = props.parcel;
   const { user } = props.auth;
-  const parcel = parcels.filter(item => item.id === +props.match.params.parcelId);
+  const parcelId = +props.match.params.parcelId;
+  const parcel = parcels.filter(item => item.id === parcelId);
 
   return <main>
     <Aside user={user} />

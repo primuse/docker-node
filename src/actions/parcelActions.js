@@ -2,11 +2,12 @@ import Swal from 'sweetalert2';
 import handleErrors from '../helpers/errorHelper';
 import {
   GET_DELIVERED_USER_ORDERS, GET_INTRANSIT_USER_ORDERS, GET_CANCELED_USER_ORDERS,
-  GET_CREATED_USER_ORDERS, GET_All_USER_ORDERS, IS_LOADING, CREATE_NEW_PARCEL, ERROR
+  GET_CREATED_USER_ORDERS, GET_All_USER_ORDERS, IS_LOADING, CREATE_NEW_PARCEL, ERROR,
+  CHANGE_PARCEL_DESTINATION
 } from './actionTypes';
 
-
 export const getUserParcels = (userId, offset = 0) => (dispatch) => {
+  console.log('called');
   const token = localStorage.getItem('token'), config = {
     method: 'GET',
     headers: new Headers({
@@ -127,6 +128,56 @@ export const createNewParcel = data => (dispatch) => {
         width: 400,
       });
       dispatch({ type: CREATE_NEW_PARCEL, payload: parcel });
+    })
+    .catch((err) => {
+      console.log(err);
+      if (err.json) {
+        err.json().then((obj) => {
+          Swal.fire({
+            title: 'Error!',
+            text: obj.message,
+            type: 'error',
+            timer: 3000,
+            showConfirmButton: false,
+            width: 400,
+          });
+          dispatch({
+            type: ERROR,
+            payload: obj.message,
+          });
+        });
+      } else {
+        console.log(err);
+      }
+    });
+};
+
+export const changeParcelDestination = destination => (dispatch) => {
+  dispatch({ type: IS_LOADING });
+  const token = localStorage.getItem('token');
+  const config = {
+    method: 'PATCH',
+    headers: new Headers({
+      'Content-Type': 'application/json',
+      'x-access-token': token
+    }),
+    body: JSON.stringify(destination),
+  };
+  fetch(
+    `https://sendit2019.herokuapp.com/api/v1/parcels/${parcelId}/destination`,
+    config
+  )
+    .then(handleErrors)
+    .then(() => {
+      Swal.fire({
+        title: 'Success!',
+        text: 'Successfully Updated destination',
+        type: 'success',
+        timer: 3000,
+        showConfirmButton: false,
+        width: 400,
+      });
+      dispatch({ type: CHANGE_PARCEL_DESTINATION, payload: 'Success' });
     })
     .catch((err) => {
       console.log(err);

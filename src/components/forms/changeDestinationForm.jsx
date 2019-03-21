@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { createNewParcel } from '../../actions/parcelActions';
+import { changeParcelDestination } from '../../actions/parcelActions';
 
 class DestinationModalForm extends Component {
   state = {
@@ -19,7 +19,7 @@ class DestinationModalForm extends Component {
     event.preventDefault();
     const data = this.state;
 
-    this.props.createNewParcel(data);
+    this.props.changeParcelDestination(data);
   }
 
   onChange = (event) => {
@@ -40,11 +40,14 @@ class DestinationModalForm extends Component {
 }
 
 DestinationModalForm.propTypes = {
-  createNewParcel: PropTypes.func,
+  changeParcelDestination: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { createNewParcel })(DestinationModalForm);
+export default connect(
+  mapStateToProps,
+  { changeParcelDestination }
+)(DestinationModalForm);
