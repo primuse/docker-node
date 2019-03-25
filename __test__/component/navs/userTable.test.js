@@ -9,7 +9,7 @@ const users = [
     id: '1',
     firstName: 'Tiku',
     lastName: 'Okoye',
-    isAdmin: 'false',
+    isadmin: 'false',
     email: 'cim@gmail.com',
     registered: '22-03-2019',
   },
@@ -17,7 +17,7 @@ const users = [
     id: '1',
     firstName: 'Tiku',
     lastName: 'Okoye',
-    isAdmin: 'false',
+    isadmin: 'false',
     email: 'cim@gmail.com',
     registered: '22-03-2019',
   }

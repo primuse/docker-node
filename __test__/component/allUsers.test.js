@@ -23,7 +23,7 @@ const initialState = {
         id: '1',
         firstName: 'Tiku',
         lastName: 'Okoye',
-        isAdmin: 'false',
+        isadmin: 'false',
         email: 'cim@gmail.com',
         registered: '22-03-2019',
       },
@@ -31,7 +31,7 @@ const initialState = {
         id: '1',
         firstName: 'Tiku',
         lastName: 'Okoye',
-        isAdmin: 'false',
+        isadmin: 'false',
         email: 'cim@gmail.com',
         registered: '22-03-2019',
       }
