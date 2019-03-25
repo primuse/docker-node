@@ -5,14 +5,13 @@ import history from '../history';
 import { DeliveredParcelTable } from './navs/table.jsx';
 import InfoBox from './infoBox.jsx';
 import { TopNav, } from './navs/topNav.jsx';
-import { Aside } from './navs/aside.jsx';
+import Aside from './navs/aside.jsx';
 import '../css/modules.css';
 import '../css/style.css';
 import '../css/dashboard.css';
 
 
 class DeliveredParcel extends Component {
-  // eslint-disable-next-line class-methods-use-this
   componentDidMount() {
     if (!localStorage.token) {
       localStorage.clear();

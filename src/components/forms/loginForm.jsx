@@ -2,13 +2,21 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import loginUser from '../../actions/authActions';
+import { loginUser } from '../../actions/authActions';
 
-class LoginForm extends Component {
+export class LoginForm extends Component {
   state = {
     email: '',
     password: ''
   };
+
+  componentWillUnmount() {
+    // Clear State
+    this.setState({
+      email: '',
+      password: '',
+    });
+  }
 
   onChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
@@ -16,14 +24,9 @@ class LoginForm extends Component {
 
   login = (event) => {
     event.preventDefault();
-    const Data = this.state;
+    const data = this.state;
 
-    // Clear State
-    this.setState({
-      email: '',
-      password: '',
-    });
-    this.props.loginUser(Data);
+    this.props.loginUser(data);
   }
 
   render() {

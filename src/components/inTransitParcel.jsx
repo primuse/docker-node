@@ -5,7 +5,7 @@ import history from '../history';
 import { InTransitParcelTable } from './navs/table.jsx';
 import InfoBox from './infoBox.jsx';
 import { TopNav, } from './navs/topNav.jsx';
-import { Aside } from './navs/aside.jsx';
+import Aside from './navs/aside.jsx';
 import '../css/modules.css';
 import '../css/style.css';
 import '../css/dashboard.css';
