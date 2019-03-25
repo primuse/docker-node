@@ -1,11 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {
+  bars
+} from '../../asset/imgs/ico';
 
 
 export const TopNav = () => (
   <nav>
     <a href='#' className='toggler mr-1' id='toggle'>
-      <img src={require('../../asset/imgs/ico/bars.svg')} />
+      <img src={bars} />
     </a>
     <ul className='p-0'>
       <li>
