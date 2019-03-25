@@ -4,7 +4,7 @@
   "description": "Courier Service App",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage --colors -u",
+    "test": "jest --coverage --colors",
     "test:watch": "jest --watch",
     "start-dev": "webpack-dev-server --mode development",
     "start-prod": "webpack --mode production"
