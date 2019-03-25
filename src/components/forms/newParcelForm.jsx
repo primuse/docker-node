@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createNewParcel } from '../../actions/parcelActions';
 
-class NewParcelModalForm extends Component {
+export class NewParcelModalForm extends Component {
   state = {
     parcelName: '',
     weight: '',

@@ -9,7 +9,7 @@ const getAllUsers = (offset = 0) => (dispatch) => {
       'x-access-token': token
     }),
   };
-  fetch(
+  return fetch(
     `https://sendit2019.herokuapp.com/api/v1/users?offset=${offset}`,
     config
   )
@@ -34,7 +34,10 @@ const getAllUsers = (offset = 0) => (dispatch) => {
           });
         });
       } else {
-        console.log(err);
+        dispatch({
+          type: 'GET_ERRORS',
+          payload: err,
+        });
       }
     });
 };

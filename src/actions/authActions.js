@@ -15,7 +15,7 @@ export const loginUser = userData => (dispatch) => {
     body: JSON.stringify(userData),
   };
 
-  fetch('https://sendit2019.herokuapp.com/api/v1/auth/login', config)
+  return fetch('https://sendit2019.herokuapp.com/api/v1/auth/login', config)
     .then(handleErrors)
     .then((res) => {
       localStorage.setItem('token', res.data[0].token);
@@ -40,7 +40,10 @@ export const loginUser = userData => (dispatch) => {
           });
         });
       } else {
-        console.log(err);
+        dispatch({
+          type: LOGIN_ERROR,
+          payload: obj.message,
+        });
       }
     });
 };
@@ -54,7 +57,7 @@ export const signupUser = userData => (dispatch) => {
     body: JSON.stringify(userData),
   };
 
-  fetch('https://sendit2019.herokuapp.com/api/v1/auth/signup', config)
+  return fetch('https://sendit2019.herokuapp.com/api/v1/auth/signup', config)
     .then(handleErrors)
     .then((res) => {
       localStorage.setItem('token', res.data.token);
@@ -79,7 +82,10 @@ export const signupUser = userData => (dispatch) => {
           });
         });
       } else {
-        console.log(err);
+        dispatch({
+          type: SIGNUP_ERROR,
+          payload: obj.message.error,
+        });
       }
     });
 };
@@ -93,7 +99,7 @@ export const resetPassword = userData => (dispatch) => {
     body: JSON.stringify(userData),
   };
 
-  fetch('https://sendit2019.herokuapp.com/api/v1/auth/signup', config)
+  return fetch('https://sendit2019.herokuapp.com/api/v1/auth/signup', config)
     .then(handleErrors)
     .then((res) => {
       localStorage.setItem('token', res.data[0].token);
@@ -119,7 +125,10 @@ export const resetPassword = userData => (dispatch) => {
           });
         });
       } else {
-        console.log(err);
+        dispatch({
+          type: SIGNUP_ERROR,
+          payload: err,
+        });
       }
     });
 };

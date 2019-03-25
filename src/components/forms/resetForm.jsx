@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { resetPassword } from '../../actions/authActions';
 
-class ResetForm extends Component {
+export class ResetForm extends Component {
   state = {
     email: ''
   };
@@ -11,16 +12,18 @@ class ResetForm extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  componentWillUnmount() {
+    // Clear State
+    this.setState({
+      email: '',
+    });
+  }
+
   resetPassword = (event) => {
     event.preventDefault();
     const data = this.state;
 
     this.props.resetPassword(data);
-
-    // Clear State
-    this.setState({
-      email: ''
-    });
   }
 
   render() {
@@ -50,5 +53,9 @@ class ResetForm extends Component {
     );
   }
 }
+
+ResetForm.propTypes = {
+  resetPassword: PropTypes.func,
+};
 
 export default connect(null, { resetPassword })(ResetForm);

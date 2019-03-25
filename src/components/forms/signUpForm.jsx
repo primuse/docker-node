@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { signupUser } from '../../actions/authActions';
 
-class SignupForm extends Component {
+export class SignupForm extends Component {
   state = {
     firstName: '',
     lastName: '',

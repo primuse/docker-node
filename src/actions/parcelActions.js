@@ -13,7 +13,7 @@ export const getUserParcels = (userId, offset = 0) => (dispatch) => {
       'x-access-token': token
     }),
   };
-  fetch(
+  return fetch(
     `https://sendit2019.herokuapp.com/api/v1/users/${userId}/parcels?offset=${offset}`,
     config
   )
@@ -48,7 +48,10 @@ export const getUserParcels = (userId, offset = 0) => (dispatch) => {
           });
         });
       } else {
-        console.log(err);
+        dispatch({
+          type: ERROR,
+          payload: obj.message,
+        });
       }
     });
 };
@@ -60,7 +63,7 @@ export const getAllParcels = (offset = 0) => (dispatch) => {
       'x-access-token': token
     }),
   };
-  fetch(
+  return fetch(
     `https://sendit2019.herokuapp.com/api/v1/parcels?offset=${offset}`,
     config
   )
@@ -95,7 +98,10 @@ export const getAllParcels = (offset = 0) => (dispatch) => {
           });
         });
       } else {
-        console.log(err);
+        dispatch({
+          type: ERROR,
+          payload: obj.message,
+        });
       }
     });
 };
@@ -111,7 +117,7 @@ export const createNewParcel = data => (dispatch) => {
     }),
     body: JSON.stringify(data),
   };
-  fetch(
+  return fetch(
     'https://sendit2019.herokuapp.com/api/v1/parcels',
     config
   )
@@ -129,7 +135,6 @@ export const createNewParcel = data => (dispatch) => {
       dispatch({ type: CREATE_NEW_PARCEL, payload: parcel });
     })
     .catch((err) => {
-      console.log(err);
       if (err.json) {
         err.json().then((obj) => {
           Swal.fire({
@@ -146,7 +151,10 @@ export const createNewParcel = data => (dispatch) => {
           });
         });
       } else {
-        console.log(err);
+        dispatch({
+          type: ERROR,
+          payload: obj.message,
+        });
       }
     });
 };

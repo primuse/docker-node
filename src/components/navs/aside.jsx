@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Modal from '../modal.jsx';
 import NewParcelModalForm from '../forms/newParcelForm.jsx';
 
-class Aside extends Component {
+export class Aside extends Component {
   state = {
     modalDisplay: false,
   };
@@ -47,9 +47,9 @@ class Aside extends Component {
           {user.isadmin === false && <li>
             <img src={require('../../asset/imgs/ico/box-open.svg')}
               className='menu-ico' />
-            <a href='#' data-modal data-target='#parcelmodal' onClick={this.showModal}>
+            <Link to='/#' data-modal data-target='#parcelmodal' onClick={this.showModal}>
               <span>New Parcel</span>
-            </a>
+            </Link>
           </li>}
           <li>
             <img src={require('../../asset/imgs/ico/archive.svg')}

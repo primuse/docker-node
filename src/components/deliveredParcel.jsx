@@ -12,7 +12,6 @@ import '../css/dashboard.css';
 
 
 class DeliveredParcel extends Component {
-  // eslint-disable-next-line class-methods-use-this
   componentDidMount() {
     if (!localStorage.token) {
       localStorage.clear();

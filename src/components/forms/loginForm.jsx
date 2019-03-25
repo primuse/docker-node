@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { loginUser } from '../../actions/authActions';
 
-class LoginForm extends Component {
+export class LoginForm extends Component {
   state = {
     email: '',
     password: ''
