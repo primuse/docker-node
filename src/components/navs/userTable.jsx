@@ -17,7 +17,7 @@ const mapUsers = (allUsers) => {
       <td>SD0{user.id}</td>
       <td>{user.firstname}</td>
       <td>{user.lastname}</td>
-      <td>{user.isadmin}</td>
+      <td>{user.isadmin.toString()}</td>
       <td>{user.email}</td>
       <td>{user.registered}</td>
       <td>

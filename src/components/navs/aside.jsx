@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Modal from '../modal.jsx';
 import NewParcelModalForm from '../forms/newParcelForm.jsx';
+import {
+  archive, box, home, userSvg, boxOpen
+} from '../../asset/imgs/ico';
 
 export class Aside extends Component {
   state = {
@@ -39,34 +42,34 @@ export class Aside extends Component {
         </div>
         <ul className='mt-80'>
           <li>
-            <img src={require('../../asset/imgs/ico/home.svg')} className='menu-ico' />
+            <img src={home} className='menu-ico' />
             <Link to='/dashboard'>
               <span>Dashboard</span>
             </Link>
           </li>
           {user.isadmin === false && <li>
-            <img src={require('../../asset/imgs/ico/box-open.svg')}
+            <img src={boxOpen}
               className='menu-ico' />
             <Link to='/#' data-modal data-target='#parcelmodal' onClick={this.showModal}>
               <span>New Parcel</span>
             </Link>
           </li>}
           <li>
-            <img src={require('../../asset/imgs/ico/archive.svg')}
+            <img src={archive}
               className='menu-ico' />
             <Link to='/delivered_parcels'>
               <span>Delivered Parcels</span>
             </Link>
           </li>
           <li>
-            <img src={require('../../asset/imgs/ico/box.svg')}
+            <img src={box}
               className='menu-ico' />
             <Link to='/inTransit_parcels'>
               <span>In-transit Parcels</span>
             </Link>
           </li>
           {user.isadmin && <li>
-            <img src={require('../../asset/imgs/ico/user.svg')}
+            <img src={userSvg}
               className='menu-ico' />
             <Link to='/all_users'>
               <span>All Users</span>

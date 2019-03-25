@@ -185,7 +185,9 @@ exports[`All users component renders correctly 1`] = `
                 </td>
                 <td />
                 <td />
-                <td />
+                <td>
+                  false
+                </td>
                 <td>
                   cim@gmail.com
                 </td>
@@ -209,7 +211,9 @@ exports[`All users component renders correctly 1`] = `
                 </td>
                 <td />
                 <td />
-                <td />
+                <td>
+                  false
+                </td>
                 <td>
                   cim@gmail.com
                 </td>
