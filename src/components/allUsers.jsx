@@ -6,6 +6,7 @@ import TopNav from './navs/topNav.jsx';
 import Aside from './navs/aside.jsx';
 import { UserTable } from './navs/userTable.jsx';
 import { getAllUsers } from '../actions/userActions';
+import AdminPagination from './adminPagination.jsx';
 import '../css/modules.css';
 import '../css/style.css';
 import '../css/dashboard.css';
@@ -22,7 +23,7 @@ class AllUsers extends Component {
 
   render() {
     const { user } = this.props.auth;
-    const { allUsers } = this.props.users;
+    const { allUsers, pages } = this.props.users;
 
     return <main>
       <Aside user={user} />
@@ -30,6 +31,7 @@ class AllUsers extends Component {
         <TopNav />
         <div id='main-content-page'>
           <UserTable allUsers={allUsers} />
+          <AdminPagination pages={pages} action={this.props.getAllUsers} />
         </div>
       </section>
     </main>;

@@ -8,6 +8,8 @@ import {
 } from './navs/table.jsx';
 import InfoBox from './infoBox.jsx';
 import { getAllParcels, getUserParcels } from '../actions/parcelActions';
+import AdminPagination from './adminPagination.jsx';
+import Pagination from './pagination.jsx';
 import '../css/modules.css';
 import '../css/style.css';
 import '../css/dashboard.css';
@@ -24,7 +26,7 @@ class Dashboard extends Component {
   }
 
   render() {
-    const { parcels } = this.props.parcel;
+    const { parcels, pages } = this.props.parcel;
     const { user } = this.props.auth;
     return <main>
       <Aside user={user}/>
@@ -33,6 +35,10 @@ class Dashboard extends Component {
         <div id='main-content-page'>
           <InfoBox />
           <ParcelTable parcels={parcels} />
+          {this.props.auth.user.isadmin
+            ? <AdminPagination pages={pages} action={this.props.getAllParcels} />
+            : <Pagination pages={pages} action={this.props.getUserParcels} />
+          }
         </div>
       </section>
     </main>;

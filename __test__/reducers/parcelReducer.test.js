@@ -1,7 +1,8 @@
 import {
   GET_All_USER_ORDERS, GET_CANCELED_USER_ORDERS,
   GET_CREATED_USER_ORDERS, GET_DELIVERED_USER_ORDERS,
-  GET_INTRANSIT_USER_ORDERS, IS_LOADING, CREATE_NEW_PARCEL
+  GET_INTRANSIT_USER_ORDERS, IS_LOADING, CREATE_NEW_PARCEL,
+  SET_PAGES
 } from '../../src/actions/actionTypes';
 import reducer from '../../src/reducers/parcelReducer';
 
@@ -27,6 +28,7 @@ describe('parcel reducer', () => {
       createdParcels: [],
       canceledParcels: [],
       newParcel: [],
+      pages: null
     });
   });
   it('should get all user orders', () => {
@@ -103,6 +105,16 @@ describe('parcel reducer', () => {
     expect(reducer({}, loadingAction))
       .toEqual({
         isLoading: true,
+      });
+  });
+  it('should set the number of pages for pagination', () => {
+    const paginationAction = {
+      type: SET_PAGES,
+      payload: 2,
+    };
+    expect(reducer({}, paginationAction))
+      .toEqual({
+        pages: 2,
       });
   });
 });

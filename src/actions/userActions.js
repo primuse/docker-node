@@ -1,5 +1,6 @@
 import Swal from 'sweetalert2';
 import handleErrors from '../helpers/errorHelper';
+import { SET_PAGES } from './actionTypes';
 
 
 export const getAllUsers = (offset = 0) => (dispatch) => {
@@ -16,6 +17,7 @@ export const getAllUsers = (offset = 0) => (dispatch) => {
     .then(handleErrors)
     .then((res) => {
       dispatch({ type: 'GET_All_USERS', payload: res.data });
+      dispatch({ type: SET_PAGES, payload: res.pages });
     })
     .catch((err) => {
       if (err.json) {

@@ -5,9 +5,9 @@ import { MemoryRouter } from 'react-router-dom';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import Dashboard from '../../src/components/dashboard.jsx';
+import AdminPagination from '../../src/components/adminPagination.jsx';
 
-global.Headers = () => {};
+global.Headers = () => { };
 
 const initialState = {
   auth: {
@@ -50,7 +50,7 @@ const initialState = {
     deliveredParcels: [],
     inTransitParcels: [],
     canceledParcels: [],
-    pages: 2
+    pages: 3
   }
 };
 
@@ -58,12 +58,12 @@ const mockStore = configureStore([thunk]);
 const store = mockStore(initialState);
 
 
-describe('All users component', () => {
+describe('Admin Pagination Component', () => {
   it('renders correctly', () => {
     const tree = renderer
       .create(<MemoryRouter>
         <Provider store={store}>
-          <Dashboard />
+          <AdminPagination />
         </Provider>
       </MemoryRouter>)
       .toJSON();
