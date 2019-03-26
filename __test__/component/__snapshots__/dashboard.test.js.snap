@@ -299,6 +299,28 @@ exports[`All users component renders correctly 1`] = `
           </table>
         </div>
       </div>
+      <div
+        className="pagination"
+      >
+        <span>
+          <a
+            className="links"
+            href="/"
+            onClick={[Function]}
+          >
+             
+            1
+          </a>
+          <a
+            className="links"
+            href="/"
+            onClick={[Function]}
+          >
+             
+            2
+          </a>
+        </span>
+      </div>
     </div>
   </section>
 </main>

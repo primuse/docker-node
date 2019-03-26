@@ -2,7 +2,8 @@ import Swal from 'sweetalert2';
 import handleErrors from '../helpers/errorHelper';
 import {
   GET_DELIVERED_USER_ORDERS, GET_INTRANSIT_USER_ORDERS, GET_CANCELED_USER_ORDERS,
-  GET_CREATED_USER_ORDERS, GET_All_USER_ORDERS, IS_LOADING, CREATE_NEW_PARCEL, ERROR
+  GET_CREATED_USER_ORDERS, GET_All_USER_ORDERS, IS_LOADING, CREATE_NEW_PARCEL, ERROR,
+  SET_PAGES
 } from './actionTypes';
 
 
@@ -30,6 +31,7 @@ export const getUserParcels = (userId, offset = 0) => (dispatch) => {
       dispatch({ type: GET_CREATED_USER_ORDERS, payload: createdParcels });
       dispatch({ type: GET_CANCELED_USER_ORDERS, payload: canceledParcels });
       dispatch({ type: GET_All_USER_ORDERS, payload: parcels });
+      dispatch({ type: SET_PAGES, payload: res.pages });
     })
     .catch((err) => {
       if (err.json) {
@@ -80,6 +82,7 @@ export const getAllParcels = (offset = 0) => (dispatch) => {
       dispatch({ type: GET_CREATED_USER_ORDERS, payload: createdParcels });
       dispatch({ type: GET_CANCELED_USER_ORDERS, payload: canceledParcels });
       dispatch({ type: GET_All_USER_ORDERS, payload: parcels });
+      dispatch({ type: SET_PAGES, payload: res.pages });
     })
     .catch((err) => {
       if (err.json) {

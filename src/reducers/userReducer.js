@@ -1,9 +1,12 @@
 /* eslint-disable camelcase */
-import { GET_All_USERS, SHOW_ASIDE, HIDE_ASIDE } from '../actions/actionTypes';
+import {
+  GET_All_USERS, SHOW_ASIDE, HIDE_ASIDE, SET_PAGES,
+} from '../actions/actionTypes';
 
 const initialState = {
   allUsers: [],
-  show: false
+  show: false,
+  pages: null
 };
 
 export default (state = initialState, action) => {
@@ -22,6 +25,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         show: false,
+      };
+    case SET_PAGES:
+      return {
+        ...state,
+        pages: action.payload,
       };
     default:
       return state;

@@ -1,5 +1,5 @@
 import {
-  GET_All_USERS, SHOW_ASIDE, HIDE_ASIDE
+  GET_All_USERS, SHOW_ASIDE, HIDE_ASIDE, SET_PAGES
 } from '../../src/actions/actionTypes';
 import reducer from '../../src/reducers/userReducer';
 
@@ -28,7 +28,8 @@ describe('auth reducer', () => {
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual({
       allUsers: [],
-      show: false
+      show: false,
+      pages: null
     });
   });
   it('should get all users', () => {
@@ -57,6 +58,16 @@ describe('auth reducer', () => {
     expect(reducer({}, successAction))
       .toEqual({
         show: false
+      });
+  });
+  it('should set the number of pages for pagination', () => {
+    const successAction = {
+      type: SET_PAGES,
+      payload: 2
+    };
+    expect(reducer({}, successAction))
+      .toEqual({
+        pages: 2
       });
   });
 });

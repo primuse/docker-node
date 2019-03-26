@@ -2,7 +2,8 @@ import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 import {
   GET_DELIVERED_USER_ORDERS, GET_INTRANSIT_USER_ORDERS, GET_CANCELED_USER_ORDERS,
-  GET_CREATED_USER_ORDERS, GET_All_USER_ORDERS, IS_LOADING, CREATE_NEW_PARCEL, ERROR
+  GET_CREATED_USER_ORDERS, GET_All_USER_ORDERS, IS_LOADING, CREATE_NEW_PARCEL, ERROR,
+  SET_PAGES
 } from '../../src/actions/actionTypes';
 import {
   getAllParcels, getUserParcels, createNewParcel
@@ -52,7 +53,8 @@ describe('Get user\'s parcel', () => {
         senton: '22-03-2019',
         status: 'In-transit'
       }
-    ]
+    ],
+    pages: 2
   };
 
   const errorRes = {
@@ -73,7 +75,8 @@ describe('Get user\'s parcel', () => {
       { type: GET_INTRANSIT_USER_ORDERS, payload: inTransitParcels },
       { type: GET_CREATED_USER_ORDERS, payload: createdParcels },
       { type: GET_CANCELED_USER_ORDERS, payload: canceledParcels },
-      { type: GET_All_USER_ORDERS, payload: parcels }
+      { type: GET_All_USER_ORDERS, payload: parcels },
+      { type: SET_PAGES, payload: res.pages }
     ];
     const mockStore = configureStore([thunk]);
     const store = mockStore({
@@ -159,7 +162,8 @@ describe('Get all parcels', () => {
         senton: '22-03-2019',
         status: 'In-transit'
       }
-    ]
+    ],
+    pages: 2
   };
 
   const errorRes = {
@@ -180,7 +184,8 @@ describe('Get all parcels', () => {
       { type: GET_INTRANSIT_USER_ORDERS, payload: inTransitParcels },
       { type: GET_CREATED_USER_ORDERS, payload: createdParcels },
       { type: GET_CANCELED_USER_ORDERS, payload: canceledParcels },
-      { type: GET_All_USER_ORDERS, payload: parcels }
+      { type: GET_All_USER_ORDERS, payload: parcels },
+      { type: SET_PAGES, payload: res.pages }
     ];
     const mockStore = configureStore([thunk]);
     const store = mockStore({

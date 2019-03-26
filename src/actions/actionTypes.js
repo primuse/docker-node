@@ -13,3 +13,4 @@ export const IS_LOADING = 'IS_LOADING';
 export const ERROR = 'ERROR';
 export const SHOW_ASIDE = 'SHOW_ASIDE';
 export const HIDE_ASIDE = 'HIDE_ASIDE';
+export const SET_PAGES = 'SET_PAGES';
