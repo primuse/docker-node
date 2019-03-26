@@ -2,7 +2,7 @@ import Swal from 'sweetalert2';
 import handleErrors from '../helpers/errorHelper';
 
 
-const getAllUsers = (offset = 0) => (dispatch) => {
+export const getAllUsers = (offset = 0) => (dispatch) => {
   const token = localStorage.getItem('token'), config = {
     method: 'GET',
     headers: new Headers({
@@ -41,6 +41,3 @@ const getAllUsers = (offset = 0) => (dispatch) => {
       }
     });
 };
-
-
-export default getAllUsers;

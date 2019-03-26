@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Aside nav component renders correctly 1`] = `
-<aside>
+<aside
+  className=""
+>
   <div
     className="bg-blue"
     id="menu"

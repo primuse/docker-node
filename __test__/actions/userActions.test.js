@@ -1,6 +1,6 @@
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
-import getAllUsers from '../../src/actions/userActions';
+import { getAllUsers } from '../../src/actions/userActions';
 
 
 describe('Get all users', () => {

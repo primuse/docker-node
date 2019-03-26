@@ -19,6 +19,10 @@ const initialState = {
       email: 'cim@gmail.com'
     },
   },
+  users: {
+    allUsers: [],
+    show: false
+  },
   parcel: {
     parcels: [
       {

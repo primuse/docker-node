@@ -11,3 +11,5 @@ export const LOGIN_ERROR = 'LOGIN_ERROR';
 export const CREATE_NEW_PARCEL = 'CREATE_NEW_PARCEL';
 export const IS_LOADING = 'IS_LOADING';
 export const ERROR = 'ERROR';
+export const SHOW_ASIDE = 'SHOW_ASIDE';
+export const HIDE_ASIDE = 'HIDE_ASIDE';

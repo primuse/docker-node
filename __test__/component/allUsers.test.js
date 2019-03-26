@@ -36,7 +36,8 @@ const initialState = {
         registered: '22-03-2019',
       }
     ]
-  }
+  },
+  show: false
 };
 
 const mockStore = configureStore([thunk]);

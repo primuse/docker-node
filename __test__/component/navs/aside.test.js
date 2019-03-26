@@ -14,7 +14,11 @@ const initialState = {
       firstName: 'Tiku',
       lastName: 'Okoye',
       isadmin: false
-    },
+    }
+  },
+  users: {
+    allUsers: [],
+    show: false
   }
 };
 const mockStore = configureStore([thunk]);

@@ -6,6 +6,7 @@ exports[`Top Nav component renders correctly 1`] = `
     className="toggler mr-1"
     href="#"
     id="toggle"
+    onClick={[Function]}
   >
     <img
       src="test-file-stub"
