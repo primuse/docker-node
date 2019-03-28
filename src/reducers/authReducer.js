@@ -1,4 +1,4 @@
-import hasID from '../helpers/validator';
+import { hasID } from '../helpers/utils';
 import {
   LOGIN_USER, LOGIN_ERROR, SIGNUP_ERROR, SIGNUP_USER,
   IS_LOADING

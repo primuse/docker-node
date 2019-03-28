@@ -1,5 +1,6 @@
 import Swal from 'sweetalert2';
 import handleErrors from '../helpers/errorHelper';
+import { filterParcels } from '../helpers/utils';
 import {
   GET_DELIVERED_USER_ORDERS, GET_INTRANSIT_USER_ORDERS, GET_CANCELED_USER_ORDERS,
   GET_CREATED_USER_ORDERS, GET_All_USER_ORDERS, PARCEL_IS_LOADING,
@@ -22,10 +23,10 @@ export const getUserParcels = (userId, offset = 0) => (dispatch) => {
     .then(handleErrors)
     .then((res) => {
       const parcels = Object.values(res.data),
-        deliveredParcels = parcels.filter(parcel => parcel.status === 'Delivered'),
-        inTransitParcels = parcels.filter(parcel => parcel.status === 'In-transit'),
-        createdParcels = parcels.filter(parcel => parcel.status === 'Created'),
-        canceledParcels = parcels.filter(parcel => parcel.status === 'Canceled');
+        deliveredParcels = filterParcels(parcels, 'Delivered'),
+        inTransitParcels = filterParcels(parcels, 'In-transit'),
+        createdParcels = filterParcels(parcels, 'Created'),
+        canceledParcels = filterParcels(parcels, 'Canceled');
 
       dispatch({ type: GET_DELIVERED_USER_ORDERS, payload: deliveredParcels });
       dispatch({ type: GET_INTRANSIT_USER_ORDERS, payload: inTransitParcels });

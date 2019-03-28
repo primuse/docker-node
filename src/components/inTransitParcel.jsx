@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import history from '../history';
 import { ParcelTable } from './navs/table.jsx';
 import InfoBox from './infoBox.jsx';
 import TopNav from './navs/topNav.jsx';
@@ -11,13 +10,6 @@ import '../css/style.css';
 import '../css/dashboard.css';
 
 class InTransitParcel extends Component {
-  componentDidMount() {
-    if (!localStorage.token) {
-      localStorage.clear();
-      history.push('/');
-    }
-  }
-
   render() {
     const { inTransitParcels, isLoading } = this.props.parcel;
     const { user } = this.props.auth;

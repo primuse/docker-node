@@ -44,6 +44,7 @@ describe('Login user', () => {
       });
     done();
   });
+
   it('dispatches the correct actions on unsuccessful fetch request', (done) => {
     fetch.mockReject(new Error(errorRes.message));
 
@@ -100,6 +101,7 @@ describe('Signup user', () => {
       });
     done();
   });
+
   it('dispatches the correct actions on unsuccessful fetch request', (done) => {
     fetch.mockReject(new Error(errorRes.message));
 
