@@ -2,7 +2,7 @@
 import {
   GET_All_USER_ORDERS, GET_CANCELED_USER_ORDERS,
   GET_CREATED_USER_ORDERS, GET_DELIVERED_USER_ORDERS,
-  GET_INTRANSIT_USER_ORDERS, IS_LOADING, CREATE_NEW_PARCEL,
+  GET_INTRANSIT_USER_ORDERS, PARCEL_IS_LOADING, CREATE_NEW_PARCEL,
   SET_PAGES
 } from '../actions/actionTypes';
 
@@ -14,7 +14,7 @@ const initialState = {
   createdParcels: [],
   canceledParcels: [],
   newParcel: [],
-  pages: null
+  pages: null,
 };
 
 export default (state = initialState, action) => {
@@ -55,7 +55,7 @@ export default (state = initialState, action) => {
         isLoading: false,
         newParcel: action.payload,
       };
-    case IS_LOADING:
+    case PARCEL_IS_LOADING:
       return {
         ...state,
         isLoading: true,
@@ -64,6 +64,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         pages: action.payload,
+        isLoading: false
       };
     default:
       return state;

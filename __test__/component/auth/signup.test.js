@@ -8,7 +8,11 @@ import thunk from 'redux-thunk';
 import { Signup } from '../../../src/components/auth/login.jsx';
 import LoginForm from '../../../src/components/forms/loginForm.jsx';
 
-const initialState = {};
+const initialState = {
+  auth: {
+    isLoading: false
+  }
+};
 const mockStore = configureStore([thunk]);
 const store = mockStore(initialState);
 

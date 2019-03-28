@@ -9,9 +9,13 @@ import ConnectedSignupForm, { SignupForm }
 
 const onChange = jest.fn();
 const signupUser = jest.fn();
-const initialState = {};
+const props = {
+  auth: {
+    isLoading: false
+  }
+};
 const mockStore = configureStore([thunk]);
-const store = mockStore(initialState);
+const store = mockStore(props);
 let wrapper;
 
 describe('Signup form', () => {
@@ -27,7 +31,7 @@ describe('Signup form', () => {
 
 describe('Signup form', () => {
   beforeEach(() => {
-    wrapper = mount(<SignupForm
+    wrapper = mount(<SignupForm {...props}
       onChange={onChange} signupUser={signupUser} />);
   });
   afterEach(() => {

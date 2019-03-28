@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Circle } from 'better-react-spinkit';
 import { signupUser } from '../../actions/authActions';
 
 export class SignupForm extends Component {
@@ -36,6 +37,7 @@ export class SignupForm extends Component {
     const {
       firstName, lastName, email, password
     } = this.state;
+    const { isLoading } = this.props.auth;
     return (
       <form id='signupForm' onSubmit={this.signUp}>
         <div className='column is-two form-row'>
@@ -80,6 +82,11 @@ export class SignupForm extends Component {
         </div>
         <button type='submit' className='btn lg is-outlined'>
           Signup
+          {isLoading && (
+            <span style={{ float: 'right', padding: '3px 3px 0 10px' }}>
+              <Circle color={'rgba(255,255,255,1)'} />
+            </span>
+          )}
         </button>
       </form>
     );
@@ -88,6 +95,7 @@ export class SignupForm extends Component {
 
 SignupForm.propTypes = {
   signupUser: PropTypes.func,
+  auth: PropTypes.object
 };
 
 const mapStateToProps = state => ({

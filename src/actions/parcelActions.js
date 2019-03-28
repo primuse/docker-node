@@ -2,12 +2,13 @@ import Swal from 'sweetalert2';
 import handleErrors from '../helpers/errorHelper';
 import {
   GET_DELIVERED_USER_ORDERS, GET_INTRANSIT_USER_ORDERS, GET_CANCELED_USER_ORDERS,
-  GET_CREATED_USER_ORDERS, GET_All_USER_ORDERS, IS_LOADING, CREATE_NEW_PARCEL, ERROR,
-  SET_PAGES
+  GET_CREATED_USER_ORDERS, GET_All_USER_ORDERS, PARCEL_IS_LOADING,
+  CREATE_NEW_PARCEL, ERROR, SET_PAGES
 } from './actionTypes';
 
 
 export const getUserParcels = (userId, offset = 0) => (dispatch) => {
+  dispatch({ type: PARCEL_IS_LOADING });
   const token = localStorage.getItem('token'), config = {
     method: 'GET',
     headers: new Headers({
@@ -59,6 +60,7 @@ export const getUserParcels = (userId, offset = 0) => (dispatch) => {
 };
 
 export const getAllParcels = (offset = 0) => (dispatch) => {
+  dispatch({ type: PARCEL_IS_LOADING });
   const token = localStorage.getItem('token'), config = {
     method: 'GET',
     headers: new Headers({
@@ -110,7 +112,7 @@ export const getAllParcels = (offset = 0) => (dispatch) => {
 };
 
 export const createNewParcel = data => (dispatch) => {
-  dispatch({ type: IS_LOADING });
+  dispatch({ type: PARCEL_IS_LOADING });
   const token = localStorage.getItem('token');
   const config = {
     method: 'POST',

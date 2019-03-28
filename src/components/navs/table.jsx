@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Pulse } from 'better-react-spinkit';
 
 const tableHeading = (<tr id='table-head'>
   <th>ID</th>
@@ -13,8 +14,12 @@ const tableHeading = (<tr id='table-head'>
   <th>Status</th>
 </tr>);
 
-const mapParcels = (parcels) => {
-  const parcelItems = parcels.map((parcel, index) => (
+const style = {
+  display: 'flex',
+  justifyContent: 'center'
+};
+
+const mapParcels = parcels => parcels.map((parcel, index) => (
     <tr key={index}>
       <td>PO{parcel.id}</td>
       <td>{parcel.parcelname}</td>
@@ -30,60 +35,31 @@ const mapParcels = (parcels) => {
           </Link>
       </td>
     </tr>
-  ));
-  return parcelItems;
-};
+));
 
-export const ParcelTable = ({ parcels }) => <div className='dash-cont'>
+export const ParcelTable = ({
+  parcelText,
+  parcels, isLoading
+}) => <div className='dash-cont'>
     <div id='table-info'>
-     <a href='#'>All</a>
+     <a href='#'>{parcelText}</a>
     </div>
     <div id='table-cont'>
-      <table>
-        <tbody>
-        {tableHeading}
-        {mapParcels(parcels)}
-        </tbody>
-      </table>
+    { isLoading ? <div style={style}>
+        <Pulse color='rgb(255,69,0)' size={100} />
+      </div>
+      : <table>
+          <tbody>
+          {tableHeading}
+          {mapParcels(parcels)}
+          </tbody>
+        </table>
+    }
     </div>
   </div>;
 
 ParcelTable.propTypes = {
   parcels: PropTypes.array,
-};
-
-export const DeliveredParcelTable = ({ parcels }) => <div className='dash-cont'>
-    <div id='table-info'>
-      <a href='#'>Delivered</a>
-    </div>
-    <div id='table-cont'>
-      <table>
-        <tbody>
-          {tableHeading}
-          {mapParcels(parcels)}
-        </tbody>
-      </table>
-    </div>
-  </div>;
-
-DeliveredParcelTable.propTypes = {
-  parcels: PropTypes.array,
-};
-
-export const InTransitParcelTable = ({ parcels }) => <div className='dash-cont'>
-    <div id='table-info'>
-      <a href='#'>In-Transit</a>
-    </div>
-    <div id='table-cont'>
-      <table>
-        <tbody>
-          {tableHeading}
-          {mapParcels(parcels)}
-        </tbody>
-      </table>
-    </div>
-  </div>;
-
-InTransitParcelTable.propTypes = {
-  parcels: PropTypes.array,
+  isLoading: PropTypes.bool,
+  parcelText: PropTypes.string
 };

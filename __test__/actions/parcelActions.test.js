@@ -9,58 +9,58 @@ import {
   getAllParcels, getUserParcels, createNewParcel
 } from '../../src/actions/parcelActions';
 
+const res = {
+  data: [
+    {
+      id: 1,
+      parcelName: 'rice',
+      weigth: '30',
+      price: '4,000',
+      destination: 'Owerri',
+      receiver: 'Tiku Okoye',
+      senton: '22-03-2019',
+      status: 'Delivered'
+    },
+    {
+      id: 2,
+      parcelName: 'rice',
+      weigth: '30',
+      price: '4,000',
+      destination: 'Owerri',
+      receiver: 'Tiku Okoye',
+      senton: '22-03-2019',
+      status: 'Created'
+    },
+    {
+      id: 3,
+      parcelName: 'rice',
+      weigth: '30',
+      price: '4,000',
+      destination: 'Owerri',
+      receiver: 'Tiku Okoye',
+      senton: '22-03-2019',
+      status: 'Canceled'
+    },
+    {
+      id: 4,
+      parcelName: 'rice',
+      weigth: '30',
+      price: '4,000',
+      destination: 'Owerri',
+      receiver: 'Tiku Okoye',
+      senton: '22-03-2019',
+      status: 'In-transit'
+    }
+  ],
+  pages: 2
+};
+
+const errorRes = {
+  message: 'Internal server error'
+};
+
 
 describe('Get user\'s parcel', () => {
-  const res = {
-    data: [
-      {
-        id: 1,
-        parcelName: 'rice',
-        weigth: '30',
-        price: '4,000',
-        destination: 'Owerri',
-        receiver: 'Tiku Okoye',
-        senton: '22-03-2019',
-        status: 'Delivered'
-      },
-      {
-        id: 2,
-        parcelName: 'rice',
-        weigth: '30',
-        price: '4,000',
-        destination: 'Owerri',
-        receiver: 'Tiku Okoye',
-        senton: '22-03-2019',
-        status: 'Created'
-      },
-      {
-        id: 3,
-        parcelName: 'rice',
-        weigth: '30',
-        price: '4,000',
-        destination: 'Owerri',
-        receiver: 'Tiku Okoye',
-        senton: '22-03-2019',
-        status: 'Canceled'
-      },
-      {
-        id: 4,
-        parcelName: 'rice',
-        weigth: '30',
-        price: '4,000',
-        destination: 'Owerri',
-        receiver: 'Tiku Okoye',
-        senton: '22-03-2019',
-        status: 'In-transit'
-      }
-    ],
-    pages: 2
-  };
-
-  const errorRes = {
-    message: 'Internal server error'
-  };
-
   const parcels = Object.values(res.data),
     deliveredParcels = parcels.filter(parcel => parcel.status === 'Delivered'),
     inTransitParcels = parcels.filter(parcel => parcel.status === 'In-transit'),
@@ -120,56 +120,6 @@ describe('Get user\'s parcel', () => {
 });
 
 describe('Get all parcels', () => {
-  const res = {
-    data: [
-      {
-        id: 1,
-        parcelName: 'rice',
-        weigth: '30',
-        price: '4,000',
-        destination: 'Owerri',
-        receiver: 'Tiku Okoye',
-        senton: '22-03-2019',
-        status: 'Delivered'
-      },
-      {
-        id: 2,
-        parcelName: 'rice',
-        weigth: '30',
-        price: '4,000',
-        destination: 'Owerri',
-        receiver: 'Tiku Okoye',
-        senton: '22-03-2019',
-        status: 'Created'
-      },
-      {
-        id: 3,
-        parcelName: 'rice',
-        weigth: '30',
-        price: '4,000',
-        destination: 'Owerri',
-        receiver: 'Tiku Okoye',
-        senton: '22-03-2019',
-        status: 'Canceled'
-      },
-      {
-        id: 4,
-        parcelName: 'rice',
-        weigth: '30',
-        price: '4,000',
-        destination: 'Owerri',
-        receiver: 'Tiku Okoye',
-        senton: '22-03-2019',
-        status: 'In-transit'
-      }
-    ],
-    pages: 2
-  };
-
-  const errorRes = {
-    message: 'Internal server error'
-  };
-
   const parcels = Object.values(res.data),
     deliveredParcels = parcels.filter(parcel => parcel.status === 'Delivered'),
     inTransitParcels = parcels.filter(parcel => parcel.status === 'In-transit'),
@@ -229,7 +179,7 @@ describe('Get all parcels', () => {
 });
 
 describe('Create a new parcel', () => {
-  const res = {
+  const parcelRes = {
     rows: {
       id: 1,
       parcelName: 'rice',
@@ -242,11 +192,7 @@ describe('Create a new parcel', () => {
     },
   };
 
-  const errorRes = {
-    message: 'Internal server error'
-  };
-
-  const parcel = res.rows;
+  const parcel = parcelRes.rows;
 
   it('dispatches the correct actions on successful fetch request', (done) => {
     fetch.mockResponse(JSON.stringify(res));
