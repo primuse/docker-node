@@ -2,65 +2,65 @@ import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 import {
   GET_DELIVERED_USER_ORDERS, GET_INTRANSIT_USER_ORDERS, GET_CANCELED_USER_ORDERS,
-  GET_CREATED_USER_ORDERS, GET_All_USER_ORDERS, IS_LOADING, CREATE_NEW_PARCEL, ERROR,
+  GET_CREATED_USER_ORDERS, GET_All_USER_ORDERS, PARCEL_IS_LOADING, CREATE_NEW_PARCEL, ERROR,
   SET_PAGES
 } from '../../src/actions/actionTypes';
 import {
   getAllParcels, getUserParcels, createNewParcel
 } from '../../src/actions/parcelActions';
 
+const res = {
+  data: [
+    {
+      id: 1,
+      parcelName: 'rice',
+      weigth: '30',
+      price: '4,000',
+      destination: 'Owerri',
+      receiver: 'Tiku Okoye',
+      senton: '22-03-2019',
+      status: 'Delivered'
+    },
+    {
+      id: 2,
+      parcelName: 'rice',
+      weigth: '30',
+      price: '4,000',
+      destination: 'Owerri',
+      receiver: 'Tiku Okoye',
+      senton: '22-03-2019',
+      status: 'Created'
+    },
+    {
+      id: 3,
+      parcelName: 'rice',
+      weigth: '30',
+      price: '4,000',
+      destination: 'Owerri',
+      receiver: 'Tiku Okoye',
+      senton: '22-03-2019',
+      status: 'Canceled'
+    },
+    {
+      id: 4,
+      parcelName: 'rice',
+      weigth: '30',
+      price: '4,000',
+      destination: 'Owerri',
+      receiver: 'Tiku Okoye',
+      senton: '22-03-2019',
+      status: 'In-transit'
+    }
+  ],
+  pages: 2
+};
+
+const errorRes = {
+  message: 'Internal server error'
+};
+
 
 describe('Get user\'s parcel', () => {
-  const res = {
-    data: [
-      {
-        id: 1,
-        parcelName: 'rice',
-        weigth: '30',
-        price: '4,000',
-        destination: 'Owerri',
-        receiver: 'Tiku Okoye',
-        senton: '22-03-2019',
-        status: 'Delivered'
-      },
-      {
-        id: 2,
-        parcelName: 'rice',
-        weigth: '30',
-        price: '4,000',
-        destination: 'Owerri',
-        receiver: 'Tiku Okoye',
-        senton: '22-03-2019',
-        status: 'Created'
-      },
-      {
-        id: 3,
-        parcelName: 'rice',
-        weigth: '30',
-        price: '4,000',
-        destination: 'Owerri',
-        receiver: 'Tiku Okoye',
-        senton: '22-03-2019',
-        status: 'Canceled'
-      },
-      {
-        id: 4,
-        parcelName: 'rice',
-        weigth: '30',
-        price: '4,000',
-        destination: 'Owerri',
-        receiver: 'Tiku Okoye',
-        senton: '22-03-2019',
-        status: 'In-transit'
-      }
-    ],
-    pages: 2
-  };
-
-  const errorRes = {
-    message: 'Internal server error'
-  };
-
   const parcels = Object.values(res.data),
     deliveredParcels = parcels.filter(parcel => parcel.status === 'Delivered'),
     inTransitParcels = parcels.filter(parcel => parcel.status === 'In-transit'),
@@ -71,6 +71,7 @@ describe('Get user\'s parcel', () => {
     fetch.mockResponse(JSON.stringify(res));
 
     const expectedActions = [
+      { type: PARCEL_IS_LOADING },
       { type: GET_DELIVERED_USER_ORDERS, payload: deliveredParcels },
       { type: GET_INTRANSIT_USER_ORDERS, payload: inTransitParcels },
       { type: GET_CREATED_USER_ORDERS, payload: createdParcels },
@@ -95,10 +96,12 @@ describe('Get user\'s parcel', () => {
       });
     done();
   });
+
   it('dispatches the correct actions on unsuccessful fetch request', (done) => {
     fetch.mockReject(new Error(errorRes.message));
 
     const expectedActions = [
+      { type: PARCEL_IS_LOADING },
       { type: ERROR, payload: errorRes.message }
     ];
     const mockStore = configureStore([thunk]);
@@ -120,56 +123,6 @@ describe('Get user\'s parcel', () => {
 });
 
 describe('Get all parcels', () => {
-  const res = {
-    data: [
-      {
-        id: 1,
-        parcelName: 'rice',
-        weigth: '30',
-        price: '4,000',
-        destination: 'Owerri',
-        receiver: 'Tiku Okoye',
-        senton: '22-03-2019',
-        status: 'Delivered'
-      },
-      {
-        id: 2,
-        parcelName: 'rice',
-        weigth: '30',
-        price: '4,000',
-        destination: 'Owerri',
-        receiver: 'Tiku Okoye',
-        senton: '22-03-2019',
-        status: 'Created'
-      },
-      {
-        id: 3,
-        parcelName: 'rice',
-        weigth: '30',
-        price: '4,000',
-        destination: 'Owerri',
-        receiver: 'Tiku Okoye',
-        senton: '22-03-2019',
-        status: 'Canceled'
-      },
-      {
-        id: 4,
-        parcelName: 'rice',
-        weigth: '30',
-        price: '4,000',
-        destination: 'Owerri',
-        receiver: 'Tiku Okoye',
-        senton: '22-03-2019',
-        status: 'In-transit'
-      }
-    ],
-    pages: 2
-  };
-
-  const errorRes = {
-    message: 'Internal server error'
-  };
-
   const parcels = Object.values(res.data),
     deliveredParcels = parcels.filter(parcel => parcel.status === 'Delivered'),
     inTransitParcels = parcels.filter(parcel => parcel.status === 'In-transit'),
@@ -180,6 +133,7 @@ describe('Get all parcels', () => {
     fetch.mockResponse(JSON.stringify(res));
 
     const expectedActions = [
+      { type: PARCEL_IS_LOADING },
       { type: GET_DELIVERED_USER_ORDERS, payload: deliveredParcels },
       { type: GET_INTRANSIT_USER_ORDERS, payload: inTransitParcels },
       { type: GET_CREATED_USER_ORDERS, payload: createdParcels },
@@ -208,6 +162,7 @@ describe('Get all parcels', () => {
     fetch.mockReject(new Error(errorRes.message));
 
     const expectedActions = [
+      { type: PARCEL_IS_LOADING },
       { type: ERROR, payload: errorRes.message }
     ];
     const mockStore = configureStore([thunk]);
@@ -229,7 +184,7 @@ describe('Get all parcels', () => {
 });
 
 describe('Create a new parcel', () => {
-  const res = {
+  const parcelRes = {
     rows: {
       id: 1,
       parcelName: 'rice',
@@ -242,17 +197,13 @@ describe('Create a new parcel', () => {
     },
   };
 
-  const errorRes = {
-    message: 'Internal server error'
-  };
-
-  const parcel = res.rows;
+  const parcel = parcelRes.rows;
 
   it('dispatches the correct actions on successful fetch request', (done) => {
-    fetch.mockResponse(JSON.stringify(res));
+    fetch.mockResponse(JSON.stringify(parcelRes));
 
     const expectedActions = [
-      { type: IS_LOADING },
+      { type: PARCEL_IS_LOADING },
       { type: CREATE_NEW_PARCEL, payload: parcel },
     ];
     const mockStore = configureStore([thunk]);
@@ -276,7 +227,7 @@ describe('Create a new parcel', () => {
     fetch.mockReject(new Error(errorRes.message));
 
     const expectedActions = [
-      { type: IS_LOADING },
+      { type: PARCEL_IS_LOADING },
       { type: ERROR, payload: errorRes.message }
     ];
     const mockStore = configureStore([thunk]);

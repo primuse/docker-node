@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Pulse } from 'better-react-spinkit';
 
 const tableHeading = (<tr id='table-head'>
   <th>ID</th>
@@ -10,6 +11,11 @@ const tableHeading = (<tr id='table-head'>
   <th>Email</th>
   <th>Registered On</th>
 </tr>);
+
+const style = {
+  display: 'flex',
+  justifyContent: 'center'
+};
 
 const mapUsers = (allUsers) => {
   const userItems = allUsers.map((user, index) => (
@@ -30,21 +36,22 @@ const mapUsers = (allUsers) => {
   return userItems;
 };
 
-export const UserTable = ({ allUsers }) => <div className='dash-cont'>
+export const UserTable = ({ allUsers, isLoading }) => <div className='dash-cont'>
   <div id='table-info'>
     <a href='#'>All</a>
   </div>
   <div id='table-cont'>
-    <table>
-      <tbody>
-        {tableHeading}
-        {mapUsers(allUsers)}
-      </tbody>
-    </table>
+    {isLoading
+      ? (<div style={style}><Pulse color='rgb(255,69,0)' size={100} /></div>)
+      : allUsers.length < 1
+        ? (<h1 style={style}>No Users</h1>)
+        : (<table><tbody>{tableHeading}{mapUsers(allUsers)}</tbody></table>)
+    }
   </div>
 </div>;
 
 
 UserTable.propTypes = {
   allUsers: PropTypes.array,
+  isLoading: PropTypes.bool
 };

@@ -201,38 +201,16 @@ exports[`All users component renders correctly 1`] = `
         <div
           id="table-cont"
         >
-          <table>
-            <tbody>
-              <tr
-                id="table-head"
-              >
-                <th>
-                  ID
-                </th>
-                <th>
-                  Name
-                </th>
-                <th>
-                  Weight
-                </th>
-                <th>
-                  Price
-                </th>
-                <th>
-                  Destination
-                </th>
-                <th>
-                  Receiver
-                </th>
-                <th>
-                  Sent On
-                </th>
-                <th>
-                  Status
-                </th>
-              </tr>
-            </tbody>
-          </table>
+          <h1
+            style={
+              Object {
+                "display": "flex",
+                "justifyContent": "center",
+              }
+            }
+          >
+            No Parcel Orders
+          </h1>
         </div>
       </div>
     </div>

@@ -14,13 +14,17 @@ const initialState = {
       firstName: 'Tiku',
       lastName: 'Okoye',
       isadmin: false
-    }
+    },
   },
   users: {
     allUsers: [],
     show: false
+  },
+  parcel: {
+    isLoading: false
   }
 };
+
 const mockStore = configureStore([thunk]);
 const store = mockStore(initialState);
 let wrapper;
@@ -54,6 +58,5 @@ describe('Aside Nav component', () => {
     wrapper.update();
     const aTag = wrapper.find('a').at(2);
     aTag.simulate('click');
-    // expect(wrapper.instance().showModal).toHaveBeenCalled();
   });
 });

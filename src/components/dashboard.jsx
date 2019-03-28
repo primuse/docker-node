@@ -26,7 +26,7 @@ class Dashboard extends Component {
   }
 
   render() {
-    const { parcels, pages } = this.props.parcel;
+    const { parcels, pages, isLoading } = this.props.parcel;
     const { user } = this.props.auth;
     return <main>
       <Aside user={user}/>
@@ -34,7 +34,7 @@ class Dashboard extends Component {
         <TopNav />
         <div id='main-content-page'>
           <InfoBox />
-          <ParcelTable parcels={parcels} />
+          <ParcelTable parcelText='All' parcels={parcels} isLoading={isLoading} />
           {this.props.auth.user.isadmin
             ? <AdminPagination pages={pages} action={this.props.getAllParcels} />
             : <Pagination pages={pages} action={this.props.getUserParcels} />

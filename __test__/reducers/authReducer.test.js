@@ -1,5 +1,6 @@
 import {
-  LOGIN_USER, LOGIN_ERROR, SIGNUP_ERROR, SIGNUP_USER
+  LOGIN_USER, LOGIN_ERROR, SIGNUP_ERROR, SIGNUP_USER,
+  IS_LOADING
 } from '../../src/actions/actionTypes';
 import reducer from '../../src/reducers/authReducer';
 
@@ -15,7 +16,8 @@ describe('auth reducer', () => {
     expect(reducer(undefined, {})).toEqual({
       isAuthenticated: false,
       user: {},
-      error: ''
+      error: '',
+      isLoading: false
     });
   });
   it('should login user', () => {
@@ -26,7 +28,8 @@ describe('auth reducer', () => {
     expect(reducer({}, successAction))
       .toEqual({
         isAuthenticated: true,
-        user
+        user,
+        isLoading: false
       });
   });
   it('should signup user', () => {
@@ -37,7 +40,8 @@ describe('auth reducer', () => {
     expect(reducer({}, successAction))
       .toEqual({
         isAuthenticated: true,
-        user
+        user,
+        isLoading: false
       });
   });
   it('should return login error', () => {
@@ -48,7 +52,8 @@ describe('auth reducer', () => {
     expect(reducer({}, errorAction))
       .toEqual({
         isAuthenticated: false,
-        error: 'No Network'
+        error: 'No Network',
+        isLoading: false
       });
   });
   it('should return an error', () => {
@@ -59,7 +64,17 @@ describe('auth reducer', () => {
     expect(reducer({}, errorAction))
       .toEqual({
         isAuthenticated: false,
-        error: 'No Network'
+        error: 'No Network',
+        isLoading: false
+      });
+  });
+  it('should show loading', () => {
+    const errorAction = {
+      type: IS_LOADING,
+    };
+    expect(reducer({}, errorAction))
+      .toEqual({
+        isLoading: true
       });
   });
 });

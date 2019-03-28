@@ -6,7 +6,9 @@ export const ParcelDetails = (props) => {
   const { user } = props;
 
   return <div id='parcel' className='dash-cont d-flex mt-40'>
-    <div id='map'></div>
+    <div id='map'>
+      <img src='../src/asset/imgs/parcel.jpg' />
+    </div>
     <div className='parcel-details p-10'>
       <h4 id='parcel-Id' className='parcel-title text-center m-0 mb-24'>PO{parcel.id}</h4>
       <div id='details' className='pb-10'>

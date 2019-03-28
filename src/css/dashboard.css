@@ -175,6 +175,11 @@ tr:nth-child(even) {
   height: 535px;
 }
 
+#map img {
+  width: 80%;
+  height: auto;
+}
+
 /*User Profile*/
 #user-cont {
   border-radius: 6px;
