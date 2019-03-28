@@ -9,9 +9,13 @@ import NewParcelForm, { NewParcelModalForm }
 
 const onChange = jest.fn();
 const createNewParcel = jest.fn();
-const initialState = {};
+const props = {
+  parcel: {
+    isLoading: false
+  }
+};
 const mockStore = configureStore([thunk]);
-const store = mockStore(initialState);
+const store = mockStore(props);
 let wrapper;
 
 describe('New parcel form', () => {
@@ -27,7 +31,7 @@ describe('New parcel form', () => {
 
 describe('New parcel form', () => {
   beforeEach(() => {
-    wrapper = mount(<NewParcelModalForm
+    wrapper = mount(<NewParcelModalForm {...props}
       onChange={onChange} createNewParcel = { createNewParcel} />);
   });
   afterEach(() => {

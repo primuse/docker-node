@@ -72,7 +72,7 @@ export class Aside extends Component {
           {user.isadmin === false && <li>
             <img src={boxOpen}
               className='menu-ico' />
-            <Link to='/#' data-modal data-target='#parcelmodal' onClick={this.showModal}>
+            <Link to='#' data-modal data-target='#parcelmodal' onClick={this.showModal}>
               <span>New Parcel</span>
             </Link>
           </li>}

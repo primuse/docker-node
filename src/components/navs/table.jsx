@@ -45,16 +45,11 @@ export const ParcelTable = ({
      <a href='#'>{parcelText}</a>
     </div>
     <div id='table-cont'>
-    { isLoading ? <div style={style}>
-        <Pulse color='rgb(255,69,0)' size={100} />
-      </div>
-      : <table>
-          <tbody>
-          {tableHeading}
-          {mapParcels(parcels)}
-          </tbody>
-        </table>
-    }
+      { isLoading
+        ? (<div style={style}><Pulse color='rgb(255,69,0)' size={100} /></div>)
+        : parcels.length < 1
+        ? (<h1 style={style}>No Parcel Orders</h1>)
+        : (<table><tbody>{tableHeading}{mapParcels(parcels)}</tbody></table>) }
     </div>
   </div>;
 

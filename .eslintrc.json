@@ -33,6 +33,7 @@
     "consistent-return": 0,
     "no-param-reassign": 0,
     "comma-dangle": 0,
+    "no-nested-ternary":" off",
     "function-paren-newline": [
       "error",
       "multiline"

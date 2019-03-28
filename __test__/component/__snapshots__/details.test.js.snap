@@ -148,7 +148,11 @@ exports[`All users component renders correctly 1`] = `
       >
         <div
           id="map"
-        />
+        >
+          <img
+            src="../src/asset/imgs/parcel.jpg"
+          />
+        </div>
         <div
           className="parcel-details p-10"
         >
