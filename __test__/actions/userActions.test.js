@@ -1,7 +1,9 @@
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 import { getAllUsers } from '../../src/actions/userActions';
-import { SET_PAGES } from '../../src/actions/actionTypes';
+import {
+  SET_PAGES, GET_ERROR, USER_IS_LOADING, GET_All_USERS
+} from '../../src/actions/actionTypes';
 
 
 describe('Get all users', () => {
@@ -26,7 +28,8 @@ describe('Get all users', () => {
     fetch.mockResponse(JSON.stringify(res));
 
     const expectedActions = [
-      { type: 'GET_All_USERS', payload: res.data },
+      { type: USER_IS_LOADING },
+      { type: GET_All_USERS, payload: res.data },
       { type: SET_PAGES, payload: res.pages }
     ];
     const mockStore = configureStore([thunk]);
@@ -42,8 +45,9 @@ describe('Get all users', () => {
     fetch.mockReject(errorRes.message);
 
     const expectedActions = [
+      { type: USER_IS_LOADING },
       {
-        type: 'GET_ERRORS',
+        type: GET_ERROR,
         payload: errorRes.message,
       }
     ];

@@ -23,14 +23,14 @@ class AllUsers extends Component {
 
   render() {
     const { user } = this.props.auth;
-    const { allUsers, pages } = this.props.users;
+    const { allUsers, pages, isLoading } = this.props.users;
 
     return <main>
       <Aside user={user} />
       <section className='grey' id='dash'>
         <TopNav />
         <div id='main-content-page'>
-          <UserTable allUsers={allUsers} />
+          <UserTable allUsers={allUsers} isLoading={isLoading} />
           <AdminPagination pages={pages} action={this.props.getAllUsers} />
         </div>
       </section>
