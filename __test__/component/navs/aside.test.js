@@ -6,6 +6,7 @@ import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import ConnectedAside from '../../../src/components/navs/aside.jsx';
+import { wrap } from 'module';
 
 const initialState = {
   auth: {

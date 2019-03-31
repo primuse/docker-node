@@ -26,7 +26,7 @@ class Modal extends Component {
     return <div className='modal'>
       <div ref={node => this.modal = node} className='modal-box'>
         <div className='modal-content'>
-          <h2 className='text-center'>{ modalTitle }</h2>
+          <h2 className='text-center white'>{ modalTitle }</h2>
           <ModalForm />
         </div>
       </div>

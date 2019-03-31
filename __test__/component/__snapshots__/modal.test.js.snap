@@ -11,7 +11,7 @@ exports[`All users component renders correctly 1`] = `
       className="modal-content"
     >
       <h2
-        className="text-center"
+        className="text-center white"
       >
         New Parcel
       </h2>
