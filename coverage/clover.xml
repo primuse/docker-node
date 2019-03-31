@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1553786262807" clover="3.2.0">
-  <project timestamp="1553786262807" name="All files">
-    <metrics statements="350" coveredstatements="269" conditionals="98" coveredconditionals="56" methods="127" coveredmethods="98" elements="575" coveredelements="423" complexity="0" loc="350" ncloc="350" packages="9" files="38" classes="38"/>
+<coverage generated="1554054378765" clover="3.2.0">
+  <project timestamp="1554054378766" name="All files">
+    <metrics statements="382" coveredstatements="278" conditionals="108" coveredconditionals="59" methods="143" coveredmethods="102" elements="633" coveredelements="439" complexity="0" loc="382" ncloc="382" packages="9" files="39" classes="39"/>
     <package name="src">
       <metrics statements="21" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="4" coveredmethods="0"/>
       <file name="Main.js" path="/Users/tikuochukwuokoye/Documents/SendIt-React/src/Main.js">
@@ -15,7 +15,7 @@
       </file>
       <file name="history.js" path="/Users/tikuochukwuokoye/Documents/SendIt-React/src/history.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="3" count="7" type="stmt"/>
+        <line num="3" count="9" type="stmt"/>
       </file>
       <file name="localStorage.js" path="/Users/tikuochukwuokoye/Documents/SendIt-React/src/localStorage.js">
         <metrics statements="12" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
@@ -42,28 +42,29 @@
       </file>
     </package>
     <package name="src.actions">
-      <metrics statements="122" coveredstatements="92" conditionals="17" coveredconditionals="7" methods="39" coveredmethods="28"/>
+      <metrics statements="136" coveredstatements="94" conditionals="19" coveredconditionals="7" methods="48" coveredmethods="32"/>
       <file name="actionTypes.js" path="/Users/tikuochukwuokoye/Documents/SendIt-React/src/actions/actionTypes.js">
-        <metrics statements="19" coveredstatements="19" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="20" type="stmt"/>
-        <line num="2" count="20" type="stmt"/>
-        <line num="3" count="20" type="stmt"/>
-        <line num="4" count="20" type="stmt"/>
-        <line num="5" count="20" type="stmt"/>
-        <line num="6" count="20" type="stmt"/>
-        <line num="7" count="20" type="stmt"/>
-        <line num="8" count="20" type="stmt"/>
-        <line num="9" count="20" type="stmt"/>
-        <line num="10" count="20" type="stmt"/>
-        <line num="11" count="20" type="stmt"/>
-        <line num="12" count="20" type="stmt"/>
-        <line num="13" count="20" type="stmt"/>
-        <line num="14" count="20" type="stmt"/>
-        <line num="15" count="20" type="stmt"/>
-        <line num="16" count="20" type="stmt"/>
-        <line num="17" count="20" type="stmt"/>
-        <line num="18" count="20" type="stmt"/>
-        <line num="19" count="20" type="stmt"/>
+        <metrics statements="20" coveredstatements="20" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="21" type="stmt"/>
+        <line num="2" count="21" type="stmt"/>
+        <line num="3" count="21" type="stmt"/>
+        <line num="4" count="21" type="stmt"/>
+        <line num="5" count="21" type="stmt"/>
+        <line num="6" count="21" type="stmt"/>
+        <line num="7" count="21" type="stmt"/>
+        <line num="8" count="21" type="stmt"/>
+        <line num="9" count="21" type="stmt"/>
+        <line num="10" count="21" type="stmt"/>
+        <line num="11" count="21" type="stmt"/>
+        <line num="12" count="21" type="stmt"/>
+        <line num="13" count="21" type="stmt"/>
+        <line num="14" count="21" type="stmt"/>
+        <line num="15" count="21" type="stmt"/>
+        <line num="16" count="21" type="stmt"/>
+        <line num="17" count="21" type="stmt"/>
+        <line num="18" count="21" type="stmt"/>
+        <line num="19" count="21" type="stmt"/>
+        <line num="20" count="21" type="stmt"/>
       </file>
       <file name="authActions.js" path="/Users/tikuochukwuokoye/Documents/SendIt-React/src/actions/authActions.js">
         <metrics statements="39" coveredstatements="21" conditionals="6" coveredconditionals="2" methods="15" coveredmethods="8"/>
@@ -108,60 +109,73 @@
         <line num="131" count="0" type="stmt"/>
       </file>
       <file name="parcelActions.js" path="/Users/tikuochukwuokoye/Documents/SendIt-React/src/actions/parcelActions.js">
-        <metrics statements="53" coveredstatements="44" conditionals="8" coveredconditionals="4" methods="19" coveredmethods="16"/>
-        <line num="11" count="9" type="cond" truecount="1" falsecount="0"/>
-        <line num="12" count="3" type="stmt"/>
-        <line num="13" count="3" type="stmt"/>
-        <line num="19" count="3" type="stmt"/>
-        <line num="25" count="1" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
-        <line num="27" count="1" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
+        <metrics statements="66" coveredstatements="45" conditionals="10" coveredconditionals="4" methods="28" coveredmethods="20"/>
+        <line num="9" count="10" type="cond" truecount="1" falsecount="0"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="4" type="stmt"/>
+        <line num="25" count="4" type="stmt"/>
+        <line num="26" count="4" type="stmt"/>
+        <line num="27" count="4" type="stmt"/>
         <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
         <line num="31" count="1" type="stmt"/>
         <line num="32" count="1" type="stmt"/>
         <line num="33" count="1" type="stmt"/>
         <line num="34" count="1" type="stmt"/>
-        <line num="35" count="1" type="stmt"/>
-        <line num="36" count="1" type="stmt"/>
-        <line num="39" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
-        <line num="55" count="2" type="stmt"/>
-        <line num="63" count="9" type="cond" truecount="0" falsecount="1"/>
-        <line num="64" count="2" type="stmt"/>
-        <line num="65" count="2" type="stmt"/>
-        <line num="71" count="2" type="stmt"/>
-        <line num="77" count="1" type="stmt"/>
+        <line num="37" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="53" count="2" type="stmt"/>
+        <line num="61" count="10" type="cond" truecount="0" falsecount="1"/>
+        <line num="62" count="2" type="stmt"/>
+        <line num="63" count="2" type="stmt"/>
+        <line num="69" count="2" type="stmt"/>
+        <line num="75" count="1" type="stmt"/>
+        <line num="76" count="4" type="stmt"/>
+        <line num="77" count="4" type="stmt"/>
         <line num="78" count="4" type="stmt"/>
         <line num="79" count="4" type="stmt"/>
-        <line num="80" count="4" type="stmt"/>
-        <line num="81" count="4" type="stmt"/>
+        <line num="81" count="1" type="stmt"/>
+        <line num="82" count="1" type="stmt"/>
         <line num="83" count="1" type="stmt"/>
         <line num="84" count="1" type="stmt"/>
         <line num="85" count="1" type="stmt"/>
         <line num="86" count="1" type="stmt"/>
-        <line num="87" count="1" type="stmt"/>
-        <line num="88" count="1" type="stmt"/>
-        <line num="91" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="92" count="0" type="stmt"/>
-        <line num="93" count="0" type="stmt"/>
-        <line num="101" count="0" type="stmt"/>
-        <line num="107" count="1" type="stmt"/>
-        <line num="115" count="9" type="stmt"/>
+        <line num="89" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="90" count="0" type="stmt"/>
+        <line num="91" count="0" type="stmt"/>
+        <line num="99" count="0" type="stmt"/>
+        <line num="105" count="1" type="stmt"/>
+        <line num="113" count="10" type="stmt"/>
+        <line num="114" count="2" type="stmt"/>
+        <line num="115" count="2" type="stmt"/>
         <line num="116" count="2" type="stmt"/>
-        <line num="117" count="2" type="stmt"/>
-        <line num="118" count="2" type="stmt"/>
-        <line num="126" count="2" type="stmt"/>
-        <line num="132" count="1" type="stmt"/>
-        <line num="133" count="1" type="stmt"/>
-        <line num="141" count="1" type="stmt"/>
-        <line num="144" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="145" count="0" type="stmt"/>
-        <line num="146" count="0" type="stmt"/>
-        <line num="154" count="0" type="stmt"/>
-        <line num="160" count="1" type="stmt"/>
+        <line num="124" count="2" type="stmt"/>
+        <line num="130" count="1" type="stmt"/>
+        <line num="131" count="1" type="stmt"/>
+        <line num="139" count="1" type="stmt"/>
+        <line num="142" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="143" count="0" type="stmt"/>
+        <line num="144" count="0" type="stmt"/>
+        <line num="152" count="0" type="stmt"/>
+        <line num="158" count="1" type="stmt"/>
+        <line num="166" count="10" type="stmt"/>
+        <line num="167" count="0" type="stmt"/>
+        <line num="168" count="0" type="stmt"/>
+        <line num="169" count="0" type="stmt"/>
+        <line num="177" count="0" type="stmt"/>
+        <line num="183" count="0" type="stmt"/>
+        <line num="191" count="0" type="stmt"/>
+        <line num="194" count="0" type="stmt"/>
+        <line num="195" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="196" count="0" type="stmt"/>
+        <line num="197" count="0" type="stmt"/>
+        <line num="205" count="0" type="stmt"/>
+        <line num="211" count="0" type="stmt"/>
       </file>
       <file name="userActions.js" path="/Users/tikuochukwuokoye/Documents/SendIt-React/src/actions/userActions.js">
         <metrics statements="11" coveredstatements="8" conditionals="3" coveredconditionals="1" methods="5" coveredmethods="4"/>
@@ -185,7 +199,7 @@
       </file>
     </package>
     <package name="src.components">
-      <metrics statements="76" coveredstatements="63" conditionals="12" coveredconditionals="3" methods="34" coveredmethods="29"/>
+      <metrics statements="83" coveredstatements="70" conditionals="16" coveredconditionals="5" methods="36" coveredmethods="31"/>
       <file name="adminPagination.jsx" path="/Users/tikuochukwuokoye/Documents/SendIt-React/src/components/adminPagination.jsx">
         <metrics statements="8" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="4"/>
         <line num="8" count="0" type="stmt"/>
@@ -224,30 +238,37 @@
         <line num="56" count="1" type="stmt"/>
       </file>
       <file name="deliveredParcel.jsx" path="/Users/tikuochukwuokoye/Documents/SendIt-React/src/components/deliveredParcel.jsx">
-        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
+        <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="3"/>
+        <line num="16" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="17" count="1" type="stmt"/>
-        <line num="31" count="1" type="stmt"/>
-        <line num="38" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
       </file>
       <file name="details.jsx" path="/Users/tikuochukwuokoye/Documents/SendIt-React/src/components/details.jsx">
-        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
-        <line num="34" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
       </file>
       <file name="inTransitParcel.jsx" path="/Users/tikuochukwuokoye/Documents/SendIt-React/src/components/inTransitParcel.jsx">
-        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="14" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
+        <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="3"/>
+        <line num="15" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="16" count="1" type="stmt"/>
-        <line num="30" count="1" type="stmt"/>
-        <line num="37" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
       </file>
       <file name="infoBox.jsx" path="/Users/tikuochukwuokoye/Documents/SendIt-React/src/components/infoBox.jsx">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -270,7 +291,7 @@
         <line num="25" count="2" type="stmt"/>
         <line num="26" count="2" type="stmt"/>
         <line num="27" count="3" type="stmt"/>
-        <line num="37" count="8" type="stmt"/>
+        <line num="37" count="9" type="stmt"/>
       </file>
       <file name="pagination.jsx" path="/Users/tikuochukwuokoye/Documents/SendIt-React/src/components/pagination.jsx">
         <metrics statements="9" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="4"/>
@@ -306,7 +327,19 @@
       </file>
     </package>
     <package name="src.components.forms">
-      <metrics statements="38" coveredstatements="33" conditionals="6" coveredconditionals="3" methods="19" coveredmethods="16"/>
+      <metrics statements="47" coveredstatements="35" conditionals="6" coveredconditionals="3" methods="24" coveredmethods="16"/>
+      <file name="changeDestinationForm.jsx" path="/Users/tikuochukwuokoye/Documents/SendIt-React/src/components/forms/changeDestinationForm.jsx">
+        <metrics statements="9" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="42" count="2" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
+      </file>
       <file name="loginForm.jsx" path="/Users/tikuochukwuokoye/Documents/SendIt-React/src/components/forms/loginForm.jsx">
         <metrics statements="10" coveredstatements="5" conditionals="2" coveredconditionals="1" methods="5" coveredmethods="2"/>
         <line num="16" count="0" type="stmt"/>
@@ -359,7 +392,7 @@
       </file>
     </package>
     <package name="src.components.navs">
-      <metrics statements="45" coveredstatements="38" conditionals="30" coveredconditionals="15" methods="18" coveredmethods="15"/>
+      <metrics statements="47" coveredstatements="38" conditionals="32" coveredconditionals="16" methods="20" coveredmethods="15"/>
       <file name="aside.jsx" path="/Users/tikuochukwuokoye/Documents/SendIt-React/src/components/navs/aside.jsx">
         <metrics statements="18" coveredstatements="12" conditionals="16" coveredconditionals="7" methods="8" coveredmethods="6"/>
         <line num="18" count="1" type="stmt"/>
@@ -382,12 +415,14 @@
         <line num="117" count="8" type="stmt"/>
       </file>
       <file name="parcelDetails.jsx" path="/Users/tikuochukwuokoye/Documents/SendIt-React/src/components/navs/parcelDetails.jsx">
-        <metrics statements="5" coveredstatements="5" conditionals="6" coveredconditionals="3" methods="1" coveredmethods="1"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="58" count="2" type="stmt"/>
+        <metrics statements="7" coveredstatements="5" conditionals="8" coveredconditionals="4" methods="3" coveredmethods="1"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="79" count="2" type="stmt"/>
       </file>
       <file name="profile.jsx" path="/Users/tikuochukwuokoye/Documents/SendIt-React/src/components/navs/profile.jsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -425,10 +460,10 @@
       </file>
     </package>
     <package name="src.helpers">
-      <metrics statements="14" coveredstatements="8" conditionals="6" coveredconditionals="3" methods="7" coveredmethods="4"/>
+      <metrics statements="12" coveredstatements="6" conditionals="6" coveredconditionals="3" methods="5" coveredmethods="2"/>
       <file name="errorHelper.js" path="/Users/tikuochukwuokoye/Documents/SendIt-React/src/helpers/errorHelper.js">
         <metrics statements="4" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
-        <line num="1" count="16" type="stmt"/>
+        <line num="1" count="17" type="stmt"/>
         <line num="2" count="7" type="cond" truecount="1" falsecount="1"/>
         <line num="3" count="0" type="stmt"/>
         <line num="5" count="7" type="stmt"/>
@@ -441,17 +476,15 @@
         <line num="27" count="0" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
       </file>
-      <file name="utils.js" path="/Users/tikuochukwuokoye/Documents/SendIt-React/src/helpers/utils.js">
-        <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
-        <line num="1" count="11" type="stmt"/>
+      <file name="validator.js" path="/Users/tikuochukwuokoye/Documents/SendIt-React/src/helpers/validator.js">
+        <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="2" type="stmt"/>
         <line num="2" count="4" type="cond" truecount="2" falsecount="0"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="6" count="11" type="stmt"/>
-        <line num="7" count="16" type="stmt"/>
       </file>
     </package>
     <package name="src.reducers">
-      <metrics statements="28" coveredstatements="28" conditionals="25" coveredconditionals="25" methods="3" coveredmethods="3"/>
+      <metrics statements="30" coveredstatements="28" conditionals="27" coveredconditionals="25" methods="3" coveredmethods="3"/>
       <file name="authReducer.js" path="/Users/tikuochukwuokoye/Documents/SendIt-React/src/reducers/authReducer.js">
         <metrics statements="8" coveredstatements="8" conditionals="7" coveredconditionals="7" methods="1" coveredmethods="1"/>
         <line num="7" count="1" type="stmt"/>
@@ -467,18 +500,20 @@
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
       <file name="parcelReducer.js" path="/Users/tikuochukwuokoye/Documents/SendIt-React/src/reducers/parcelReducer.js">
-        <metrics statements="11" coveredstatements="11" conditionals="10" coveredconditionals="10" methods="1" coveredmethods="1"/>
+        <metrics statements="13" coveredstatements="11" conditionals="12" coveredconditionals="10" methods="1" coveredmethods="1"/>
         <line num="9" count="1" type="stmt"/>
-        <line num="21" count="9" type="cond" truecount="9" falsecount="0"/>
-        <line num="23" count="1" type="stmt"/>
-        <line num="29" count="1" type="stmt"/>
-        <line num="35" count="1" type="stmt"/>
-        <line num="41" count="1" type="stmt"/>
-        <line num="47" count="1" type="stmt"/>
-        <line num="53" count="1" type="stmt"/>
-        <line num="59" count="1" type="stmt"/>
-        <line num="64" count="1" type="stmt"/>
-        <line num="70" count="1" type="stmt"/>
+        <line num="23" count="9" type="cond" truecount="9" falsecount="2"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
+        <line num="55" count="1" type="stmt"/>
+        <line num="61" count="1" type="stmt"/>
+        <line num="66" count="0" type="stmt"/>
+        <line num="72" count="0" type="stmt"/>
+        <line num="78" count="1" type="stmt"/>
+        <line num="84" count="1" type="stmt"/>
       </file>
       <file name="userReducer.js" path="/Users/tikuochukwuokoye/Documents/SendIt-React/src/reducers/userReducer.js">
         <metrics statements="9" coveredstatements="9" conditionals="8" coveredconditionals="8" methods="1" coveredmethods="1"/>

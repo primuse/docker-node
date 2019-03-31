@@ -4,11 +4,19 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Modal from '../modal.jsx';
 import NewParcelModalForm from '../forms/newParcelForm.jsx';
+import {
+  archive, box, home, userSvg, boxOpen
+} from '../../asset/imgs/ico';
+import { HIDE_ASIDE } from '../../actions/actionTypes';
 
-class Aside extends Component {
+export class Aside extends Component {
   state = {
     modalDisplay: false,
   };
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.closeAside);
+  }
 
   showModal = () => {
     this.setState({ modalDisplay: true });
@@ -18,11 +26,28 @@ class Aside extends Component {
     this.setState({ modalDisplay: false });
   }
 
+  closeAside = (e) => {
+    const { dispatch } = this.props;
+    if (this.aside !== null || this.aside !== undefined) {
+      if (!this.aside.contains(e.target)) {
+        dispatch({ type: HIDE_ASIDE });
+        document.removeEventListener('click', this.handleClick);
+      }
+    }
+  }
+
+  showAside = () => {
+    document.addEventListener('click', this.closeAside);
+    const { show } = this.props.users;
+    if (show) return 'fade-in toggled-nav';
+    return '';
+  }
+
   render() {
     const { user } = this.props.auth;
     const { modalDisplay } = this.state;
-    return <aside>
-      <div className='bg-blue' id='menu'>
+    return <aside className={this.showAside()}>
+      <div ref={node => this.aside = node} className='bg-blue' id='menu'>
         <div id='aside-profile'>
           <Link to='/dashboard'>
             <h3 className='m-0 pb-10'>
@@ -39,34 +64,34 @@ class Aside extends Component {
         </div>
         <ul className='mt-80'>
           <li>
-            <img src={require('../../asset/imgs/ico/home.svg')} className='menu-ico' />
+            <img src={home} className='menu-ico' />
             <Link to='/dashboard'>
               <span>Dashboard</span>
             </Link>
           </li>
           {user.isadmin === false && <li>
-            <img src={require('../../asset/imgs/ico/box-open.svg')}
+            <img src={boxOpen}
               className='menu-ico' />
-            <a href='#' data-modal data-target='#parcelmodal' onClick={this.showModal}>
+            <Link to='#' data-modal data-target='#parcelmodal' onClick={this.showModal}>
               <span>New Parcel</span>
-            </a>
+            </Link>
           </li>}
           <li>
-            <img src={require('../../asset/imgs/ico/archive.svg')}
+            <img src={archive}
               className='menu-ico' />
             <Link to='/delivered_parcels'>
               <span>Delivered Parcels</span>
             </Link>
           </li>
           <li>
-            <img src={require('../../asset/imgs/ico/box.svg')}
+            <img src={box}
               className='menu-ico' />
             <Link to='/inTransit_parcels'>
               <span>In-transit Parcels</span>
             </Link>
           </li>
           {user.isadmin && <li>
-            <img src={require('../../asset/imgs/ico/user.svg')}
+            <img src={userSvg}
               className='menu-ico' />
             <Link to='/all_users'>
               <span>All Users</span>
@@ -85,10 +110,13 @@ class Aside extends Component {
 Aside.propTypes = {
   user: PropTypes.object,
   auth: PropTypes.object,
+  users: PropTypes.object,
+  dispatch: PropTypes.func
 };
 
 const mapStateToProps = state => ({
   auth: state.auth,
+  users: state.users
 });
 
 export default connect(mapStateToProps)(Aside);

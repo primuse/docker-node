@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {
+  userBlack
+} from '../../asset/imgs/ico';
 
 const ProfileInfo = ({ user, parcel }) => (
     <div id='user-cont' className='d-flex'>
       <div id='user-desc'>
-        <img src={require('../../asset/imgs/ico/user-black.svg')} id='user-img' />
+        <img src={userBlack} id='user-img' />
         <div className='text-center'>
           <h2 id='id'>SDO{user.id}</h2>
           <span id='profile-name' className='d-block mb-14'>

@@ -1,11 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import {
+  bars
+} from '../../asset/imgs/ico';
+import { SHOW_ASIDE } from '../../actions/actionTypes';
 
 
-export const TopNav = () => (
+export const TopNav = ({ dispatch }) => (
   <nav>
-    <a href='#' className='toggler mr-1' id='toggle'>
-      <img src={require('../../asset/imgs/ico/bars.svg')} />
+    <a href='#' className='toggler mr-1' id='toggle'
+    onClick={() => dispatch({ type: SHOW_ASIDE })}>
+      <img src={bars} />
     </a>
     <ul className='p-0'>
       <li>
@@ -26,3 +33,10 @@ export const TopNav = () => (
     </ul>
   </nav>
 );
+
+TopNav.propTypes = {
+  dispatch: PropTypes.func
+};
+
+
+export default connect()(TopNav);

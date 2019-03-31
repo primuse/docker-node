@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Circle } from 'better-react-spinkit';
 import { createNewParcel } from '../../actions/parcelActions';
 
-class NewParcelModalForm extends Component {
+export class NewParcelModalForm extends Component {
   state = {
     parcelName: '',
     weight: '',
@@ -44,6 +45,8 @@ class NewParcelModalForm extends Component {
       parcelName, weight, destination, receiver,
       email, phoneNumber, pickupLocation
     } = this.state;
+
+    const { isLoading } = this.props.parcel;
 
     return <form id='createParcel' className='text-right' onSubmit={this.create}>
       <div className='column is-two htmlForm-row text-left'>
@@ -92,6 +95,11 @@ class NewParcelModalForm extends Component {
       </div>
       <button type='submit' className='btn sm bg-bright-blue text-right white'>
         Create
+        {isLoading && (
+          <span style={{ float: 'right', padding: '3px 3px 0 10px' }}>
+            <Circle color={'rgba(255,255,255,1)'} />
+          </span>
+        )}
       </button>
     </form>;
   }
@@ -99,10 +107,12 @@ class NewParcelModalForm extends Component {
 
 NewParcelModalForm.propTypes = {
   createNewParcel: PropTypes.func,
+  parcel: PropTypes.object
 };
 
 const mapStateToProps = state => ({
   auth: state.auth,
+  parcel: state.parcel
 });
 
 export default connect(mapStateToProps, { createNewParcel })(NewParcelModalForm);
