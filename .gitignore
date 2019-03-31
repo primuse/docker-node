@@ -13,7 +13,7 @@ public
 lib-cov
 
 # Coverage directory used by tools like istanbul
-coverage/
+coverage
 
 # Dependency directory
 node_modules/
