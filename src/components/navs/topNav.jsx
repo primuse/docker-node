@@ -9,7 +9,7 @@ import { SHOW_ASIDE } from '../../actions/actionTypes';
 
 
 export const TopNav = ({ dispatch }) => (
-  <nav>
+  <nav id='nav'>
     <a href='#' className='toggler mr-1' id='toggle'
     onClick={() => dispatch({ type: SHOW_ASIDE })}>
       <img src={bars} />

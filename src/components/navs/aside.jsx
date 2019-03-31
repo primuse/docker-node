@@ -28,8 +28,9 @@ export class Aside extends Component {
 
   closeAside = (e) => {
     const { dispatch } = this.props;
+    const nav = document.getElementById('nav');
     if (this.aside !== null || this.aside !== undefined) {
-      if (!this.aside.contains(e.target)) {
+      if (!this.aside.contains(e.target) && !nav.contains(e.target)) {
         dispatch({ type: HIDE_ASIDE });
         document.removeEventListener('click', this.handleClick);
       }
