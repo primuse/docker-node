@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`All users component renders correctly 1`] = `
+exports[`Parcel details container component renders correctly 1`] = `
 <main>
   <aside
     className=""
@@ -98,7 +98,9 @@ exports[`All users component renders correctly 1`] = `
     className="grey"
     id="dash"
   >
-    <nav>
+    <nav
+      id="nav"
+    >
       <a
         className="toggler mr-1"
         href="#"
@@ -157,7 +159,7 @@ exports[`All users component renders correctly 1`] = `
             id="parcel-Id"
           >
             PO
-            1
+            2
           </h4>
           <div
             className="pb-10"

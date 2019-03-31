@@ -10,17 +10,15 @@ import '../css/dashboard.css';
 
 
 const Details = (props) => {
-  const { parcels } = props.parcel;
   const { user } = props.auth;
   const parcelId = +props.match.params.parcelId;
-  const parcel = parcels.filter(item => item.id === parcelId);
 
   return <main>
     <Aside user={user} />
     <section className='grey' id='dash'>
       <TopNav />
       <div id='main-content-page'>
-        <ParcelDetails parcel={parcel} user={user} />
+        <ParcelDetails user={user} parcelId={parcelId} />
       </div>
     </section>
   </main>;

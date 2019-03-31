@@ -49,7 +49,17 @@ const initialState = {
     createdParcels: [],
     deliveredParcels: [],
     inTransitParcels: [],
-    canceledParcels: []
+    canceledParcels: [],
+    userParcel: {
+      id: 2,
+      parcelName: 'rice',
+      weigth: '30',
+      price: '4,000',
+      destination: 'Owerri',
+      receiver: 'Tiku Okoye',
+      senton: '22-03-2019',
+      status: 'created'
+    }
   }
 };
 
@@ -61,7 +71,7 @@ const mockStore = configureStore([thunk]);
 const store = mockStore(initialState);
 
 
-describe('All users component', () => {
+describe('Parcel details container component', () => {
   it('renders correctly', () => {
     const tree = renderer
       .create(<MemoryRouter>

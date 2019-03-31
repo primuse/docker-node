@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import DestinationModalForm from '../forms/changeDestinationForm.jsx';
 import Modal from '../modal.jsx';
+import { getUserParcel } from '../../actions/parcelActions';
 
 class ParcelDetails extends Component {
   state = {
     modalDisplay: false,
   };
+
+  componentDidMount() {
+    const { parcelId } = this.props;
+    this.props.getUserParcel(parcelId);
+  }
 
   showModal = () => {
     this.setState({ modalDisplay: true });
@@ -17,7 +24,7 @@ class ParcelDetails extends Component {
   }
 
   render() {
-    const parcel = this.props.parcel[0];
+    const parcel = this.props.parcel.userParcel;
     const { user } = this.props;
     const { modalDisplay } = this.state;
 
@@ -77,9 +84,14 @@ class ParcelDetails extends Component {
 }
 
 ParcelDetails.propTypes = {
-  parcel: PropTypes.array,
+  parcel: PropTypes.object,
   user: PropTypes.object,
+  getUserParcel: PropTypes.func,
+  parcelId: PropTypes.number
 };
 
+const mapStateToProps = state => ({
+  parcel: state.parcel,
+});
 
-export default ParcelDetails;
+export default connect(mapStateToProps, { getUserParcel })(ParcelDetails);

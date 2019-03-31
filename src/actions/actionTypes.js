@@ -18,3 +18,4 @@ export const HIDE_ASIDE = 'HIDE_ASIDE';
 export const SET_PAGES = 'SET_PAGES';
 export const PARCEL_IS_LOADING = 'PARCEL_IS_LOADING';
 export const USER_IS_LOADING = 'USER_IS_LOADING';
+export const GET_USER_PARCEL = 'GET_USER_PARCEL';

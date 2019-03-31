@@ -5,31 +5,35 @@ import { MemoryRouter } from 'react-router-dom';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import TopNav from '../../../src/components/navs/topNav.jsx';
+import Pagination from '../../src/components/pagination.jsx';
+
+global.Headers = () => { };
 
 const initialState = {
   auth: {
     isAuthenticated: true,
     user: {
+      id: 1,
       firstName: 'Tiku',
       lastName: 'Okoye',
-      isadmin: false
+      registered: '22-03-2019',
+      email: 'cim@gmail.com'
     },
-  },
-  users: {
-    allUsers: [],
-    show: false
   }
 };
+
 const mockStore = configureStore([thunk]);
 const store = mockStore(initialState);
+const action = jest.fn();
+let wrapper;
 
-describe('Top Nav component', () => {
+
+describe('Pagination Component', () => {
   it('renders correctly', () => {
     const tree = renderer
       .create(<MemoryRouter>
         <Provider store={store}>
-          <TopNav />
+          <Pagination />
         </Provider>
       </MemoryRouter>)
       .toJSON();
@@ -37,21 +41,25 @@ describe('Top Nav component', () => {
   });
 });
 
-describe('Top nav component', () => {
-  let topNav;
+
+describe('Pagination component', () => {
   beforeEach(() => {
-    topNav = mount(<MemoryRouter>
+    wrapper = mount(<MemoryRouter>
       <Provider store={store}>
-        <TopNav />
+        <Pagination action={action} pages={2} />
       </Provider>
     </MemoryRouter>);
   });
   afterEach(() => {
-    topNav.unmount();
+    wrapper.unmount();
   });
-  it('renders the Top Nav', () => {
-    const toggle = topNav.find('#toggle');
-    expect(toggle.length).toEqual(1);
-    toggle.simulate('click');
+  it('should render pagination links', () => {
+    const links = wrapper.find('a');
+    expect(links.length).toEqual(2);
+  });
+  it('should render the next page', () => {
+    const link = wrapper.find('a').at(0);
+    link.simulate('click');
+    expect(action).toHaveBeenCalled();
   });
 });

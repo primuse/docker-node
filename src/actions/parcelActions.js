@@ -3,8 +3,10 @@ import handleErrors from '../helpers/errorHelper';
 import {
   GET_DELIVERED_USER_ORDERS, GET_INTRANSIT_USER_ORDERS, GET_CANCELED_USER_ORDERS,
   GET_CREATED_USER_ORDERS, GET_All_USER_ORDERS, PARCEL_IS_LOADING,
-  CREATE_NEW_PARCEL, ERROR, SET_PAGES, CHANGE_PARCEL_DESTINATION
+  CREATE_NEW_PARCEL, ERROR, SET_PAGES, CHANGE_PARCEL_DESTINATION, GET_USER_PARCEL
 } from './actionTypes';
+
+let parcelID;
 
 export const getUserParcels = (userId, offset = 0) => (dispatch) => {
   dispatch({ type: PARCEL_IS_LOADING });
@@ -32,6 +34,49 @@ export const getUserParcels = (userId, offset = 0) => (dispatch) => {
       dispatch({ type: GET_CANCELED_USER_ORDERS, payload: canceledParcels });
       dispatch({ type: GET_All_USER_ORDERS, payload: parcels });
       dispatch({ type: SET_PAGES, payload: res.pages });
+    })
+    .catch((err) => {
+      if (err.json) {
+        err.json().then((obj) => {
+          Swal.fire({
+            title: 'Error!',
+            text: obj.message,
+            type: 'error',
+            timer: 3000,
+            showConfirmButton: false,
+            width: 400,
+          });
+          dispatch({
+            type: ERROR,
+            payload: obj.message,
+          });
+        });
+      } else {
+        dispatch({
+          type: ERROR,
+          payload: obj.message,
+        });
+      }
+    });
+};
+
+export const getUserParcel = parcelId => (dispatch) => {
+  dispatch({ type: PARCEL_IS_LOADING });
+  const token = localStorage.getItem('token'), config = {
+    method: 'GET',
+    headers: new Headers({
+      'x-access-token': token
+    }),
+  };
+  return fetch(
+    `https://sendit2019.herokuapp.com/api/v1/parcels/${parcelId}`,
+    config
+  )
+    .then(handleErrors)
+    .then((res) => {
+      const parcel = res.data[0];
+      parcelID = parcel.id;
+      dispatch({ type: GET_USER_PARCEL, payload: parcel });
     })
     .catch((err) => {
       if (err.json) {
@@ -174,13 +219,13 @@ export const changeParcelDestination = destination => (dispatch) => {
     }),
     body: JSON.stringify(destination),
   };
-  fetch(
-    `https://sendit2019.herokuapp.com/api/v1/parcels/${parcelId}/destination`,
+  return fetch(
+    `https://sendit2019.herokuapp.com/api/v1/parcels/${parcelID}/destination`,
     config
   )
     .then(handleErrors)
-    .then(() => {
-      Swal.fire({
+    .then(async () => {
+      await Swal.fire({
         title: 'Success!',
         text: 'Successfully Updated destination',
         type: 'success',
@@ -189,9 +234,9 @@ export const changeParcelDestination = destination => (dispatch) => {
         width: 400,
       });
       dispatch({ type: CHANGE_PARCEL_DESTINATION, payload: 'Success' });
+      window.location.reload(true);
     })
     .catch((err) => {
-      console.log(err);
       if (err.json) {
         err.json().then((obj) => {
           Swal.fire({
@@ -208,7 +253,10 @@ export const changeParcelDestination = destination => (dispatch) => {
           });
         });
       } else {
-        console.log(err);
+        dispatch({
+          type: ERROR,
+          payload: obj.message,
+        });
       }
     });
 };

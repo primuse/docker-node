@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { changeParcelDestination } from '../../actions/parcelActions';
 
-class DestinationModalForm extends Component {
+export class DestinationModalForm extends Component {
   state = {
     destination: '',
   }
@@ -18,7 +18,6 @@ class DestinationModalForm extends Component {
   save = (event) => {
     event.preventDefault();
     const data = this.state;
-
     this.props.changeParcelDestination(data);
   }
 
@@ -41,6 +40,7 @@ class DestinationModalForm extends Component {
 
 DestinationModalForm.propTypes = {
   changeParcelDestination: PropTypes.func,
+  ParcelId: PropTypes.number
 };
 
 const mapStateToProps = state => ({

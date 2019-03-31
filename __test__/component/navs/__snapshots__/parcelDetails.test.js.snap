@@ -16,7 +16,7 @@ exports[`Parcel Details component renders correctly 1`] = `
       id="parcel-Id"
     >
       PO
-      1
+      2
     </h4>
     <div
       className="pb-10"

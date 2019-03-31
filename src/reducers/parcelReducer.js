@@ -3,13 +3,14 @@ import {
   GET_All_USER_ORDERS, GET_CANCELED_USER_ORDERS,
   GET_CREATED_USER_ORDERS, GET_DELIVERED_USER_ORDERS,
   GET_INTRANSIT_USER_ORDERS, PARCEL_IS_LOADING, CREATE_NEW_PARCEL,
-  SET_PAGES, CHANGE_PARCEL_DESTINATION, ERROR
+  SET_PAGES, CHANGE_PARCEL_DESTINATION, ERROR, GET_USER_PARCEL
 } from '../actions/actionTypes';
 
 const initialState = {
   error: '',
   isLoading: false,
   parcels: [],
+  userParcel: {},
   deliveredParcels: [],
   inTransitParcels: [],
   createdParcels: [],
@@ -50,6 +51,12 @@ export default (state = initialState, action) => {
         ...state,
         isLoading: false,
         canceledParcels: action.payload,
+      };
+    case GET_USER_PARCEL:
+      return {
+        ...state,
+        isLoading: false,
+        userParcel: action.payload,
       };
     case CREATE_NEW_PARCEL:
       return {

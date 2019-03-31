@@ -20,14 +20,14 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">65% </span>
+        <span class="strong">59.09% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>13/20</span>
+        <span class='fraction'>13/22</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">43.75% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>7/16</span>
+        <span class='fraction'>9/18</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">75% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>6/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">66.67% </span>
+        <span class="strong">60% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>12/18</span>
+        <span class='fraction'>12/20</span>
       </div>
     </div>
     <p class="quiet">
@@ -168,7 +168,9 @@
 <a name='L120'></a><a href='#L120'>120</a>
 <a name='L121'></a><a href='#L121'>121</a>
 <a name='L122'></a><a href='#L122'>122</a>
-<a name='L123'></a><a href='#L123'>123</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L123'></a><a href='#L123'>123</a>
+<a name='L124'></a><a href='#L124'>124</a>
+<a name='L125'></a><a href='#L125'>125</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -202,22 +204,24 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -284,7 +288,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -319,9 +323,11 @@ export class Aside extends Component {
   }
 &nbsp;
   closeAside = <span class="fstat-no" title="function not covered" >(e</span>) =&gt; {
+<span class="cstat-no" title="statement not covered" >    console.log('tiku');</span>
     const { dispatch } = <span class="cstat-no" title="statement not covered" >this.props;</span>
+    const nav = <span class="cstat-no" title="statement not covered" >document.getElementById('nav');</span>
 <span class="cstat-no" title="statement not covered" >    if (this.aside !== null || this.aside !== undefined) {</span>
-<span class="cstat-no" title="statement not covered" >      if (!this.aside.contains(e.target)) {</span>
+<span class="cstat-no" title="statement not covered" >      if (!this.aside.contains(e.target) &amp;&amp; !nav.contains(e.target)) {</span>
 <span class="cstat-no" title="statement not covered" >        dispatch({ type: HIDE_ASIDE });</span>
 <span class="cstat-no" title="statement not covered" >        document.removeEventListener('click', this.handleClick);</span>
       }
@@ -350,7 +356,7 @@ export class Aside extends Component {
             SD0{user.id}
           &lt;/small&gt;
           &lt;small&gt;
-            &lt;p className='m-0'&gt;Welcome {user.isadmin &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >&lt;small&gt;ADMIN&lt;/small&gt;}</span>&lt;/p&gt;
+            &lt;p className='m-0'&gt;Welcome {user.isadmin &amp;&amp; &lt;small&gt;ADMIN&lt;/small&gt;}&lt;/p&gt;
             &lt;p id='username'&gt;{user.firstname} {user.lastname}&lt;/p&gt;
           &lt;/small&gt;
         &lt;/div&gt;
@@ -382,7 +388,7 @@ export class Aside extends Component {
               &lt;span&gt;In-transit Parcels&lt;/span&gt;
             &lt;/Link&gt;
           &lt;/li&gt;
-          {user.isadmin &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >&lt;li&gt;</span>
+          {user.isadmin &amp;&amp; &lt;li&gt;
             &lt;img src={userSvg}
               className='menu-ico' /&gt;
             &lt;Link to='/all_users'&gt;
@@ -418,7 +424,7 @@ export default connect(mapStateToProps)(Aside);
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Mar 31 2019 21:06:09 GMT+0100 (West Africa Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Apr 01 2019 00:09:56 GMT+0100 (West Africa Standard Time)
 </div>
 </div>
 <script src="../../../prettify.js"></script>

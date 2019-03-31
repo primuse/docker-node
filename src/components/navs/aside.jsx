@@ -27,6 +27,7 @@ export class Aside extends Component {
   }
 
   closeAside = (e) => {
+    console.log('tiku');
     const { dispatch } = this.props;
     const nav = document.getElementById('nav');
     if (this.aside !== null || this.aside !== undefined) {
