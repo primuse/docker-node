@@ -144,6 +144,9 @@ tr:nth-child(even) {
   height: auto;
   margin: auto;
 }
+.space {
+  width: 10%;
+}
 
 .parcel-details {
   min-width: 50%;
@@ -157,7 +160,7 @@ tr:nth-child(even) {
 
 .parcel-details .parcel-footer-btns {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 .parcel-details #details div > * {
@@ -166,16 +169,13 @@ tr:nth-child(even) {
 }
 
 #details {
-  justify-content: flex-start;
+  justify-content: flex-end;
   display: flex;
 }
 
-#map {
-  min-width: 300px;
-  height: 535px;
-}
-
 #map img {
+  display: block;
+  margin: auto;
   width: 80%;
   height: auto;
 }
@@ -293,8 +293,16 @@ label {
     max-width: 400px;
   }
 }
+@media (max-width: 320px) {
+  .parcel-details .parcel-footer-btns {
+    justify-content: flex-start;
+  }
+}
 
 @media (max-width: 491px) and (min-width: 0) {
+  .space {
+  width: 0;
+}
   .info-box {
     min-width: 75px;
   }
@@ -355,6 +363,9 @@ label {
   #user-cont {
     flex-direction: column;
   }
+  #map img {
+    display: none;
+  }
   nav.mb-60 {
     margin-bottom: 30px;
   }
@@ -380,6 +391,9 @@ label {
 }
 
 @media (max-width: 600px) and (min-width: 491px) {
+  #map img {
+    width: 50%;
+  }
   .info-box {
     min-width: 120px;
   }
@@ -408,6 +422,9 @@ label {
 }
 
 @media (min-width: 600px) {
+  #map img {
+    width: 50%;
+  }
   #parcel {
     flex-direction: column;
   }
@@ -424,6 +441,9 @@ label {
 }
 
 @media (min-width: 768px) {
+  #map img {
+    width: 60%;
+  }
   main {
     display: grid;
     grid-template-columns: minmax(250px, 260px) 1fr;
@@ -455,6 +475,9 @@ label {
 }
 
 @media (min-width: 992px) {
+  #map img {
+    width: 75%;
+  }
   .info-box {
     width: 100%;
     padding: 3px;

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Login Page component renders correctly 1`] = `
+exports[`Parcel Details component renders correctly 1`] = `
 <div
   className="dash-cont d-flex mt-40"
   id="parcel"
@@ -9,7 +9,7 @@ exports[`Login Page component renders correctly 1`] = `
     id="map"
   >
     <img
-      src="../src/asset/imgs/parcel.jpg"
+      src="test-file-stub"
     />
   </div>
   <div
@@ -20,7 +20,7 @@ exports[`Login Page component renders correctly 1`] = `
       id="parcel-Id"
     >
       PO
-      1
+      2
     </h4>
     <div
       className="pb-10"
@@ -58,6 +58,9 @@ exports[`Login Page component renders correctly 1`] = `
           Status:
         </h6>
       </div>
+      <div
+        className="space"
+      />
       <div>
         <p />
         <p>
@@ -93,6 +96,7 @@ exports[`Login Page component renders correctly 1`] = `
         data-modal={true}
         data-target="#destination-modal"
         href="#"
+        onClick={[Function]}
       >
         Change Destination
       </a>
@@ -101,6 +105,7 @@ exports[`Login Page component renders correctly 1`] = `
         data-modal={true}
         data-target="#cancel-modal"
         href="#"
+        onClick={[Function]}
       >
         Cancel Parcel
       </a>

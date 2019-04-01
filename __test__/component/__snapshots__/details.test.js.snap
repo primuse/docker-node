@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`All users component renders correctly 1`] = `
+exports[`Parcel details container component renders correctly 1`] = `
 <main>
   <aside
     className=""
@@ -69,6 +69,22 @@ exports[`All users component renders correctly 1`] = `
             src="test-file-stub"
           />
           <a
+            data-modal={true}
+            data-target="#parcelmodal"
+            href="/"
+            onClick={[Function]}
+          >
+            <span>
+              New Parcel
+            </span>
+          </a>
+        </li>
+        <li>
+          <img
+            className="menu-ico"
+            src="test-file-stub"
+          />
+          <a
             href="/delivered_parcels"
             onClick={[Function]}
           >
@@ -98,7 +114,9 @@ exports[`All users component renders correctly 1`] = `
     className="grey"
     id="dash"
   >
-    <nav>
+    <nav
+      id="nav"
+    >
       <a
         className="toggler mr-1"
         href="#"
@@ -150,7 +168,7 @@ exports[`All users component renders correctly 1`] = `
           id="map"
         >
           <img
-            src="../src/asset/imgs/parcel.jpg"
+            src="test-file-stub"
           />
         </div>
         <div
@@ -161,7 +179,7 @@ exports[`All users component renders correctly 1`] = `
             id="parcel-Id"
           >
             PO
-            1
+            2
           </h4>
           <div
             className="pb-10"
@@ -199,6 +217,9 @@ exports[`All users component renders correctly 1`] = `
                 Status:
               </h6>
             </div>
+            <div
+              className="space"
+            />
             <div>
               <p />
               <p>
@@ -234,6 +255,7 @@ exports[`All users component renders correctly 1`] = `
               data-modal={true}
               data-target="#destination-modal"
               href="#"
+              onClick={[Function]}
             >
               Change Destination
             </a>
@@ -242,6 +264,7 @@ exports[`All users component renders correctly 1`] = `
               data-modal={true}
               data-target="#cancel-modal"
               href="#"
+              onClick={[Function]}
             >
               Cancel Parcel
             </a>

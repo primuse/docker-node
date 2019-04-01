@@ -6,27 +6,10 @@ import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import ConnectedAside from '../../../src/components/navs/aside.jsx';
-
-const initialState = {
-  auth: {
-    isAuthenticated: true,
-    user: {
-      firstName: 'Tiku',
-      lastName: 'Okoye',
-      isadmin: false
-    },
-  },
-  users: {
-    allUsers: [],
-    show: false
-  },
-  parcel: {
-    isLoading: false
-  }
-};
+import { props } from '../../../__fixtures__/initialState';
 
 const mockStore = configureStore([thunk]);
-const store = mockStore(initialState);
+const store = mockStore(props);
 let wrapper;
 
 

@@ -6,6 +6,7 @@ import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import ProfileContainer from '../../src/components/profile.jsx';
+import { props } from '../../__fixtures__/initialState';
 
 global.Headers = () => { };
 
@@ -54,10 +55,10 @@ const initialState = {
 };
 
 const mockStore = configureStore([thunk]);
-const store = mockStore(initialState);
+const store = mockStore(props);
 
 
-describe('All users component', () => {
+describe('Profile Page component', () => {
   it('renders correctly', () => {
     const tree = renderer
       .create(<MemoryRouter>

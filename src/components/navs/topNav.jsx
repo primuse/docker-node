@@ -5,11 +5,11 @@ import PropTypes from 'prop-types';
 import {
   bars
 } from '../../asset/imgs/ico';
-import { SHOW_ASIDE } from '../../actions/actionTypes';
+import { SHOW_ASIDE, LOG_OUT } from '../../actions/actionTypes';
 
 
 export const TopNav = ({ dispatch }) => (
-  <nav>
+  <nav id='nav'>
     <a href='#' className='toggler mr-1' id='toggle'
     onClick={() => dispatch({ type: SHOW_ASIDE })}>
       <img src={bars} />
@@ -26,7 +26,7 @@ export const TopNav = ({ dispatch }) => (
         </Link>
       </li>
       <li>
-        <Link to='/'>
+        <Link to='/' onClick={() => dispatch({ type: LOG_OUT })} >
           Logout
         </Link>
       </li>
