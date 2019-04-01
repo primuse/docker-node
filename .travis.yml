@@ -1,0 +1,21 @@
+language: node_js
+node_js:
+  - "11.10.1"
+env:
+  global:
+    - CC_TEST_REPORTER_ID=bc63b18447447758b5db99f2d9962166d2b622b2d94f1c3201a8f19db38a24ff
+  matrix:
+    - REACT=16.7
+
+install:
+  - npm install
+
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+
+script: npm test -- -u
+
+after_success:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

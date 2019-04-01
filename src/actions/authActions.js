@@ -1,12 +1,14 @@
 import Swal from 'sweetalert2';
 import history from '../history';
 import {
-  LOGIN_USER, LOGIN_ERROR, SIGNUP_ERROR, SIGNUP_USER
+  LOGIN_USER, LOGIN_ERROR, SIGNUP_ERROR, SIGNUP_USER,
+  IS_LOADING
 } from './actionTypes';
 import handleErrors from '../helpers/errorHelper';
 
 
 export const loginUser = userData => (dispatch) => {
+  dispatch({ type: IS_LOADING });
   const config = {
     method: 'POST',
     headers: new Headers({
@@ -15,7 +17,7 @@ export const loginUser = userData => (dispatch) => {
     body: JSON.stringify(userData),
   };
 
-  fetch('https://sendit2019.herokuapp.com/api/v1/auth/login', config)
+  return fetch('https://sendit2019.herokuapp.com/api/v1/auth/login', config)
     .then(handleErrors)
     .then((res) => {
       localStorage.setItem('token', res.data[0].token);
@@ -40,12 +42,16 @@ export const loginUser = userData => (dispatch) => {
           });
         });
       } else {
-        console.log(err);
+        dispatch({
+          type: LOGIN_ERROR,
+          payload: obj.message,
+        });
       }
     });
 };
 
 export const signupUser = userData => (dispatch) => {
+  dispatch({ type: IS_LOADING });
   const config = {
     method: 'POST',
     headers: new Headers({
@@ -54,7 +60,7 @@ export const signupUser = userData => (dispatch) => {
     body: JSON.stringify(userData),
   };
 
-  fetch('https://sendit2019.herokuapp.com/api/v1/auth/signup', config)
+  return fetch('https://sendit2019.herokuapp.com/api/v1/auth/signup', config)
     .then(handleErrors)
     .then((res) => {
       localStorage.setItem('token', res.data.token);
@@ -79,7 +85,10 @@ export const signupUser = userData => (dispatch) => {
           });
         });
       } else {
-        console.log(err);
+        dispatch({
+          type: SIGNUP_ERROR,
+          payload: obj.message.error,
+        });
       }
     });
 };

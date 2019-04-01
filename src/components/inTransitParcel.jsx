@@ -2,16 +2,15 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import history from '../history';
-import { InTransitParcelTable } from './navs/table.jsx';
+import { ParcelTable } from './navs/table.jsx';
 import InfoBox from './infoBox.jsx';
-import { TopNav, } from './navs/topNav.jsx';
-import { Aside } from './navs/aside.jsx';
+import TopNav from './navs/topNav.jsx';
+import Aside from './navs/aside.jsx';
 import '../css/modules.css';
 import '../css/style.css';
 import '../css/dashboard.css';
 
 class InTransitParcel extends Component {
-  // eslint-disable-next-line class-methods-use-this
   componentDidMount() {
     if (!localStorage.token) {
       localStorage.clear();
@@ -20,7 +19,7 @@ class InTransitParcel extends Component {
   }
 
   render() {
-    const { inTransitParcels } = this.props.parcel;
+    const { inTransitParcels, isLoading } = this.props.parcel;
     const { user } = this.props.auth;
     return <main>
       <Aside user={user} />
@@ -28,7 +27,8 @@ class InTransitParcel extends Component {
         <TopNav />
         <div id='main-content-page'>
           <InfoBox />
-          <InTransitParcelTable parcels={inTransitParcels} />
+          <ParcelTable parcelText='In-Transit' parcels={inTransitParcels}
+            isLoading={isLoading} />
         </div>
       </section>
     </main>;

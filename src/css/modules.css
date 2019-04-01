@@ -75,7 +75,7 @@ button {
 .modal {
   height: 100%;
   width: 100%;
-  display: none;
+  display: block;
   position: fixed;
   z-index: 1;
   left: 0;

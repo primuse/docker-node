@@ -85,7 +85,7 @@ button {
     padding: 10px;
   }
   .banner {
-    padding: 70px 0 0 0;
+    padding: 30px 0 30px 0;
   }
   header {
     flex-direction: column;
@@ -95,7 +95,7 @@ button {
     margin-left: 0;
   }
   .banner.bg-pd {
-    padding: 180px 30px 0 30px;
+    padding: 100px 30px 0 30px;
   }
 }
 
