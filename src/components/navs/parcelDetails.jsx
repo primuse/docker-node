@@ -26,7 +26,7 @@ class ParcelDetails extends Component {
 
   render() {
     const parcel = this.props.parcel.userParcel;
-    console.log('parcel in component:', parcel);
+    console.log('parcel in component:', parcel, 'props:', this.props);
     const { user } = this.props;
     const { modalDisplay } = this.state;
 
