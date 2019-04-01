@@ -241,6 +241,7 @@ exports[`Parcel details container component renders correctly 1`] = `
               data-modal={true}
               data-target="#cancel-modal"
               href="#"
+              onClick={[Function]}
             >
               Cancel Parcel
             </a>

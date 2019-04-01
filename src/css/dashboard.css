@@ -157,7 +157,7 @@ tr:nth-child(even) {
 
 .parcel-details .parcel-footer-btns {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 .parcel-details #details div > * {
@@ -166,7 +166,7 @@ tr:nth-child(even) {
 }
 
 #details {
-  justify-content: flex-start;
+  justify-content: flex-end;
   display: flex;
 }
 

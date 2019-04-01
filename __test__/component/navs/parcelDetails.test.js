@@ -73,13 +73,17 @@ describe('Parcel Details component', () => {
   afterEach(() => {
     parcelDetails.unmount();
   });
-  it('renders the ParcelDetails', () => {
+  it('renders the Parcel Details', () => {
     const h6 = parcelDetails.find('h6');
     expect(h6.length).toEqual(10);
     expect(parcelDetails.find('#parcel')).toBeDefined();
   });
-  it('opens the modal', () => {
+  it('opens the change destination modal', () => {
     const aTag = parcelDetails.find('a').at(0);
+    aTag.simulate('click');
+  });
+  it('opens the cancel parcel modal', () => {
+    const aTag = parcelDetails.find('a').at(1);
     aTag.simulate('click');
   });
 });

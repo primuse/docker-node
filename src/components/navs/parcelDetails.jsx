@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import DestinationModalForm from '../forms/changeDestinationForm.jsx';
+import CancelParcelModal from '../forms/cancelParcelModal.jsx';
 import Modal from '../modal.jsx';
 import { getUserParcel } from '../../actions/parcelActions';
 
 class ParcelDetails extends Component {
   state = {
     modalDisplay: false,
+    modalContent: ''
   };
 
   componentDidMount() {
@@ -15,8 +17,8 @@ class ParcelDetails extends Component {
     this.props.getUserParcel(parcelId);
   }
 
-  showModal = () => {
-    this.setState({ modalDisplay: true });
+  showModal = (form) => {
+    this.setState({ modalDisplay: true, modalContent: form });
   }
 
   closeModal = () => {
@@ -26,7 +28,7 @@ class ParcelDetails extends Component {
   render() {
     const parcel = this.props.parcel.userParcel;
     const { user } = this.props;
-    const { modalDisplay } = this.state;
+    const { modalDisplay, modalContent } = this.state;
 
     return <div id='parcel' className='dash-cont d-flex mt-40'>
       <div id='map'></div>
@@ -65,18 +67,22 @@ class ParcelDetails extends Component {
               className='btn sm bg-blue mr-3 white'>Change Location</a>
             : <a href='#' data-modal data-target='#destination-modal'
               className='btn sm bg-blue mr-1 white'
-              onClick={this.showModal}>Change Destination</a>
+              onClick={() => this.showModal('changeDestination')}>Change Destination</a>
           }
           {user.isadmin
             ? <a href='#' data-modal data-target='#update-modal'
               className='btn sm is-outlined-blue'>Update Status</a>
             : <a href='#' data-modal data-target='#cancel-modal'
-              className='btn sm is-outlined-blue'>Cancel Parcel</a>
+              className='btn sm is-outlined-blue'
+              onClick={() => this.showModal('cancelParcel')}>Cancel Parcel</a>
           }
         </div>
       </div>
       {modalDisplay
-        && <Modal modalTitle='Change Destination' ModalForm={DestinationModalForm}
+        && <Modal modalTitle='Change Destination' ModalForm= {
+          modalContent === 'changeDestination' ? DestinationModalForm
+            : modalContent === 'cancelParcel' ? CancelParcelModal : ''
+        }
         closeModal={this.closeModal} />
       }
     </div>;

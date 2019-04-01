@@ -2,7 +2,7 @@ import {
   GET_All_USER_ORDERS, GET_CANCELED_USER_ORDERS,
   GET_CREATED_USER_ORDERS, GET_DELIVERED_USER_ORDERS,
   GET_INTRANSIT_USER_ORDERS, PARCEL_IS_LOADING, CREATE_NEW_PARCEL,
-  SET_PAGES, GET_USER_PARCEL, ERROR, CHANGE_PARCEL_DESTINATION
+  SET_PAGES, GET_USER_PARCEL, ERROR, CHANGE_PARCEL_DESTINATION, CANCEL_PARCEL
 } from '../../src/actions/actionTypes';
 import reducer from '../../src/reducers/parcelReducer';
 
@@ -22,17 +22,18 @@ const error = 'Internal server error';
 describe('parcel reducer', () => {
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual({
+      error: '',
       isLoading: false,
       parcels: [],
+      userParcel: {},
       deliveredParcels: [],
       inTransitParcels: [],
       createdParcels: [],
       canceledParcels: [],
       newParcel: [],
-      pages: null,
       changeDestination: '',
-      error: '',
-      userParcel: {}
+      pages: null,
+      cancelParcel: ''
     });
   });
   it('should get all user orders', () => {
@@ -153,6 +154,17 @@ describe('parcel reducer', () => {
       .toEqual({
         isLoading: false,
         changeDestination: 'Success'
+      });
+  });
+  it('should cancel a parcel', () => {
+    const successAction = {
+      type: CANCEL_PARCEL,
+      payload: 'Success',
+    };
+    expect(reducer({}, successAction))
+      .toEqual({
+        isLoading: false,
+        cancelParcel: 'Success'
       });
   });
 });

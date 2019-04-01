@@ -3,10 +3,12 @@ import configureStore from 'redux-mock-store';
 import {
   GET_DELIVERED_USER_ORDERS, GET_INTRANSIT_USER_ORDERS, GET_CANCELED_USER_ORDERS,
   GET_CREATED_USER_ORDERS, GET_All_USER_ORDERS, PARCEL_IS_LOADING,
-  CREATE_NEW_PARCEL, ERROR, SET_PAGES, CHANGE_PARCEL_DESTINATION
+  CREATE_NEW_PARCEL, ERROR, SET_PAGES, CHANGE_PARCEL_DESTINATION,
+  CANCEL_PARCEL
 } from '../../src/actions/actionTypes';
 import {
-  getAllParcels, getUserParcels, createNewParcel, changeParcelDestination
+  getAllParcels, getUserParcels, createNewParcel, changeParcelDestination,
+  cancelParcel
 } from '../../src/actions/parcelActions';
 
 const res = {
@@ -220,6 +222,49 @@ describe('Change Parcel destination', () => {
       error: ''
     }, expectedActions, done);
     store.dispatch(changeParcelDestination(errorRes))
+      .then(() => {
+        expect(store.getActions()).toEqual(expectedActions);
+      });
+    done();
+  });
+});
+
+describe('Cancel Parcel', () => {
+  const desRes = 'Success';
+  it('dispatches the correct actions on successful fetch request', (done) => {
+    fetch.mockResponse(JSON.stringify(desRes));
+
+    const expectedActions = [
+      { type: PARCEL_IS_LOADING },
+      { type: CANCEL_PARCEL, payload: desRes },
+    ];
+    const mockStore = configureStore([thunk]);
+    const store = mockStore({
+      isLoading: false,
+      canceledParcel: '',
+      error: ''
+    }, expectedActions, done);
+
+    store.dispatch(cancelParcel(desRes))
+      .then(() => {
+        expect(store.getActions()).toEqual(expectedActions);
+      });
+    done();
+  });
+  it('dispatches the correct actions on unsuccessful fetch request', (done) => {
+    fetch.mockReject(new Error(errorRes.message));
+
+    const expectedActions = [
+      { type: PARCEL_IS_LOADING },
+      { type: ERROR, payload: errorRes.message }
+    ];
+    const mockStore = configureStore([thunk]);
+    const store = mockStore({
+      isLoading: false,
+      canceledParcel: '',
+      error: ''
+    }, expectedActions, done);
+    store.dispatch(cancelParcel(errorRes))
       .then(() => {
         expect(store.getActions()).toEqual(expectedActions);
       });

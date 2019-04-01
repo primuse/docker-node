@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`New parcel form renders correctly 1`] = `
+exports[`Change Parcel Destination Form renders correctly 1`] = `
 <form
   className="text-right"
   id="changeDestination"
