@@ -5,8 +5,8 @@ import configureStore from 'redux-mock-store';
 import { MemoryRouter, Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
+import { hasID } from '../src/helpers/utils';
 import PrivateRoute from '../src/helpers/privateRoute';
-import hasId from '../src/helpers/validator';
 import Profile from '../src/components/profile.jsx';
 
 
@@ -56,9 +56,9 @@ describe('Private Route component', () => {
 
 describe('Has Id helper method', () => {
   it('should return true', () => {
-    expect(hasId({ id: 1 })).toEqual(true);
+    expect(hasID({ id: 1 })).toEqual(true);
   });
   it('should return false', () => {
-    expect(hasId({ name: 'Tiku' })).toEqual(false);
+    expect(hasID({ name: 'Tiku' })).toEqual(false);
   });
 });
