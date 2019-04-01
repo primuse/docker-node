@@ -1,11 +1,13 @@
 import {
-  SEND_RESET_EMAIL, SEND_RESET_EMAIL_ERROR, PASSWORD_IS_LOADING
+  SEND_RESET_EMAIL, SEND_RESET_EMAIL_ERROR, PASSWORD_IS_LOADING,
+  SET_NEW_PASSWORD
 } from '../actions/actionTypes';
 
 const initialState = {
   emailSent: '',
   error: '',
-  isLoading: false
+  isLoading: false,
+  newPassword: ''
 };
 
 export default (state = initialState, action) => {
@@ -26,6 +28,12 @@ export default (state = initialState, action) => {
         ...state,
         isLoading: false,
         error: action.payload,
+      };
+    case SET_NEW_PASSWORD:
+      return {
+        ...state,
+        isLoading: false,
+        newPassword: action.payload,
       };
     default:
       return state;

@@ -45,7 +45,10 @@ export const resetPassword = email => (dispatch) => {
           });
         });
       } else {
-        console.log(err);
+        dispatch({
+          type: SEND_RESET_EMAIL_ERROR,
+          payload: false,
+        });
       }
     });
 };
@@ -94,7 +97,10 @@ export const setNewPassword = password => (dispatch) => {
           });
         });
       } else {
-        console.log(err);
+        dispatch({
+          type: SEND_RESET_EMAIL_ERROR,
+          payload: false,
+        });
       }
     });
 };

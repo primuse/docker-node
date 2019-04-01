@@ -49,6 +49,11 @@ export const props = {
       status: 'created'
     }
   },
+  setPassword: {
+    emailSent: '',
+    error: '',
+    isLoading: false
+  },
   users: {
     allUsers: [
       {
@@ -150,6 +155,11 @@ export const props2 = {
       }
     ],
     show: false
+  },
+  setPassword: {
+    emailSent: '',
+    error: '',
+    isLoading: false
   },
   user: {
     firstName: 'Tiku',
