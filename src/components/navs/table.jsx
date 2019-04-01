@@ -23,8 +23,8 @@ const mapParcels = parcels => parcels.map((parcel, index) => (
     <tr key={index}>
       <td>PO{parcel.id}</td>
       <td>{parcel.parcelname}</td>
-      <td>{parcel.weight}</td>
-      <td>{parcel.price}</td>
+      <td>{parcel.weight}kg</td>
+      <td>N{parcel.price}</td>
       <td>{parcel.destination}</td>
       <td>{parcel.receiver}</td>
       <td>{parcel.senton}</td>
