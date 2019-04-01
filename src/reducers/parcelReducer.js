@@ -3,7 +3,8 @@ import {
   GET_All_USER_ORDERS, GET_CANCELED_USER_ORDERS,
   GET_CREATED_USER_ORDERS, GET_DELIVERED_USER_ORDERS,
   GET_INTRANSIT_USER_ORDERS, PARCEL_IS_LOADING, CREATE_NEW_PARCEL,
-  SET_PAGES, CHANGE_PARCEL_DESTINATION, ERROR, GET_USER_PARCEL
+  SET_PAGES, CHANGE_PARCEL_DESTINATION, ERROR, GET_USER_PARCEL,
+  CANCEL_PARCEL
 } from '../actions/actionTypes';
 
 const initialState = {
@@ -18,6 +19,7 @@ const initialState = {
   newParcel: [],
   changeDestination: '',
   pages: null,
+  cancelParcel: ''
 };
 
 export default (state = initialState, action) => {
@@ -80,6 +82,12 @@ export default (state = initialState, action) => {
         ...state,
         isLoading: false,
         changeDestination: action.payload
+      };
+    case CANCEL_PARCEL:
+      return {
+        ...state,
+        isLoading: false,
+        cancelParcel: action.payload
       };
     case SET_PAGES:
       return {

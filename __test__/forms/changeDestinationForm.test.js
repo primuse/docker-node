@@ -10,12 +10,23 @@ import DestinationParcelForm, { DestinationModalForm }
 const onChange = jest.fn();
 const save = jest.fn();
 const changeParcelDestination = jest.fn();
-const props = {};
+const props = {
+  parcel: {
+    isLoading: false
+  }
+};
+
+const props2 = {
+  parcel: {
+    isLoading: true
+  }
+};
+
 const mockStore = configureStore([thunk]);
 const store = mockStore(props);
 let wrapper;
 
-describe('New parcel form', () => {
+describe('Change Parcel Destination Form', () => {
   it('renders correctly', () => {
     const tree = renderer
       .create(<Provider store={store}>
@@ -26,7 +37,7 @@ describe('New parcel form', () => {
   });
 });
 
-describe('New parcel form', () => {
+describe('Change Parcel Destination Form', () => {
   beforeEach(() => {
     wrapper = mount(<DestinationModalForm {...props}
       onChange={onChange} save={save}
@@ -46,5 +57,19 @@ describe('New parcel form', () => {
     const input1 = wrapper.find('input').at(0);
     input1.simulate('change', { target: { value: 'USA' } });
     expect(changeParcelDestination).toHaveBeenCalled();
+  });
+});
+
+describe('Change Parcel Destination Form', () => {
+  beforeEach(() => {
+    wrapper = mount(<DestinationModalForm {...props2}
+      onChange={onChange} save={save}
+      changeParcelDestination={changeParcelDestination} />);
+  });
+  afterEach(() => {
+    wrapper.unmount();
+  });
+  it('should show the loading button', () => {
+    expect(wrapper.find('span')).toBeDefined();
   });
 });

@@ -19,3 +19,4 @@ export const SET_PAGES = 'SET_PAGES';
 export const PARCEL_IS_LOADING = 'PARCEL_IS_LOADING';
 export const USER_IS_LOADING = 'USER_IS_LOADING';
 export const GET_USER_PARCEL = 'GET_USER_PARCEL';
+export const CANCEL_PARCEL = 'CANCEL_PARCEL';
