@@ -27,7 +27,7 @@ describe('Reset Password form', () => {
 
 describe('Reset password form', () => {
   beforeEach(() => {
-    wrapper = mount(<ResetForm
+    wrapper = mount(<ResetForm {...props}
       onChange={onChange} resetPassword={resetPassword} />);
   });
   afterEach(() => {
