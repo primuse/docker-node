@@ -56,7 +56,7 @@ export const setNewPassword = password => (dispatch) => {
     token = urlParams.get('auth'),
     userId = urlParams.get('id');
   const config = {
-    method: 'POST',
+    method: 'PATCH',
     headers: new Headers({
       'Content-Type': 'application/json',
       'x-access-token': token

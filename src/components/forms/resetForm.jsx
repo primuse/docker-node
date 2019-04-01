@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Circle } from 'better-react-spinkit';
 import { resetPassword } from '../../actions/resetPasswordActions';
 
 export class ResetForm extends Component {
@@ -28,6 +29,8 @@ export class ResetForm extends Component {
 
   render() {
     const { email } = this.state;
+    const { isLoading } = this.props.setPassword;
+
     return (
       <form id="resetForm" className="text-center" onSubmit={this.resetPassword}>
         <div className="mb-14">
@@ -47,6 +50,11 @@ export class ResetForm extends Component {
         <div>
           <button type='submit' className="btn sm is-outlined">
             Reset Password
+            {isLoading && (
+              <span style={{ float: 'right', padding: '3px 3px 0 10px' }}>
+                <Circle color={'rgba(255,255,255,1)'} />
+              </span>
+            )}
           </button>
         </div>
       </form>
@@ -56,10 +64,11 @@ export class ResetForm extends Component {
 
 ResetForm.propTypes = {
   resetPassword: PropTypes.func,
+  setPassword: PropTypes.object
 };
 
 const mapStateToProps = state => ({
-  auth: state.auth,
+  setPassword: state.setPassword,
 });
 
 export default connect(mapStateToProps, { resetPassword })(ResetForm);
