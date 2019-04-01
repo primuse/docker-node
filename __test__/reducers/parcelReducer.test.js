@@ -3,7 +3,7 @@ import {
   GET_CREATED_USER_ORDERS, GET_DELIVERED_USER_ORDERS,
   GET_INTRANSIT_USER_ORDERS, PARCEL_IS_LOADING, CREATE_NEW_PARCEL,
   SET_PAGES, GET_USER_PARCEL, ERROR, CHANGE_PARCEL_DESTINATION, CANCEL_PARCEL,
-  CHANGE_PARCEL_LOCATION
+  CHANGE_PARCEL_LOCATION, CHANGE_PARCEL_STATUS
 } from '../../src/actions/actionTypes';
 import reducer from '../../src/reducers/parcelReducer';
 
@@ -35,7 +35,8 @@ describe('parcel reducer', () => {
       changeDestination: '',
       changeLocation: '',
       pages: null,
-      cancelParcel: ''
+      cancelParcel: '',
+      changeStatus: ''
     });
   });
   it('should get all user orders', () => {
@@ -178,6 +179,17 @@ describe('parcel reducer', () => {
       .toEqual({
         isLoading: false,
         changeLocation: 'Success'
+      });
+  });
+  it('should change a parcel\'s status', () => {
+    const successAction = {
+      type: CHANGE_PARCEL_STATUS,
+      payload: 'Success',
+    };
+    expect(reducer({}, successAction))
+      .toEqual({
+        isLoading: false,
+        changeStatus: 'Success'
       });
   });
 });

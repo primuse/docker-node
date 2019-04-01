@@ -6,14 +6,10 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import NewParcelForm, { NewParcelModalForm }
   from '../../src/components/forms/newParcelForm.jsx';
+import { props } from '../../__fixtures__/initialState';
 
 const onChange = jest.fn();
 const createNewParcel = jest.fn();
-const props = {
-  parcel: {
-    isLoading: false
-  }
-};
 const mockStore = configureStore([thunk]);
 const store = mockStore(props);
 let wrapper;

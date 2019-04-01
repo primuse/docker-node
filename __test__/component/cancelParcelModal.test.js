@@ -6,19 +6,11 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import ConnectedCancelParcel,
 { CancelParcelModal } from '../../src/components/forms/cancelParcelModal.jsx';
+import { props, props3 } from '../../__fixtures__/initialState';
 
 const cancel = jest.fn();
 const cancelParcel = jest.fn();
-const props = {
-  parcel: {
-    isLoading: false
-  }
-};
-const props2 = {
-  parcel: {
-    isLoading: true
-  }
-};
+
 
 const mockStore = configureStore([thunk]);
 const store = mockStore(props);
@@ -51,7 +43,7 @@ describe('Cancel Modal', () => {
 
 describe('Cancel Modal', () => {
   beforeEach(() => {
-    wrapper = mount(<CancelParcelModal {...props2}
+    wrapper = mount(<CancelParcelModal {...props3}
       cancel={cancel} cancelParcel={cancelParcel} />);
   });
   afterEach(() => {

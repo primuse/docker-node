@@ -6,12 +6,12 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import ConnectedResetForm, { ResetForm }
   from '../../src/components/forms/resetForm.jsx';
+import { props } from '../../__fixtures__/initialState';
 
 const onChange = jest.fn();
 const resetPassword = jest.fn();
-const initialState = {};
 const mockStore = configureStore([thunk]);
-const store = mockStore(initialState);
+const store = mockStore(props);
 let wrapper;
 
 describe('Reset Password form', () => {
