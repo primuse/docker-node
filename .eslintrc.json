@@ -42,6 +42,7 @@
       "error",
       "multi-line"
     ],
+    "camelcase": "off",
     "quotes": [
       "error",
       "single"

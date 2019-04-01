@@ -7,7 +7,11 @@ exports[`Parcel Details component renders correctly 1`] = `
 >
   <div
     id="map"
-  />
+  >
+    <img
+      src="test-file-stub"
+    />
+  </div>
   <div
     className="parcel-details p-10"
   >
@@ -54,6 +58,9 @@ exports[`Parcel Details component renders correctly 1`] = `
           Status:
         </h6>
       </div>
+      <div
+        className="space"
+      />
       <div>
         <p />
         <p>
