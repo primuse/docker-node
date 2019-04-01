@@ -2,7 +2,8 @@ import {
   GET_All_USER_ORDERS, GET_CANCELED_USER_ORDERS,
   GET_CREATED_USER_ORDERS, GET_DELIVERED_USER_ORDERS,
   GET_INTRANSIT_USER_ORDERS, PARCEL_IS_LOADING, CREATE_NEW_PARCEL,
-  SET_PAGES, GET_USER_PARCEL, ERROR, CHANGE_PARCEL_DESTINATION, CANCEL_PARCEL
+  SET_PAGES, GET_USER_PARCEL, ERROR, CHANGE_PARCEL_DESTINATION, CANCEL_PARCEL,
+  CHANGE_PARCEL_LOCATION
 } from '../../src/actions/actionTypes';
 import reducer from '../../src/reducers/parcelReducer';
 
@@ -32,6 +33,7 @@ describe('parcel reducer', () => {
       canceledParcels: [],
       newParcel: [],
       changeDestination: '',
+      changeLocation: '',
       pages: null,
       cancelParcel: ''
     });
@@ -165,6 +167,17 @@ describe('parcel reducer', () => {
       .toEqual({
         isLoading: false,
         cancelParcel: 'Success'
+      });
+  });
+  it('should change a parcel\'s current location', () => {
+    const successAction = {
+      type: CHANGE_PARCEL_LOCATION,
+      payload: 'Success',
+    };
+    expect(reducer({}, successAction))
+      .toEqual({
+        isLoading: false,
+        changeLocation: 'Success'
       });
   });
 });
