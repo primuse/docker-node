@@ -45,6 +45,7 @@ export class Aside extends Component {
   }
 
   render() {
+    const { dispatch } = this.props;
     const { user } = this.props.auth;
     const { modalDisplay } = this.state;
     return <aside className={this.showAside()}>
@@ -66,7 +67,7 @@ export class Aside extends Component {
         <ul className='mt-80'>
           <li>
             <img src={home} className='menu-ico' />
-            <Link to='/dashboard'>
+            <Link to='/dashboard' onClick={() => dispatch({ type: HIDE_ASIDE })}>
               <span>Dashboard</span>
             </Link>
           </li>
@@ -80,21 +81,21 @@ export class Aside extends Component {
           <li>
             <img src={archive}
               className='menu-ico' />
-            <Link to='/delivered_parcels'>
+            <Link to='/delivered_parcels' onClick={() => dispatch({ type: HIDE_ASIDE })}>
               <span>Delivered Parcels</span>
             </Link>
           </li>
           <li>
             <img src={box}
               className='menu-ico' />
-            <Link to='/inTransit_parcels'>
+            <Link to='/inTransit_parcels' onClick={() => dispatch({ type: HIDE_ASIDE })}>
               <span>In-transit Parcels</span>
             </Link>
           </li>
           {user.isadmin && <li>
             <img src={userSvg}
               className='menu-ico' />
-            <Link to='/all_users'>
+            <Link to='/all_users' onClick={() => dispatch({ type: HIDE_ASIDE })}>
               <span>All Users</span>
             </Link>
           </li>}
