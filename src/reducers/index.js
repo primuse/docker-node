@@ -10,7 +10,7 @@ const appReducer = combineReducers({
   auth: authReducer,
   parcel: parcelReducer,
   users: userReducer,
-  resetPassword: resetPasswordReducer
+  setPassword: resetPasswordReducer
 });
 
 const rootReducer = (state, action) => {

@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 import history from './history';
 import PrivateRoute from './helpers/privateRoute';
-import { Login, Reset, Signup } from './components/auth/login.jsx';
+import ResetPassword, { Login, Reset, Signup } from './components/auth/login.jsx';
 import Dashboard from './components/dashboard.jsx';
 import DeliveredParcel from './components/deliveredParcel.jsx';
 import InTransitParcel from './components/inTransitParcel.jsx';
@@ -23,6 +23,7 @@ const MainApp = () => (
         <Route exact path='/' component={Login} />
         <Route exact path='/signup' component={Signup} />
         <Route exact path='/reset' component={Reset} />
+        <Route exact path='/set_password' component={ResetPassword} />
         <PrivateRoute exact path='/dashboard' component={Dashboard} />
         <PrivateRoute exact path='/delivered_parcels' component={DeliveredParcel} />
         <PrivateRoute exact path='/inTransit_parcels' component={InTransitParcel} />
