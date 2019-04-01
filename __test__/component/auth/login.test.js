@@ -6,16 +6,10 @@ import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { Login } from '../../../src/components/auth/login.jsx';
-import { LoginForm } from '../../../src/components/forms/loginForm.jsx';
+import { props } from '../../../__fixtures__/initialState';
 
-const initialState = {
-  auth: {
-    isLoading: false
-  }
-};
 const mockStore = configureStore([thunk]);
-const store = mockStore(initialState);
-const onChange = jest.fn();
+const store = mockStore(props);
 
 
 describe('Login Page component', () => {
@@ -30,23 +24,3 @@ describe('Login Page component', () => {
     expect(tree).toMatchSnapshot();
   });
 });
-
-
-// describe('Login subscribe form', () => {
-//   it('should change state', () => {
-//     const wrapper = shallow(<MemoryRouter>
-//       <LoginForm />
-//     </MemoryRouter>);
-//     const input = wrapper.find('#email').dive().instance();
-//     console.log(loginForm);
-//     // const input = loginForm.find('#email');
-//     console.log(input.debug(), 'login===');
-//     input.simulate('change', {
-//       target: { value: 'yinks@gmail.com' }
-//     });
-//     // input.instance().value = 'yinks@gmail.com';
-//     // input.simulate('change');
-//     console.log(loginForm, input.length, loginForm.state());
-//     expect(loginForm.state().email).toEqual('yinks@gmail.com');
-//   });
-// });

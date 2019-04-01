@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`IUser Parcel Table component renders correctly 1`] = `
+exports[`User Parcel Table component renders correctly 1`] = `
 <div
   className="dash-cont"
 >

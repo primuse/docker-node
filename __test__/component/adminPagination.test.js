@@ -6,56 +6,11 @@ import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import AdminPagination from '../../src/components/adminPagination.jsx';
+import { props } from '../../__fixtures__/initialState';
 
 global.Headers = () => { };
-
-const initialState = {
-  auth: {
-    isAuthenticated: true,
-    user: {
-      firstName: 'Tiku',
-      lastName: 'Okoye',
-      registered: '22-03-2019',
-      email: 'cim@gmail.com'
-    },
-  },
-  users: {
-    allUsers: [],
-    show: false
-  },
-  parcel: {
-    parcels: [
-      {
-        id: 1,
-        parcelName: 'rice',
-        weigth: '30',
-        price: '4,000',
-        destination: 'Owerri',
-        receiver: 'Tiku Okoye',
-        senton: '22-03-2019',
-        status: 'created'
-      },
-      {
-        id: 2,
-        parcelName: 'rice',
-        weigth: '30',
-        price: '4,000',
-        destination: 'Owerri',
-        receiver: 'Tiku Okoye',
-        senton: '22-03-2019',
-        status: 'created'
-      }
-    ],
-    createdParcels: [],
-    deliveredParcels: [],
-    inTransitParcels: [],
-    canceledParcels: [],
-    pages: 3
-  }
-};
-
 const mockStore = configureStore([thunk]);
-const store = mockStore(initialState);
+const store = mockStore(props);
 
 
 describe('Admin Pagination Component', () => {

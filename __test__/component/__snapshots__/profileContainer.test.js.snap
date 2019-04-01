@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`All users component renders correctly 1`] = `
+exports[`Profile Page component renders correctly 1`] = `
 <main>
   <aside
     className=""
@@ -60,6 +60,22 @@ exports[`All users component renders correctly 1`] = `
           >
             <span>
               Dashboard
+            </span>
+          </a>
+        </li>
+        <li>
+          <img
+            className="menu-ico"
+            src="test-file-stub"
+          />
+          <a
+            data-modal={true}
+            data-target="#parcelmodal"
+            href="/"
+            onClick={[Function]}
+          >
+            <span>
+              New Parcel
             </span>
           </a>
         </li>

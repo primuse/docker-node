@@ -2,12 +2,17 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import DestinationModalForm from '../forms/changeDestinationForm.jsx';
+import CancelParcelModal from '../forms/cancelParcelModal.jsx';
+import LocationParcelForm from '../forms/changeLocationForm.jsx';
+import StatusParcelForm from '../forms/changeParcelStatusForm.jsx';
 import Modal from '../modal.jsx';
 import { getUserParcel } from '../../actions/parcelActions';
+import { parcelBox } from '../../asset/imgs/ico/index';
 
 class ParcelDetails extends Component {
   state = {
     modalDisplay: false,
+    modalContent: ''
   };
 
   componentDidMount() {
@@ -15,8 +20,8 @@ class ParcelDetails extends Component {
     this.props.getUserParcel(parcelId);
   }
 
-  showModal = () => {
-    this.setState({ modalDisplay: true });
+  showModal = (form) => {
+    this.setState({ modalDisplay: true, modalContent: form });
   }
 
   closeModal = () => {
@@ -26,10 +31,12 @@ class ParcelDetails extends Component {
   render() {
     const parcel = this.props.parcel.userParcel;
     const { user } = this.props;
-    const { modalDisplay } = this.state;
+    const { modalDisplay, modalContent } = this.state;
 
     return <div id='parcel' className='dash-cont d-flex mt-40'>
-      <div id='map'></div>
+      <div id='map'>
+        <img src={parcelBox} />
+      </div>
       <div className='parcel-details p-10'>
         <h4 id='parcel-Id' className='parcel-title text-center m-0 mb-24'>
           PO{parcel.id}</h4>
@@ -46,6 +53,7 @@ class ParcelDetails extends Component {
             <h6>Delivered On:</h6>
             <h6>Status:</h6>
           </div>
+          <div className='space'></div>
           <div>
             <p>{parcel.parcelname}</p>
             <p>{parcel.destination}</p>
@@ -62,21 +70,34 @@ class ParcelDetails extends Component {
         <div id='details_btns' className='parcel-footer-btns'>
           {user.isadmin
             ? <a href='#' data-modal data-target='#location-modal'
-              className='btn sm bg-blue mr-3 white'>Change Location</a>
+              className='btn sm bg-blue mr-3 white'
+              onClick={() => this.showModal('changeLocation')}>Change Location</a>
             : <a href='#' data-modal data-target='#destination-modal'
               className='btn sm bg-blue mr-1 white'
-              onClick={this.showModal}>Change Destination</a>
+              onClick={() => this.showModal('changeDestination')}>Change Destination</a>
           }
           {user.isadmin
             ? <a href='#' data-modal data-target='#update-modal'
-              className='btn sm is-outlined-blue'>Update Status</a>
+              className='btn sm is-outlined-blue'
+              onClick={() => this.showModal('changeStatus')}>Update Status</a>
             : <a href='#' data-modal data-target='#cancel-modal'
-              className='btn sm is-outlined-blue'>Cancel Parcel</a>
+              className='btn sm is-outlined-blue'
+              onClick={() => this.showModal('cancelParcel')}>Cancel Parcel</a>
           }
         </div>
       </div>
       {modalDisplay
-        && <Modal modalTitle='Change Destination' ModalForm={DestinationModalForm}
+        && <Modal modalTitle= {
+          modalContent === 'changeDestination' ? 'Change Destination'
+            : modalContent === 'changeLocation' ? 'Change Location'
+              : modalContent === 'changeStatus' ? 'Update Status' : ''
+        }
+        ModalForm= {
+          modalContent === 'changeDestination' ? DestinationModalForm
+            : modalContent === 'cancelParcel' ? CancelParcelModal
+              : modalContent === 'changeLocation' ? LocationParcelForm
+                : modalContent === 'changeStatus' ? StatusParcelForm : ''
+        }
         closeModal={this.closeModal} />
       }
     </div>;

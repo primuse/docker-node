@@ -6,24 +6,11 @@ import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import Pagination from '../../src/components/pagination.jsx';
+import { props } from '../../__fixtures__/initialState';
 
 global.Headers = () => { };
-
-const initialState = {
-  auth: {
-    isAuthenticated: true,
-    user: {
-      id: 1,
-      firstName: 'Tiku',
-      lastName: 'Okoye',
-      registered: '22-03-2019',
-      email: 'cim@gmail.com'
-    },
-  }
-};
-
 const mockStore = configureStore([thunk]);
-const store = mockStore(initialState);
+const store = mockStore(props);
 const action = jest.fn();
 let wrapper;
 

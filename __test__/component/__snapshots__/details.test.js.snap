@@ -69,6 +69,22 @@ exports[`Parcel details container component renders correctly 1`] = `
             src="test-file-stub"
           />
           <a
+            data-modal={true}
+            data-target="#parcelmodal"
+            href="/"
+            onClick={[Function]}
+          >
+            <span>
+              New Parcel
+            </span>
+          </a>
+        </li>
+        <li>
+          <img
+            className="menu-ico"
+            src="test-file-stub"
+          />
+          <a
             href="/delivered_parcels"
             onClick={[Function]}
           >
@@ -150,7 +166,11 @@ exports[`Parcel details container component renders correctly 1`] = `
       >
         <div
           id="map"
-        />
+        >
+          <img
+            src="test-file-stub"
+          />
+        </div>
         <div
           className="parcel-details p-10"
         >
@@ -197,6 +217,9 @@ exports[`Parcel details container component renders correctly 1`] = `
                 Status:
               </h6>
             </div>
+            <div
+              className="space"
+            />
             <div>
               <p />
               <p>
@@ -241,6 +264,7 @@ exports[`Parcel details container component renders correctly 1`] = `
               data-modal={true}
               data-target="#cancel-modal"
               href="#"
+              onClick={[Function]}
             >
               Cancel Parcel
             </a>

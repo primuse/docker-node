@@ -2,24 +2,24 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Circle } from 'better-react-spinkit';
-import { changeParcelDestination } from '../../actions/parcelActions';
+import { changeParcelStatus } from '../../actions/parcelActions';
 
-export class DestinationModalForm extends Component {
+export class StatusModalForm extends Component {
   state = {
-    destination: '',
+    status: '',
   }
 
   componentWillUnmount() {
     // Clear State
     this.setState({
-      destination: '',
+      status: '',
     });
   }
 
   save = (event) => {
     event.preventDefault();
     const data = this.state;
-    this.props.changeParcelDestination(data);
+    this.props.changeParcelStatus(data);
   }
 
   onChange = (event) => {
@@ -27,17 +27,17 @@ export class DestinationModalForm extends Component {
   };
 
   render() {
-    const { destination } = this.state;
+    const { status } = this.state;
     const { isLoading } = this.props.parcel;
 
-    return <form id='changeDestination' className='text-right' onSubmit={this.save}>
+    return <form id='statusForm' onSubmit={this.save}>
       <div className='form-row'>
-        <input type='text' id='destination' name='destination'
-        onChange={this.onChange} value={destination} required />
+        <input type='text' id='status' placeholder='In-transit, Delivered, Canceled'
+          onChange={this.onChange} name='status' value={status} required />
       </div>
       <button type='submit' className='btn xsm is-outlined white'>Save
       {isLoading && (
-          <span style={{ float: 'right', padding: '3px 3px 0 10px' }}>
+        <span style={{ float: 'right', padding: '3px 3px 0 10px' }}>
           <Circle color={'rgba(255,255,255,1)'} />
         </span>
       )}
@@ -46,8 +46,9 @@ export class DestinationModalForm extends Component {
   }
 }
 
-DestinationModalForm.propTypes = {
-  changeParcelDestination: PropTypes.func,
+
+StatusModalForm.propTypes = {
+  changeParcelStatus: PropTypes.func,
   parcel: PropTypes.object
 };
 
@@ -57,5 +58,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { changeParcelDestination }
-)(DestinationModalForm);
+  { changeParcelStatus }
+)(StatusModalForm);

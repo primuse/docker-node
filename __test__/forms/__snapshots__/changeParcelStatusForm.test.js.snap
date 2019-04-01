@@ -1,18 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Change Parcel Destination Form renders correctly 1`] = `
+exports[`Change Parcel Status Form renders correctly 1`] = `
 <form
-  className="text-right"
-  id="changeDestination"
+  id="statusForm"
   onSubmit={[Function]}
 >
   <div
     className="form-row"
   >
     <input
-      id="destination"
-      name="destination"
+      id="status"
+      name="status"
       onChange={[Function]}
+      placeholder="In-transit, Delivered, Canceled"
       required={true}
       type="text"
       value=""

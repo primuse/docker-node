@@ -285,7 +285,7 @@ exports[`All parcels component renders correctly 1`] = `
               <tr>
                 <td>
                   PO
-                  2
+                  1
                 </td>
                 <td />
                 <td />
@@ -307,7 +307,7 @@ exports[`All parcels component renders correctly 1`] = `
                 <td>
                   <a
                     className="btn xsm bg-bright-blue white"
-                    href="/details/2"
+                    href="/details/1"
                     onClick={[Function]}
                   >
                     View
@@ -329,14 +329,6 @@ exports[`All parcels component renders correctly 1`] = `
           >
              
             1
-          </a>
-          <a
-            className="links"
-            href="/"
-            onClick={[Function]}
-          >
-             
-            2
           </a>
         </span>
       </div>
@@ -629,7 +621,7 @@ exports[`All user parcels component renders correctly 1`] = `
               <tr>
                 <td>
                   PO
-                  2
+                  1
                 </td>
                 <td />
                 <td />
@@ -651,7 +643,7 @@ exports[`All user parcels component renders correctly 1`] = `
                 <td>
                   <a
                     className="btn xsm bg-bright-blue white"
-                    href="/details/2"
+                    href="/details/1"
                     onClick={[Function]}
                   >
                     View
@@ -673,14 +665,6 @@ exports[`All user parcels component renders correctly 1`] = `
           >
              
             1
-          </a>
-          <a
-            className="links"
-            href="/"
-            onClick={[Function]}
-          >
-             
-            2
           </a>
         </span>
       </div>

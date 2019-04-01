@@ -69,6 +69,22 @@ exports[`All users component renders correctly 1`] = `
             src="test-file-stub"
           />
           <a
+            data-modal={true}
+            data-target="#parcelmodal"
+            href="/"
+            onClick={[Function]}
+          >
+            <span>
+              New Parcel
+            </span>
+          </a>
+        </li>
+        <li>
+          <img
+            className="menu-ico"
+            src="test-file-stub"
+          />
+          <a
             href="/delivered_parcels"
             onClick={[Function]}
           >
