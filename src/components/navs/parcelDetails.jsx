@@ -34,7 +34,7 @@ class ParcelDetails extends Component {
       <div id='map'></div>
       <div className='parcel-details p-10'>
         <h4 id='parcel-Id' className='parcel-title text-center m-0 mb-24'>
-          PO{'parcel.id'}</h4>
+          PO{parcel.id}</h4>
         <div id='details' className='pb-10'>
           <div>
             <h6>Name:</h6>
@@ -49,16 +49,16 @@ class ParcelDetails extends Component {
             <h6>Status:</h6>
           </div>
           <div>
-            <p>{'parcel.parcelname'}</p>
-            <p>{'parcel.destination'}</p>
-            <p>{'parcel.pickuplocation'}</p>
-            <p>{'parcel.currentlocation'}</p>
-            <p>{'parcel.receiver'}</p>
-            <p>{'parcel.phonenumber'}</p>
-            <p>N{'parcel.price'}</p>
-            <p>{'parcel.senton'}</p>
-            <p>{'parcel.deliveredon ? parcel.deliveredon : Not yet delivered'}</p>
-            <p>{'parcel.status'}</p>
+            <p>{parcel.parcelname}</p>
+            <p>{parcel.destination}</p>
+            <p>{parcel.pickuplocation}</p>
+            <p>{parcel.currentlocation}</p>
+            <p>{parcel.receiver}</p>
+            <p>{parcel.phonenumber}</p>
+            <p>N{parcel.price}</p>
+            <p>{parcel.senton}</p>
+            <p>{parcel.deliveredon ? parcel.deliveredon : 'Not yet delivered'}</p>
+            <p>{parcel.status}</p>
           </div>
         </div>
         <div id='details_btns' className='parcel-footer-btns'>
