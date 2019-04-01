@@ -6,23 +6,11 @@ import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import TopNav from '../../../src/components/navs/topNav.jsx';
+import { props } from '../../../__fixtures__/initialState';
 
-const initialState = {
-  auth: {
-    isAuthenticated: true,
-    user: {
-      firstName: 'Tiku',
-      lastName: 'Okoye',
-      isadmin: false
-    },
-  },
-  users: {
-    allUsers: [],
-    show: false
-  }
-};
+
 const mockStore = configureStore([thunk]);
-const store = mockStore(initialState);
+const store = mockStore(props);
 
 describe('Top Nav component', () => {
   it('renders correctly', () => {

@@ -6,14 +6,13 @@ import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { Reset } from '../../../src/components/auth/login.jsx';
-import LoginForm from '../../../src/components/forms/loginForm.jsx';
+import { props } from '../../../__fixtures__/initialState';
 
-const initialState = {};
 const mockStore = configureStore([thunk]);
-const store = mockStore(initialState);
+const store = mockStore(props);
 
 
-describe('Login Page component', () => {
+describe('Reset Page component', () => {
   it('renders correctly', () => {
     const tree = renderer
       .create(<MemoryRouter>

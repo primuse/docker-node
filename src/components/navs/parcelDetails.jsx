@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import DestinationModalForm from '../forms/changeDestinationForm.jsx';
 import CancelParcelModal from '../forms/cancelParcelModal.jsx';
 import LocationParcelForm from '../forms/changeLocationForm.jsx';
+import StatusParcelForm from '../forms/changeParcelStatusForm.jsx';
 import Modal from '../modal.jsx';
 import { getUserParcel } from '../../actions/parcelActions';
 
@@ -73,7 +74,8 @@ class ParcelDetails extends Component {
           }
           {user.isadmin
             ? <a href='#' data-modal data-target='#update-modal'
-              className='btn sm is-outlined-blue'>Update Status</a>
+              className='btn sm is-outlined-blue'
+              onClick={() => this.showModal('changeStatus')}>Update Status</a>
             : <a href='#' data-modal data-target='#cancel-modal'
               className='btn sm is-outlined-blue'
               onClick={() => this.showModal('cancelParcel')}>Cancel Parcel</a>
@@ -83,12 +85,14 @@ class ParcelDetails extends Component {
       {modalDisplay
         && <Modal modalTitle= {
           modalContent === 'changeDestination' ? 'Change Destination'
-            : modalContent === 'changeLocation' ? 'Change Location' : ''
+            : modalContent === 'changeLocation' ? 'Change Location'
+              : modalContent === 'changeStatus' ? 'Update Status' : ''
         }
         ModalForm= {
           modalContent === 'changeDestination' ? DestinationModalForm
             : modalContent === 'cancelParcel' ? CancelParcelModal
-              : modalContent === 'changeLocation' ? LocationParcelForm : ''
+              : modalContent === 'changeLocation' ? LocationParcelForm
+                : modalContent === 'changeStatus' ? StatusParcelForm : ''
         }
         closeModal={this.closeModal} />
       }

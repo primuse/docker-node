@@ -6,22 +6,11 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import LocationParcelForm, { LocationModalForm }
   from '../../src/components/forms/changeLocationForm.jsx';
+import { props, props3 } from '../../__fixtures__/initialState';
 
 const onChange = jest.fn();
 const save = jest.fn();
 const changeParcelLocation = jest.fn();
-const props = {
-  parcel: {
-    isLoading: false
-  }
-};
-
-const props2 = {
-  parcel: {
-    isLoading: true
-  }
-};
-
 const mockStore = configureStore([thunk]);
 const store = mockStore(props);
 let wrapper;
@@ -62,7 +51,7 @@ describe('Change Parcel Location Form', () => {
 
 describe('Change Parcel Location Form', () => {
   beforeEach(() => {
-    wrapper = mount(<LocationModalForm {...props2}
+    wrapper = mount(<LocationModalForm {...props3}
       onChange={onChange} save={save}
       changeParcelLocation={changeParcelLocation} />);
   });

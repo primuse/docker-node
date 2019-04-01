@@ -6,18 +6,13 @@ import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { Signup } from '../../../src/components/auth/login.jsx';
-import LoginForm from '../../../src/components/forms/loginForm.jsx';
+import { props } from '../../../__fixtures__/initialState';
 
-const initialState = {
-  auth: {
-    isLoading: false
-  }
-};
 const mockStore = configureStore([thunk]);
-const store = mockStore(initialState);
+const store = mockStore(props);
 
 
-describe('Login page component', () => {
+describe('Signup page component', () => {
   it('renders correctly', () => {
     const tree = renderer
       .create(<MemoryRouter>

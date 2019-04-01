@@ -7,14 +7,10 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { Login } from '../../../src/components/auth/login.jsx';
 import { LoginForm } from '../../../src/components/forms/loginForm.jsx';
+import { props } from '../../../__fixtures__/initialState';
 
-const initialState = {
-  auth: {
-    isLoading: false
-  }
-};
 const mockStore = configureStore([thunk]);
-const store = mockStore(initialState);
+const store = mockStore(props);
 const onChange = jest.fn();
 
 

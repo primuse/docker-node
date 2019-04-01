@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Login Page component renders correctly 1`] = `
+exports[`Reset Page component renders correctly 1`] = `
 <section
   id="login"
 >

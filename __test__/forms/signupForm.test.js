@@ -6,14 +6,10 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import ConnectedSignupForm, { SignupForm }
   from '../../src/components/forms/signUpForm.jsx';
+import { props } from '../../__fixtures__/initialState';
 
 const onChange = jest.fn();
 const signupUser = jest.fn();
-const props = {
-  auth: {
-    isLoading: false
-  }
-};
 const mockStore = configureStore([thunk]);
 const store = mockStore(props);
 let wrapper;
