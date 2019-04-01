@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import DestinationModalForm from '../forms/changeDestinationForm.jsx';
 import CancelParcelModal from '../forms/cancelParcelModal.jsx';
+import LocationParcelForm from '../forms/changeLocationForm.jsx';
 import Modal from '../modal.jsx';
 import { getUserParcel } from '../../actions/parcelActions';
 
@@ -64,7 +65,8 @@ class ParcelDetails extends Component {
         <div id='details_btns' className='parcel-footer-btns'>
           {user.isadmin
             ? <a href='#' data-modal data-target='#location-modal'
-              className='btn sm bg-blue mr-3 white'>Change Location</a>
+              className='btn sm bg-blue mr-3 white'
+              onClick={() => this.showModal('changeLocation')}>Change Location</a>
             : <a href='#' data-modal data-target='#destination-modal'
               className='btn sm bg-blue mr-1 white'
               onClick={() => this.showModal('changeDestination')}>Change Destination</a>
@@ -79,9 +81,14 @@ class ParcelDetails extends Component {
         </div>
       </div>
       {modalDisplay
-        && <Modal modalTitle='Change Destination' ModalForm= {
+        && <Modal modalTitle= {
+          modalContent === 'changeDestination' ? 'Change Destination'
+            : modalContent === 'changeLocation' ? 'Change Location' : ''
+        }
+        ModalForm= {
           modalContent === 'changeDestination' ? DestinationModalForm
-            : modalContent === 'cancelParcel' ? CancelParcelModal : ''
+            : modalContent === 'cancelParcel' ? CancelParcelModal
+              : modalContent === 'changeLocation' ? LocationParcelForm : ''
         }
         closeModal={this.closeModal} />
       }

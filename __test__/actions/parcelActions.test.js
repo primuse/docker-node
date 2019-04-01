@@ -4,11 +4,11 @@ import {
   GET_DELIVERED_USER_ORDERS, GET_INTRANSIT_USER_ORDERS, GET_CANCELED_USER_ORDERS,
   GET_CREATED_USER_ORDERS, GET_All_USER_ORDERS, PARCEL_IS_LOADING,
   CREATE_NEW_PARCEL, ERROR, SET_PAGES, CHANGE_PARCEL_DESTINATION,
-  CANCEL_PARCEL
+  CANCEL_PARCEL, CHANGE_PARCEL_LOCATION
 } from '../../src/actions/actionTypes';
 import {
   getAllParcels, getUserParcels, createNewParcel, changeParcelDestination,
-  cancelParcel
+  cancelParcel, changeParcelLocation
 } from '../../src/actions/parcelActions';
 
 const res = {
@@ -58,7 +58,14 @@ const res = {
 };
 
 const errorRes = {
-  message: 'Internal server error'
+  Response: {
+    status: 404,
+    ok: false,
+    statusText: 'Not Found',
+    redirected: false,
+    type: 'cors',
+    message: 'Internal server error'
+  }
 };
 
 
@@ -100,7 +107,7 @@ describe('Get user\'s parcel', () => {
   });
 
   it('dispatches the correct actions on unsuccessful fetch request', (done) => {
-    fetch.mockReject(new Error(errorRes.message));
+    fetch.mockReject(new Error(errorRes));
 
     const expectedActions = [
       { type: PARCEL_IS_LOADING },
@@ -162,7 +169,7 @@ describe('Get all parcels', () => {
     done();
   });
   it('dispatches the correct actions on unsuccessful fetch request', (done) => {
-    fetch.mockReject(new Error(errorRes.message));
+    fetch.mockReject(new Error(errorRes));
 
     const expectedActions = [
       { type: PARCEL_IS_LOADING },
@@ -209,7 +216,7 @@ describe('Change Parcel destination', () => {
     done();
   });
   it('dispatches the correct actions on unsuccessful fetch request', (done) => {
-    fetch.mockReject(new Error(errorRes.message));
+    fetch.mockReject(new Error(errorRes));
 
     const expectedActions = [
       { type: PARCEL_IS_LOADING },
@@ -222,6 +229,49 @@ describe('Change Parcel destination', () => {
       error: ''
     }, expectedActions, done);
     store.dispatch(changeParcelDestination(errorRes))
+      .then(() => {
+        expect(store.getActions()).toEqual(expectedActions);
+      });
+    done();
+  });
+});
+
+describe('Change Parcel location', () => {
+  const desRes = 'Success';
+  it('dispatches the correct actions on successful fetch request', (done) => {
+    fetch.mockResponse(JSON.stringify(desRes));
+
+    const expectedActions = [
+      { type: PARCEL_IS_LOADING },
+      { type: CHANGE_PARCEL_LOCATION, payload: desRes },
+    ];
+    const mockStore = configureStore([thunk]);
+    const store = mockStore({
+      isLoading: false,
+      changeLocation: '',
+      error: ''
+    }, expectedActions, done);
+
+    store.dispatch(changeParcelLocation(desRes))
+      .then(() => {
+        expect(store.getActions()).toEqual(expectedActions);
+      });
+    done();
+  });
+  it('dispatches the correct actions on unsuccessful fetch request', (done) => {
+    fetch.mockReject(new Error(errorRes));
+
+    const expectedActions = [
+      { type: PARCEL_IS_LOADING },
+      { type: ERROR, payload: errorRes.message }
+    ];
+    const mockStore = configureStore([thunk]);
+    const store = mockStore({
+      isLoading: false,
+      changeLocation: '',
+      error: ''
+    }, expectedActions, done);
+    store.dispatch(changeParcelLocation(errorRes))
       .then(() => {
         expect(store.getActions()).toEqual(expectedActions);
       });
@@ -252,7 +302,7 @@ describe('Cancel Parcel', () => {
     done();
   });
   it('dispatches the correct actions on unsuccessful fetch request', (done) => {
-    fetch.mockReject(new Error(errorRes.message));
+    fetch.mockReject(new Error(errorRes));
 
     const expectedActions = [
       { type: PARCEL_IS_LOADING },
@@ -313,7 +363,7 @@ describe('Create a new parcel', () => {
     done();
   });
   it('dispatches the correct actions on unsuccessful fetch request', (done) => {
-    fetch.mockReject(new Error(errorRes.message));
+    fetch.mockReject(new Error(errorRes));
 
     const expectedActions = [
       { type: PARCEL_IS_LOADING },

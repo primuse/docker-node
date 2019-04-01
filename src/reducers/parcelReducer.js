@@ -4,7 +4,7 @@ import {
   GET_CREATED_USER_ORDERS, GET_DELIVERED_USER_ORDERS,
   GET_INTRANSIT_USER_ORDERS, PARCEL_IS_LOADING, CREATE_NEW_PARCEL,
   SET_PAGES, CHANGE_PARCEL_DESTINATION, ERROR, GET_USER_PARCEL,
-  CANCEL_PARCEL
+  CANCEL_PARCEL, CHANGE_PARCEL_LOCATION
 } from '../actions/actionTypes';
 
 const initialState = {
@@ -18,6 +18,7 @@ const initialState = {
   canceledParcels: [],
   newParcel: [],
   changeDestination: '',
+  changeLocation: '',
   pages: null,
   cancelParcel: ''
 };
@@ -82,6 +83,12 @@ export default (state = initialState, action) => {
         ...state,
         isLoading: false,
         changeDestination: action.payload
+      };
+    case CHANGE_PARCEL_LOCATION:
+      return {
+        ...state,
+        isLoading: false,
+        changeLocation: action.payload
       };
     case CANCEL_PARCEL:
       return {
