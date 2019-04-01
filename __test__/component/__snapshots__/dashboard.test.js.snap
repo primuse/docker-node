@@ -256,8 +256,11 @@ exports[`All parcels component renders correctly 1`] = `
                   1
                 </td>
                 <td />
-                <td />
                 <td>
+                  kg
+                </td>
+                <td>
+                  N
                   4,000
                 </td>
                 <td>
@@ -288,8 +291,11 @@ exports[`All parcels component renders correctly 1`] = `
                   1
                 </td>
                 <td />
-                <td />
                 <td>
+                  kg
+                </td>
+                <td>
+                  N
                   4,000
                 </td>
                 <td>
@@ -592,8 +598,11 @@ exports[`All user parcels component renders correctly 1`] = `
                   1
                 </td>
                 <td />
-                <td />
                 <td>
+                  kg
+                </td>
+                <td>
+                  N
                   4,000
                 </td>
                 <td>
@@ -624,8 +633,11 @@ exports[`All user parcels component renders correctly 1`] = `
                   1
                 </td>
                 <td />
-                <td />
                 <td>
+                  kg
+                </td>
+                <td>
+                  N
                   4,000
                 </td>
                 <td>
