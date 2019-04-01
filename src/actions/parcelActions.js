@@ -61,6 +61,7 @@ export const getUserParcels = (userId, offset = 0) => (dispatch) => {
 };
 
 export const getUserParcel = parcelId => (dispatch) => {
+  console.log('called fucntion');
   dispatch({ type: PARCEL_IS_LOADING });
   const token = localStorage.getItem('token'), config = {
     method: 'GET',
@@ -75,6 +76,7 @@ export const getUserParcel = parcelId => (dispatch) => {
     .then(handleErrors)
     .then((res) => {
       const parcel = res.data[0];
+      console.log('parcel from function', parcel);
       parcelID = parcel.id;
       dispatch({ type: GET_USER_PARCEL, payload: parcel });
     })
