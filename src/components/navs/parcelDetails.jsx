@@ -7,6 +7,7 @@ import LocationParcelForm from '../forms/changeLocationForm.jsx';
 import StatusParcelForm from '../forms/changeParcelStatusForm.jsx';
 import Modal from '../modal.jsx';
 import { getUserParcel } from '../../actions/parcelActions';
+import { parcelBox } from '../../asset/imgs/ico/index';
 
 class ParcelDetails extends Component {
   state = {
@@ -33,7 +34,9 @@ class ParcelDetails extends Component {
     const { modalDisplay, modalContent } = this.state;
 
     return <div id='parcel' className='dash-cont d-flex mt-40'>
-      <div id='map'></div>
+      <div id='map'>
+        <img src={parcelBox} />
+      </div>
       <div className='parcel-details p-10'>
         <h4 id='parcel-Id' className='parcel-title text-center m-0 mb-24'>
           PO{parcel.id}</h4>
@@ -50,6 +53,7 @@ class ParcelDetails extends Component {
             <h6>Delivered On:</h6>
             <h6>Status:</h6>
           </div>
+          <div className='space'></div>
           <div>
             <p>{parcel.parcelname}</p>
             <p>{parcel.destination}</p>
