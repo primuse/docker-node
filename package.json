@@ -10,7 +10,7 @@
     "start-prod": "webpack --config webpack.prod.js",
     "build": "babel server.js -d ./public",
     "heroku-postbuild": "npm run build && npm run start-prod",
-    "start": "node ./public/server.js"
+    "start": "npm run build && npm run start-prod && node ./public/server.js"
   },
   "repository": {
     "type": "git",
